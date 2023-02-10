@@ -30,7 +30,6 @@ public class PlayerMovement : MonoBehaviour
         private void Update()
         {
           float dirx =  Input.GetAxisRaw("Horizontal");
-          //float diry = Input.GetButtonDown("Vertical");
 
          player.velocity = new Vector2( 7f * dirx, player.velocity.y);
 
@@ -66,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
               //anim.SetBool("Running", false);
-              state = MovementState.ide; 
+             state = MovementState.ide; 
             }
 
             if(player.velocity.y > .1f)
