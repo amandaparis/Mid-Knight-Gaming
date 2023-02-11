@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
             if(Crouching()) 
               player.velocity = new Vector2( 7f * dirx, player.velocity.y);
             else
-              player.velocity = new Vector2( 5f * dirx, player.velocity.y);
+              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y);
 
 
 
