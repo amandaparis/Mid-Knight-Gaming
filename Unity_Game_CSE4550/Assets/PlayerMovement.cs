@@ -11,6 +11,11 @@ public class PlayerMovement : MonoBehaviour
         private SpriteRenderer sprite_filp; 
         private Animator anim;
 
+        ////
+        private CircleCollider2D head_hit_box; 
+        
+        ////
+
 
       [SerializeField] private LayerMask jumpable_ground; 
 
@@ -24,6 +29,9 @@ public class PlayerMovement : MonoBehaviour
          coll = GetComponent<BoxCollider2D>();
          sprite_filp = GetComponent<SpriteRenderer>() ;
          anim = GetComponent<Animator>(); 
+         ///
+         head_hit_box = GetComponent<CircleCollider2D>();
+         ///
         }
 
     // Update is called once per frame
@@ -31,17 +39,36 @@ public class PlayerMovement : MonoBehaviour
         {
           float dirx =  Input.GetAxisRaw("Horizontal");
 
-         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+          player.velocity = new Vector2( 7f * dirx, player.velocity.y);
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
             {
             player.velocity = new Vector2(player.velocity.x,7f);
             }
+             
             
+            Crouching(); 
 
             animations_update(dirx);
         }
+
+
+
+      bool Crouching() 
+      {
+          if(Input.GetButton("Crouch") && Isgound() )
+          {
+             head_hit_box.enabled = false;
+            return false; 
+          }
+          else 
+          {
+             head_hit_box.enabled = true;
+            return true; 
+          }
+      }
+
 
 
 
