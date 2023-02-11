@@ -45,13 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
     
   private void animations_update(float dirx)
   {
