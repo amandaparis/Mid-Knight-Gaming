@@ -90,7 +90,6 @@ private void animations_Crouching_update(float dirx)
             {
               state = MovementState.running; 
               sprite_filp.flipX = true;   
-
             }
             else
             {
@@ -128,7 +127,6 @@ private void animations_Crouching_update(float dirx)
             {
               state = MovementState.running; 
               sprite_filp.flipX = true;   
-
             }
             else
             {
