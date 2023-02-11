@@ -39,7 +39,12 @@ public class PlayerMovement : MonoBehaviour
         {
           float dirx =  Input.GetAxisRaw("Horizontal");
 
-          player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+
+            if(Crouching()) 
+              player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+            else
+              player.velocity = new Vector2( 5f * dirx, player.velocity.y);
+
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
@@ -52,7 +57,10 @@ public class PlayerMovement : MonoBehaviour
             {
             animations_update(dirx);
             }
-
+            else 
+            {
+              animations_Crouching_update(dirx);
+            }
 
         }
 
@@ -95,16 +103,6 @@ private void animations_Crouching_update(float dirx)
             {
              state = MovementState.ide; 
             }
-
-            if(player.velocity.y > .1f)
-            {
-              state = MovementState.jumping; 
-            }
-            else if(player.velocity.y < -.1f)
-            {
-              state = MovementState.falling; 
-            }
-
             anim.SetInteger("state", (int)state + 4 ); 
   }
 
