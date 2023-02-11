@@ -48,9 +48,12 @@ public class PlayerMovement : MonoBehaviour
             }
              
             
-            Crouching(); 
-
+           if (Crouching()) 
+            {
             animations_update(dirx);
+            }
+
+
         }
 
 
@@ -71,6 +74,45 @@ public class PlayerMovement : MonoBehaviour
 
 
 
+/////////////////////////////////////////
+
+
+private void animations_Crouching_update(float dirx)
+  {
+      MovementState state; 
+
+            if(dirx >  0f)
+            {
+              state = MovementState.running; 
+              sprite_filp.flipX = false;
+            }
+            else if(dirx <  0f)
+            {
+              state = MovementState.running; 
+              sprite_filp.flipX = true;   
+
+            }
+            else
+            {
+             state = MovementState.ide; 
+            }
+
+            if(player.velocity.y > .1f)
+            {
+              state = MovementState.jumping; 
+            }
+            else if(player.velocity.y < -.1f)
+            {
+              state = MovementState.falling; 
+            }
+
+            anim.SetInteger("state", (int)state + 4 ); 
+  }
+
+
+
+
+///////////////////////////////////////
 
     
   private void animations_update(float dirx)
