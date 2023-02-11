@@ -36,14 +36,22 @@ public class PlayerMovement : MonoBehaviour
 
             if(Input.GetButtonDown("Jump") && Isgound() )
             {
-            
             player.velocity = new Vector2(player.velocity.x,7f);
-            
             }
             
 
-            animations_update( dirx);
+            animations_update(dirx);
         }
+
+
+
+
+
+
+
+
+
+
     
   private void animations_update(float dirx)
   {
@@ -51,20 +59,17 @@ public class PlayerMovement : MonoBehaviour
 
             if(dirx >  0f)
             {
-              //anim.SetBool("Running", true);
               state = MovementState.running; 
               sprite_filp.flipX = false;
             }
             else if(dirx <  0f)
             {
-              //anim.SetBool("Running", true);
               state = MovementState.running; 
               sprite_filp.flipX = true;   
 
             }
             else
             {
-              //anim.SetBool("Running", false);
              state = MovementState.ide; 
             }
 
