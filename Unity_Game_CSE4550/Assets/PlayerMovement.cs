@@ -10,16 +10,13 @@ public class PlayerMovement : MonoBehaviour
         private BoxCollider2D coll; 
         private SpriteRenderer sprite_filp; 
         private Animator anim;
-
-        ////
         private CircleCollider2D head_hit_box; 
-        
-        ////
+      
 
 
       [SerializeField] private LayerMask jumpable_ground; 
 
-        private enum MovementState{ide, running, jumping, falling}
+      private enum MovementState{ide, running, jumping, falling}
         
 
 
@@ -29,9 +26,7 @@ public class PlayerMovement : MonoBehaviour
          coll = GetComponent<BoxCollider2D>();
          sprite_filp = GetComponent<SpriteRenderer>() ;
          anim = GetComponent<Animator>(); 
-         ///
          head_hit_box = GetComponent<CircleCollider2D>();
-         ///
         }
 
     // Update is called once per frame
@@ -41,9 +36,9 @@ public class PlayerMovement : MonoBehaviour
 
 
             if(Crouching()) 
-              player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+              player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
             else
-              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y);
+              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
 
 
 
