@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
       {
           if(Input.GetButton("Crouch") && Isgound() )
           {
-             head_hit_box.enabled = false;
+             head_hit_box.enabled = false; // disables hit box
             return false; 
           }
           else 
