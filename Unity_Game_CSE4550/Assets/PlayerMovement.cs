@@ -10,28 +10,23 @@ public class PlayerMovement : MonoBehaviour
         private BoxCollider2D coll; 
         private SpriteRenderer sprite_filp; 
         private Animator anim;
-
-        ////
         private CircleCollider2D head_hit_box; 
-        
-        ////
+      
 
 
       [SerializeField] private LayerMask jumpable_ground; 
 
-        private enum MovementState{ide, running, jumping, falling}
+      private enum MovementState{ide, running, jumping, falling}
         
-
+        
 
         private void Start()
         {
          player = GetComponent<Rigidbody2D>(); 
          coll = GetComponent<BoxCollider2D>();
          sprite_filp = GetComponent<SpriteRenderer>() ;
-         anim = GetComponent<Animator>(); 
-         ///
+         anim = GetComponent<Animator>();
          head_hit_box = GetComponent<CircleCollider2D>();
-         ///
         }
 
     // Update is called once per frame
@@ -39,7 +34,12 @@ public class PlayerMovement : MonoBehaviour
         {
           float dirx =  Input.GetAxisRaw("Horizontal");
 
-          player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+
+            if(Crouching()) 
+              player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
+            else
+              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
+
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
@@ -52,7 +52,10 @@ public class PlayerMovement : MonoBehaviour
             {
             animations_update(dirx);
             }
-
+            else 
+            {
+              animations_Crouching_update(dirx);
+            }
 
         }
 
@@ -62,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
       {
           if(Input.GetButton("Crouch") && Isgound() )
           {
-             head_hit_box.enabled = false;
+             head_hit_box.enabled = false; // disables hit box
             return false; 
           }
           else 
@@ -95,16 +98,6 @@ private void animations_Crouching_update(float dirx)
             {
              state = MovementState.ide; 
             }
-
-            if(player.velocity.y > .1f)
-            {
-              state = MovementState.jumping; 
-            }
-            else if(player.velocity.y < -.1f)
-            {
-              state = MovementState.falling; 
-            }
-
             anim.SetInteger("state", (int)state + 4 ); 
   }
 
