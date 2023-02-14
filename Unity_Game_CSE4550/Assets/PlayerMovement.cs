@@ -28,10 +28,8 @@ public class PlayerMovement : MonoBehaviour
          player = GetComponent<Rigidbody2D>(); 
          coll = GetComponent<BoxCollider2D>();
          sprite_filp = GetComponent<SpriteRenderer>() ;
-         anim = GetComponent<Animator>(); 
-         ///
+         anim = GetComponent<Animator>();  
          head_hit_box = GetComponent<CircleCollider2D>();
-         ///
         }
 
     // Update is called once per frame
