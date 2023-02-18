@@ -10,48 +10,50 @@ public class Animations : MonoBehaviour
         private BoxCollider2D coll; 
         private Animator anim;
         public GameObject head;
+        public GameObject deadParticle;
       
 
 
-      private enum MovementState{Idle, Death}
+      // private enum MovementState{Idle, Death}
         
         private void Start()
         {
          Enemy = GetComponent<Rigidbody2D>(); 
          coll = GetComponent<BoxCollider2D>();
          anim = GetComponent<Animator>();
+
+          animations_update();
+
         }
 
     // Update is called once per frame
         private void Update()
         {
           
-          animations_update();
+
         }
 
-
-private MovementState Death()
+//Activates on keyframe
+private void Death()
     {
-        MovementState state;
         
         //enable the head, turn off physics, and turn off collisions
         head.SetActive(true);
         Enemy.bodyType = RigidbodyType2D.Static;
         coll.isTrigger = true;
-
-        state = MovementState.Death;
-
-        //TODO: Add particles
-        return state; 
+        
     }
+  
+  //Activates on keyframe
+  private void activeParticles()
+  {
+      deadParticle.SetActive(true);
+  }
 
     
   private void animations_update()
   {
-    MovementState state; 
-
-    state = Death();
-    anim.SetInteger("state", (int)state ); 
+    anim.SetTrigger("Skeleton_death");
 
   }
 }
