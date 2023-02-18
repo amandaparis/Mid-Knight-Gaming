@@ -6,13 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
 
         // Start is called before the first frame update
-        private Rigidbody2D player; 
-        private BoxCollider2D coll; 
-        private SpriteRenderer sprite_filp; 
-        private Animator anim;
-        private CircleCollider2D head_hit_box; 
-      
-
+        public /*private*/  Rigidbody2D player; 
+        public /*private*/  BoxCollider2D coll; 
+        public /*private*/ SpriteRenderer sprite_filp; 
+        public /*private*/ Animator anim;
+        public /*private*/  CircleCollider2D head_hit_box; 
 
       [SerializeField] private LayerMask jumpable_ground; 
 
