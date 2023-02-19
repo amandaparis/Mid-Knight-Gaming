@@ -40,6 +40,9 @@ public void takedamage(int damage)
 {
   currentHp = currentHp - damage;
 
+    //anim.SetTrigger("hit");
+
+
 
     Debug.Log("Enemy HP : " + damage);
      if(currentHp <= 0) 
@@ -47,6 +50,10 @@ public void takedamage(int damage)
             animations_update();
             Death();
             activeParticles(); 
+     }
+     else
+     {
+      anim.SetTrigger("hit");
      }
 }
 

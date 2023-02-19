@@ -11,14 +11,21 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
 
     int attack_damage = 50; 
 
-    int delay = 100000; 
+    public float attack_rate = 2f ;  // changes the delay of the attack rate 
+    float delay = 0f;  
     
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Sword"))
+
+        if(Time.time >= delay)
         {
-          attack() ; 
+            if(Input.GetButton("Sword"))
+            {
+            attack() ; 
+
+            delay = Time.time +1f/ attack_rate; 
+            }
         } 
 
         
@@ -38,7 +45,7 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
                 en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
 
-        for(int i =0; i < delay; i++);
+        
 
     }
 

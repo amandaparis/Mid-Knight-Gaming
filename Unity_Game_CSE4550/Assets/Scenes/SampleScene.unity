@@ -257,6 +257,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7120393072143822861, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -9437,6 +9441,7 @@ MonoBehaviour:
   enemylayers:
     serializedVersion: 2
     m_Bits: 64
+  attack_rate: 2
 --- !u!1 &1585445409
 GameObject:
   m_ObjectHideFlags: 0
