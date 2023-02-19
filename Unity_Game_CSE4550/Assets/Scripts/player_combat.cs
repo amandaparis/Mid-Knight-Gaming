@@ -9,6 +9,10 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
     public float attack_range = 0.5f; 
     public LayerMask enemylayers;  
 
+    int attack_damage = 50; 
+
+    int delay = 100000; 
+    
     // Update is called once per frame
     void Update()
     {
@@ -16,19 +20,31 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
         {
           attack() ; 
         } 
+
+        
     }
+
+    
 
 
     void attack() 
     {
             anim.SetTrigger("attack");
             //Debug.Log("Redaing Sword input");
-            Collider2D[] hitenemies = Physics2D.OverLapCircleAll(attackpoint.position, attack_range, enemylayers ); 
+            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attack_range, enemylayers ); 
 
-            foreach(Collider2D enemy in hitenemies)
+            foreach(Collider2D en in hitenemies)
             {
-                Debug.Log("Hit Enemy:" + enemy.name);
+                en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
 
+        for(int i =0; i < delay; i++);
+
     }
+
+   
+
+
 }
+
+

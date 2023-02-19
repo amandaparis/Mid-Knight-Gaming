@@ -12,7 +12,8 @@ public class Animations : MonoBehaviour
         public GameObject head;
         public GameObject deadParticle;
       
-
+        public int maxHP = 200; 
+        int currentHp; 
 
       // private enum MovementState{Idle, Death}
         
@@ -22,7 +23,7 @@ public class Animations : MonoBehaviour
          coll = GetComponent<BoxCollider2D>();
          anim = GetComponent<Animator>();
 
-          animations_update();
+          currentHp = maxHP; 
 
         }
 
@@ -31,7 +32,25 @@ public class Animations : MonoBehaviour
         {
           
 
+         
         }
+
+
+public void takedamage(int damage)
+{
+  currentHp = currentHp - damage;
+
+
+    Debug.Log("Enemy HP : " + damage);
+     if(currentHp <= 0) 
+     {
+            animations_update();
+            Death();
+            activeParticles(); 
+     }
+}
+
+
 
 //Activates on keyframe
 private void Death()
