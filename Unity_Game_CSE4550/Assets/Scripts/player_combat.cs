@@ -23,11 +23,10 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
             if(Input.GetButton("Sword"))
             {
             attack() ; 
-
             delay = Time.time +1f/ attack_rate; 
             }
         } 
-
+  
         
     }
 
