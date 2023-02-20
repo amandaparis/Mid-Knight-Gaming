@@ -26,7 +26,7 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
             delay = Time.time +1f/ attack_rate; 
             }
         } 
-
+  
         
     }
 

@@ -40,24 +40,28 @@ public class PlayerMovement : MonoBehaviour
             if(attacking_state())
             {
 
-            if(Crouching()) 
-              player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
-            else
-              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
+              if(Crouching()) 
+                player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
+              else
+                player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
 
+            }
+            else if(Isgound()) 
+            {
+               player.velocity = new Vector2( 0.5f * dirx, player.velocity.y); // normal
             }
             
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
             {
-            player.velocity = new Vector2(player.velocity.x,7f);
+              player.velocity = new Vector2(player.velocity.x,7f);
             }
              
             
-           if (Crouching()) 
+            if (Crouching()) 
             {
-            animations_update(dirx);
+              animations_update(dirx);
             }
             else 
             {
@@ -69,6 +73,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
 
+
+
+
+/// different states: 
 
       bool Crouching() 
       {
@@ -85,6 +93,10 @@ public class PlayerMovement : MonoBehaviour
       }
 
 
+
+
+
+
   bool attacking_state()
   {
     if(Input.GetButton("Sword"))
@@ -95,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
       else 
       return true; 
   }
+
+
+
+
+
 
     
 
