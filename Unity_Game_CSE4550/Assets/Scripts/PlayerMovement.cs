@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
         public /*private*/ Animator anim;
         public /*private*/  CircleCollider2D head_hit_box; 
 
+
       [SerializeField] private LayerMask jumpable_ground; 
 
       private enum MovementState{ide, running, jumping, falling}
@@ -25,19 +26,27 @@ public class PlayerMovement : MonoBehaviour
          sprite_filp = GetComponent<SpriteRenderer>() ;
          anim = GetComponent<Animator>();
          head_hit_box = GetComponent<CircleCollider2D>();
+ 
         }
 
     // Update is called once per frame
         private void Update()
         {
-          float dirx =  Input.GetAxisRaw("Horizontal");
 
+          
+            float dirx =  Input.GetAxisRaw("Horizontal");
+
+
+            if(attacking_state())
+            {
 
             if(Crouching()) 
               player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
             else
               player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
 
+            }
+            
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
@@ -54,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
             {
               animations_Crouching_update(dirx);
             }
+
+          
 
         }
 
@@ -73,6 +84,19 @@ public class PlayerMovement : MonoBehaviour
           }
       }
 
+
+  bool attacking_state()
+  {
+    if(Input.GetButton("Sword"))
+            {
+              Debug.Log("Sword action read");
+             return false;
+            }
+      else 
+      return true; 
+  }
+
+    
 
 
 /////////////////////////////////////////
