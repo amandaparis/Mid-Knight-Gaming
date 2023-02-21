@@ -919,7 +919,7 @@ MonoBehaviour:
   lerpSpeed: 20
   minX: -8.7
   minY: 0.8
-  maxX: 200
+  maxX: 245
   maxY: 6.24
 --- !u!20 &519420031
 Camera:
