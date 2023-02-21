@@ -47,9 +47,7 @@ public void takedamage(int damage)
     Debug.Log("Enemy HP : " + damage);
      if(currentHp <= 0) 
      {
-            animations_update();
-            Death();
-            activeParticles(); 
+        animations_update();
      }
      else
      {
