@@ -6,12 +6,11 @@ public class PlayerMovement : MonoBehaviour
 {
 
         // Start is called before the first frame update
-        private Rigidbody2D player; 
-        private BoxCollider2D coll; 
-        private SpriteRenderer sprite_filp; 
-        private Animator anim;
-        private CircleCollider2D head_hit_box; 
-      
+        public /*private*/  Rigidbody2D player; 
+        public /*private*/  BoxCollider2D coll; 
+        public /*private*/ SpriteRenderer sprite_filp; 
+        public /*private*/ Animator anim;
+        public /*private*/  CircleCollider2D head_hit_box; 
 
 
       [SerializeField] private LayerMask jumpable_ground; 
@@ -27,39 +26,57 @@ public class PlayerMovement : MonoBehaviour
          sprite_filp = GetComponent<SpriteRenderer>() ;
          anim = GetComponent<Animator>();
          head_hit_box = GetComponent<CircleCollider2D>();
+ 
         }
 
     // Update is called once per frame
         private void Update()
         {
-          float dirx =  Input.GetAxisRaw("Horizontal");
+
+          
+            float dirx =  Input.GetAxisRaw("Horizontal");
 
 
-            if(Crouching()) 
-              player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
-            else
-              player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
+            if(attacking_state())
+            {
 
+              if(Crouching()) 
+                player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
+              else
+                player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
+
+            }
+            else if(Isgound()) 
+            {
+               player.velocity = new Vector2( 0.5f * dirx, player.velocity.y); // normal
+            }
+            
 
 
             if(Input.GetButtonDown("Jump") && Isgound() )
             {
-            player.velocity = new Vector2(player.velocity.x,7f);
+              player.velocity = new Vector2(player.velocity.x,7f);
             }
              
             
-           if (Crouching()) 
+            if (Crouching()) 
             {
-            animations_update(dirx);
+              animations_update(dirx);
             }
             else 
             {
               animations_Crouching_update(dirx);
             }
 
+          
+
         }
 
 
+
+
+
+/// different states: 
 
       bool Crouching() 
       {
@@ -75,6 +92,28 @@ public class PlayerMovement : MonoBehaviour
           }
       }
 
+
+
+
+
+
+  bool attacking_state()
+  {
+    if(Input.GetButton("Sword"))
+            {
+              Debug.Log("Sword action read");
+             return false;
+            }
+      else 
+      return true; 
+  }
+
+
+
+
+
+
+    
 
 
 /////////////////////////////////////////
