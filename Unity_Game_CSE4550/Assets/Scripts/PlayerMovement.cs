@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             if(attacking_state())
             {
 
-              if(Crouching() || Isceiling() )
+              if(Crouching() || Isceiling() && !Input.GetButton("Crouch") && !Input.GetButton("Sword"))
                 player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
               else
                 player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             else if(Isgound()) 
             {
 
-              if( Input.GetButton("Crouch") && Input.GetButton("Sword") ) 
+              if( Input.GetButton("Crouch") && Input.GetButton("Sword") &&( Time.time >= delay_dash) ) 
               {
                 dash(dirx);
               }
@@ -146,7 +146,7 @@ void dash(float dirx)
     }
 
 
-    delay_dash = Time.time + 1f/ dash_rate; 
+    delay_dash = Time.time + 2f/ dash_rate; 
   }
 
 
