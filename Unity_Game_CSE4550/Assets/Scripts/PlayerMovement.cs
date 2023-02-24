@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
         private void Update()
         {
-
-          
             float dirx =  Input.GetAxisRaw("Horizontal");
 
 
@@ -66,35 +64,30 @@ public class PlayerMovement : MonoBehaviour
             else 
             {
               animations_Crouching_update(dirx);
-            }
-
-          
+            }          
 
         }
 
 
-
-
-
 /// different states: 
 
-      bool Crouching() 
+      public bool Crouching() 
       {
           if(Input.GetButton("Crouch") && Isgound()  || Isceiling() )
           {
              head_hit_box.enabled = false; // disables hit box
+
+              GetComponent<player_combat>().enabled = false; 
+
             return false; 
           }
           else 
           {
              head_hit_box.enabled = true;
+             GetComponent<player_combat>().enabled = true; 
             return true; 
           }
       }
-
-
-
-
 
 
   bool attacking_state()
@@ -108,12 +101,6 @@ public class PlayerMovement : MonoBehaviour
       return true; 
   }
 
-
-
-
-
-
-    
 
 
 /////////////////////////////////////////
@@ -177,12 +164,12 @@ private void animations_Crouching_update(float dirx)
             anim.SetInteger("state", (int)state ); 
   }
 
-  private bool Isgound() 
+  public bool Isgound() 
   {
     return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground); 
   }  
 
-  private bool Isceiling() 
+  public bool Isceiling() 
   {
     return Physics2D.BoxCast(head_hit_box.bounds.center, head_hit_box.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
   }  

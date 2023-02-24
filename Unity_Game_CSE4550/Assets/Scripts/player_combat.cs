@@ -18,9 +18,11 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
     void Update()
     {
 
-        if(Time.time >= delay)
+        
+    
+        if( Time.time >= delay   )
         {
-            if(Input.GetButton("Sword"))
+            if(Input.GetButton("Sword")  )
             {
             attack() ; 
             delay = Time.time +1f/ attack_rate; 
@@ -34,7 +36,8 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
 
 
     void attack() 
-    {
+    {      
+
             anim.SetTrigger("attack");
             //Debug.Log("Redaing Sword input");
             Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attack_range, enemylayers ); 
