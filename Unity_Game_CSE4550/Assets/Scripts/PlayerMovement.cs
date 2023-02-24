@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
             
 
 
-            if(Input.GetButtonDown("Jump") && Isgound() )
+            if(Input.GetButtonDown("Jump") && Isgound() && !Isceiling() )
             {
               player.velocity = new Vector2(player.velocity.x,7f);
             }
@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 
       bool Crouching() 
       {
-          if(Input.GetButton("Crouch") && Isgound() )
+          if(Input.GetButton("Crouch") && Isgound()  || Isceiling() )
           {
              head_hit_box.enabled = false; // disables hit box
             return false; 
@@ -181,6 +181,13 @@ private void animations_Crouching_update(float dirx)
   {
     return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground); 
   }  
+
+  private bool Isceiling() 
+  {
+    return Physics2D.BoxCast(head_hit_box.bounds.center, head_hit_box.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
+  }  
+
+
 
 
 }
