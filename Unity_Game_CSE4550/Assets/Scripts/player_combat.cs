@@ -17,9 +17,6 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
     // Update is called once per frame
     void Update()
     {
-
-        
-    
         if( Time.time >= delay   )
         {
             if(Input.GetButton("Sword")  )
@@ -27,17 +24,12 @@ public class player_combat /*: MonoBehaviour */: PlayerMovement
             attack() ; 
             delay = Time.time +1f/ attack_rate; 
             }
-        } 
-  
-        
+        }    
     }
-
-    
-
 
     void attack() 
     {      
-
+            Debug.Log("Sword read");
             anim.SetTrigger("attack");
             //Debug.Log("Redaing Sword input");
             Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attackpoint.position, attack_range, enemylayers ); 

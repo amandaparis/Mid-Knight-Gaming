@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
       private enum MovementState{ide, running, jumping, falling}
         
-        
 
         private void Start()
         {
@@ -38,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             if(attacking_state())
             {
 
-              if(Crouching()) 
+              if(Crouching() || Isceiling() )
                 player.velocity = new Vector2( 7f * dirx, player.velocity.y); // normal
               else
                 player.velocity = new Vector2( 3.25f * dirx, player.velocity.y); // for crouching 
@@ -46,6 +45,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else if(Isgound()) 
             {
+
+              if( Input.GetButton("Crouch") && Input.GetButton("Sword") ) 
+              {
+                dash(dirx);
+              }
+              else if(Isceiling()) 
                player.velocity = new Vector2( 0.5f * dirx, player.velocity.y); // normal
             }
             
@@ -94,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
   {
     if(Input.GetButton("Sword"))
             {
-              Debug.Log("Sword action read");
+              Debug.Log("action read");
              return false;
             }
       else 
@@ -105,6 +110,51 @@ public class PlayerMovement : MonoBehaviour
 
 /////////////////////////////////////////
 
+
+
+ float Time_dash; 
+   float dash_speed = 15f ;  // changes the delay of the attack rate 
+  float delay_dash = 0f; 
+  float dash_rate = 2f; 
+
+  float timemax = 5f;
+
+
+//dash functions 
+
+void dash(float dirx)
+{ 
+
+    if(!Input.GetButton("Horizontal")) 
+    {
+      return; 
+    }
+
+  
+  if(Isgound() && Time.time >= delay_dash )
+  {
+
+    Time_dash = 0; 
+    anim.SetTrigger("slide");
+
+    Debug.Log("dash read");
+
+    while(Time_dash < timemax ) 
+    {
+    Time_dash = Time_dash + Time.deltaTime;  
+    player.velocity = new Vector2( dash_speed * dirx, player.velocity.y);
+    }
+
+
+    delay_dash = Time.time + 1f/ dash_rate; 
+  }
+
+
+}
+
+
+
+/////////////////////////////////////////
 
 private void animations_Crouching_update(float dirx)
   {
@@ -164,6 +214,10 @@ private void animations_Crouching_update(float dirx)
             anim.SetInteger("state", (int)state ); 
   }
 
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   public bool Isgound() 
   {
     return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground); 
