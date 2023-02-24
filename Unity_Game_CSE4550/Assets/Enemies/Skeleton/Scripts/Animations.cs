@@ -151,9 +151,7 @@ public class Animations : MonoBehaviour
     Debug.Log("Enemy HP : " + damage);
      if(currentHp <= 0) 
      {
-            animations_update();
-            Death();
-            activeParticles(); 
+        animations_update();
      }
      
 }
