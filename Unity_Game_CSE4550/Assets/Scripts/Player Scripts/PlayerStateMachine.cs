@@ -17,8 +17,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     // Update is called once per frame
 
-    ///STATES: IDE RUN JUMP  2ndJMP  FALLING  crouching crouchwalking slide 
-    //ACTIONS:  0   1   2       3        4        5          6         7
+    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking slide attcking bow hurt  Death
+    //ACTIONS:  0   1   2       3        4         5           6         7       8     9   10     11
 
     void Update()
     {
@@ -46,7 +46,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     break;
                 ////////////////////////////////////////////////////////
-                case "RUN": // RUNING STATE
+                case "RUN": // RUNNING STATE
                 ///////////////////////////////////////////////////////
                     Debug.Log("Running State"); 
                     running(); 
@@ -83,7 +83,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     break; 
                 /////////////////////////////////////////////////////////////
-                case "2ndJMP":
+                case "2ndJMP": // air Rolling State
                 //////////////////////////////////////////////////////////////
                     anim.SetInteger("state", 3 );
                     running();
