@@ -176,4 +176,3 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     }
 }
 
-//head_hit_box.enabled = false; // disables hit boxs
