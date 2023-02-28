@@ -25,7 +25,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
         switch(CurrentState)            
         {
-                case "IDE": // IDE STATEs
+                case "IDE": // IDE STATEs // 0
                 ////////////////////////////////////////////////////////
                     Debug.Log("IDE State"); 
                     anim.SetInteger("state", 0 ); 
@@ -39,6 +39,11 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         anim.SetInteger("state", 2 );
                         CurrentState = "JUMP";
                     }
+                    else if(Input.GetButtonDown("DUCKING"))
+                    {
+                        head_hit_box.enabled = false; 
+                        CurrentState ="DUCK_IDE";
+                    }
                     else if(Input.GetButton("Horizontal"))
                     {
                          Debug.Log("Hor. Action read"); 
@@ -46,7 +51,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     break;
                 ////////////////////////////////////////////////////////
-                case "RUN": // RUNNING STATE
+                case "RUN": // RUNNING STATE // 1 
                 ///////////////////////////////////////////////////////
                     Debug.Log("Running State"); 
                     running(); 
@@ -61,13 +66,18 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         anim.SetInteger("state", 2 );
                         CurrentState = "JUMP";
                     }
+                    else if(Input.GetButtonDown("DUCKING"))
+                    {
+                        head_hit_box.enabled = false; 
+                        CurrentState ="DUCK_IDE";
+                    }
                     else if(!Input.GetButton("Horizontal"))
                     {
                          CurrentState = "IDE";
                     }
                     break;
                 ////////////////////////////////////////////////////////
-                case "JUMP": // JUMPING state
+                case "JUMP": // JUMPING state // 2
                 ////////////////////////////////////////////////////////
                     Debug.Log("JUMP STATE");
                     
@@ -83,7 +93,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     break; 
                 /////////////////////////////////////////////////////////////
-                case "2ndJMP": // air Rolling State
+                case "2ndJMP": // air Rolling State // 3 
                 //////////////////////////////////////////////////////////////
                     anim.SetInteger("state", 3 );
                     running();
@@ -93,7 +103,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                     break; 
                 ///////////////////////////////////////////////////////
-                case "FALLING": // Falling State
+                case "FALLING": // Falling State // 4 
                 //////////////////////////////////////////////////////
                        running(); 
                        anim.SetInteger("state", 4 );     
@@ -108,9 +118,62 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                     break;  
                 /////////////////////////////////////////////////////////
+                case "DUCK_IDE": // crouching state // 5
+                /////////////////////////////////////////////////////////
+                    anim.SetInteger("state", 5 ); 
+                    if(player.velocity.y < -.1f)
+                    {
+                        head_hit_box.enabled = true; 
+                        CurrentState = "FALLING";
+                    }
+                    else if(Input.GetButton("Horizontal"))
+                    {
+                        CurrentState ="DUCK_WALK";
+                    }
+                    else if(!Input.GetButton("DUCKING") )//&& Isceiling())
+                    {
+                        head_hit_box.enabled = true; 
+                        if(Isceiling())
+                        {
+                            head_hit_box.enabled = false; 
+                            break;
+                        }
+                        CurrentState ="IDE";
+                    }
+                    
+                    break;
+                ////////////////////////////////////////////////////////
+                case "DUCK_WALK": // crouching walk state // 6
+                /////////////////////////////////////////////////////////
+                    anim.SetInteger("state", 6 ); 
+                     x_dir(3.5f);
+                    if(player.velocity.y < -.1f)
+                    {
+                        head_hit_box.enabled = true; 
+                        CurrentState = "FALLING";
+                    }
+                    else if(!Input.GetButton("Horizontal"))
+                    {
+                        CurrentState ="DUCK_IDE";
+                    }
+                    else if(!Input.GetButton("DUCKING") )//&&  Isceiling())
+                    {
+                        head_hit_box.enabled = true; 
+                        if(Isceiling())
+                        {
+                            head_hit_box.enabled = false; 
+                            break;
+                        }
+                        CurrentState ="IDE";
+                    }
+                    
+                    break;
+                ////////////////////////////////////////////////////////
                 default:
                     Debug.Log("Unknown Action"); 
                     break;
         }
     }
 }
+
+//head_hit_box.enabled = false; // disables hit boxs

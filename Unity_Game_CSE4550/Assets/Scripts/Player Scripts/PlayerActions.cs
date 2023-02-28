@@ -6,7 +6,7 @@ public class PlayerActions : MonoBehaviour
 {
         public /*private*/  Rigidbody2D player; 
         public /*private*/ SpriteRenderer sprite_filp; 
-        public /*private*/  CircleCollider2D head_hit_box;
+        public /*private/  CircleCollider2D */ BoxCollider2D head_hit_box;
         public /*private*/  BoxCollider2D coll; 
 
         //MovementState state;
@@ -20,7 +20,7 @@ public class PlayerActions : MonoBehaviour
             player = GetComponent<Rigidbody2D>(); 
             coll = GetComponent<BoxCollider2D>();
             sprite_filp = GetComponent<SpriteRenderer>() ;
-            head_hit_box = GetComponent<CircleCollider2D>();
+            head_hit_box = GetComponent</*CircleCollider2D*/ BoxCollider2D>();
         } 
 
 
@@ -31,6 +31,22 @@ public class PlayerActions : MonoBehaviour
     {
         float dirx =  Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
+        if(dirx >  0f)
+            { 
+              sprite_filp.flipX = false;
+            }
+            else if(dirx <  0f)
+            {
+              sprite_filp.flipX = true;   
+            }
+    }
+
+
+
+  public void x_dir(float speed)
+    {
+        float dirx =  Input.GetAxisRaw("Horizontal");
+        player.velocity = new Vector2( speed * dirx, player.velocity.y);
         if(dirx >  0f)
             { 
               sprite_filp.flipX = false;
@@ -53,4 +69,10 @@ public class PlayerActions : MonoBehaviour
     return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground); 
   } 
  
+  public bool Isceiling() 
+  {
+    //return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
+    return Physics2D.BoxCast(head_hit_box.bounds.center, head_hit_box.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
+  }  
+
 }
