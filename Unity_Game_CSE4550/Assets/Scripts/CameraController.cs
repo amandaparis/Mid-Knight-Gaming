@@ -31,20 +31,10 @@ using UnityEngine;
                 tempPosition.y = maxY;
 
             transform.position = Vector3.Lerp(transform.position, tempPosition, lerpSpeed * Time.deltaTime);
-           
-       
+            /*
+              
+             */
 
         }
-    void cameraLock()
-    {
-        bool levelLimit = false;
-        if(!levelLimit)
-        {
-            levelLimit = true; 
-            //Lock the camera to the end stage
-            //Only When the minX value reaches limit
-            //This will signal the end of the level
-        }
     }
-}
 
