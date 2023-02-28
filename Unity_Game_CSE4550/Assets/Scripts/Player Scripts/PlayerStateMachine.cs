@@ -39,7 +39,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         anim.SetInteger("state", 2 );
                         CurrentState = "JUMP";
                     }
-                    else if(Input.GetButtonDown("DUCKING"))
+                    else if(Input.GetButton("DUCKING"))
                     {
                         head_hit_box.enabled = false; 
                         CurrentState ="DUCK_IDE";
@@ -66,7 +66,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         anim.SetInteger("state", 2 );
                         CurrentState = "JUMP";
                     }
-                    else if(Input.GetButtonDown("DUCKING"))
+                    else if(Input.GetButton("DUCKING"))
                     {
                         head_hit_box.enabled = false; 
                         CurrentState ="DUCK_IDE";
