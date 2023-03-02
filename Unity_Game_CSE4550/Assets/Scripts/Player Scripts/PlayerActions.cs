@@ -21,6 +21,20 @@ public class PlayerActions : MonoBehaviour
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+public Transform att_point; 
+public float att_range; 
+
+ void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(att_point.position, att_range);
+    }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
     ///movements 
 
     public void running()
@@ -29,11 +43,12 @@ public class PlayerActions : MonoBehaviour
         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
         if(dirx >  0f)
             { 
-              sprite_filp.flipX = false;
+              sprite_filp.flipX = false; 
+              
             }
             else if(dirx <  0f)
             {
-              sprite_filp.flipX = true;   
+                sprite_filp.flipX = true;
             }
     }
 
