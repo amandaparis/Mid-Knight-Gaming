@@ -17232,10 +17232,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6314684756430815365, guid: 4333d035c6293b448b41fd65b31b349c, type: 3}
-      propertyPath: m_SortingOrder
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 6314684756430815366, guid: 4333d035c6293b448b41fd65b31b349c, type: 3}
       propertyPath: m_Name
       value: Corpse Spawner
