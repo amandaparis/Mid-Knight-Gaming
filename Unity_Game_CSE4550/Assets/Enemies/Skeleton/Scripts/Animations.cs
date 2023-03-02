@@ -18,8 +18,7 @@ public class Animations : MonoBehaviour
     public int maxHP = 200;
     int currentHp;
 
-    public enum MovementState { Idle, Death, Walk, Attack, Reborn }
-    public MovementState currentState = MovementState.Reborn;
+    public string currentState;
     ///STATES: REB WAL ATTA  HURT  DEATH
     //ACTIONS:  0   1   2     3      4        
 
@@ -47,7 +46,7 @@ public class Animations : MonoBehaviour
         currentHp = maxHP;
         hurt = false;
         player = FindObjectOfType<PlayerActions>();      //makes the player's functions avail to this script
-        anim.SetBool("walk", true);                       //enemy will start walking as soon as it is spawned
+        currentState = "WALK";
     }
 
     // Update is called once per frame
@@ -66,31 +65,38 @@ public class Animations : MonoBehaviour
         //distance from enemy to player
         distance = Vector2.Distance(transform.position, player.transform.position);
         //if distance is within attackrange then it will start to attack
+        /*
         if (distance <= attackRange)
             currentState = MovementState.Attack;
         else
             currentState = MovementState.Walk;
-        /*
-                rend.flipX = (direction == -1);
-                    switch (currentState)
-                {
-                    case MovementState.Death:
-                        Death();
-                        break;
-                    case MovementState.Reborn:
-                        Reborn();
-                        break;
-                    case MovementState.Walk:
-                        Walk();
-                        break;
-                    case MovementState.Idle:
-                        Idle();
-                        break;
-                    case MovementState.Attack:
-                        Attack();
-                        break;
-                }
         */
+        switch (currentState)
+        {
+            case "REBORN":
+                anim.SetInteger("state", 0);
+                break;
+
+            case "WALK":
+                anim.SetInteger("state", 1);
+                Walk();
+                break;
+
+            case "ATTACK":
+                anim.SetInteger("state", 2);
+                Attack();
+                break;
+
+            case "HURT":
+                anim.SetInteger("state", 3);
+                Hurt();
+                break;
+
+            case "DEATH":
+                anim.SetInteger("state", 4);
+                break;
+        }
+        
         if (attackCools > 0) attackCools -= Time.deltaTime;
     }
 
@@ -196,16 +202,21 @@ public class Animations : MonoBehaviour
 
     }
 
-    private void Attack()
+    public void Attack()
     {
         if (attackCools < 0)
         {
-            anim.SetBool("attack", true);
+            //anim.SetBool("attack", true);
             Invoke("ResetAttack", 0.1f);
             attackCools = timeBetweenAttacks;
         }
         else
-            currentState = MovementState.Walk;
+            currentState = "WALK";
+    }
+
+    public void Walk()
+    {
+
     }
 
     void ResetAttack()
