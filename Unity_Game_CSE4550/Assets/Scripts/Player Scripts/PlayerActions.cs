@@ -44,11 +44,13 @@ public float att_range;
         if(dirx >  0f)
             { 
               sprite_filp.flipX = false; 
+              att_point.position.x = 1; // ##############
               
             }
             else if(dirx <  0f)
             {
                 sprite_filp.flipX = true;
+                att_point.position.x = -1;//##############
             }
     }
 
