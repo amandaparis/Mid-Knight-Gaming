@@ -15513,7 +15513,7 @@ MonoBehaviour:
   jumpable_ground:
     serializedVersion: 2
     m_Bits: 0
-  att_point: {fileID: 0}
+  attTrans: {fileID: 0}
   att_range: 0
 --- !u!61 &1051202473
 BoxCollider2D:
@@ -15597,7 +15597,7 @@ MonoBehaviour:
   jumpable_ground:
     serializedVersion: 2
     m_Bits: 8
-  att_point: {fileID: 370222314}
+  attTrans: {fileID: 370222314}
   att_range: 0.2
   anim: {fileID: 1051202471}
   CurrentState: 

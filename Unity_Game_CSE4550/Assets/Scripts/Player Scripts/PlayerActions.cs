@@ -26,6 +26,7 @@ public class PlayerActions : MonoBehaviour
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+
 public Transform attTrans; 
 
 public float att_range; 
@@ -45,23 +46,20 @@ public float att_range;
 
     public void running()
     {
-       Debug.Log(attTrans.transform.position.x); 
-        Debug.Log(attTrans.position.x);
+       Debug.Log(attTrans.transform.localPosition.x); 
 
-        var pos = attTrans.transform.position;
-        pos += 0.1f; 
 
         float dirx =  Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
         if(dirx >  0f)
             { 
               sprite_filp.flipX = false;
-           //attTrans.transform.position.x = //new Vector2(0f , 0 );
+              attTrans.transform.localPosition = new Vector3(0.1f,0,0); 
             }
             else if(dirx <  0f)
             {
                 sprite_filp.flipX = true;
-
+              attTrans.transform.localPosition = new Vector3(-0.1f,0,0);
     
             }
     }
