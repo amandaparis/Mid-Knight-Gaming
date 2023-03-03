@@ -38,6 +38,24 @@ public float att_range;
     }
 
 
+public LayerMask enemylayers; 
+int attack_damage = 50;
+
+void attack() 
+    {      
+            Debug.Log("Sword read");
+            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
+            
+            foreach(Collider2D en in hitenemies)
+            {
+                //en.GetComponent<Animations>().takedamage(attack_damage); 
+            } 
+
+        
+
+    }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 
