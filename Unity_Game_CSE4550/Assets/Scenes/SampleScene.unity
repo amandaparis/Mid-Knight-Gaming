@@ -15515,6 +15515,9 @@ MonoBehaviour:
     m_Bits: 0
   attTrans: {fileID: 0}
   att_range: 0
+  enemylayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!61 &1051202473
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15598,7 +15601,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   attTrans: {fileID: 370222314}
-  att_range: 0.2
+  att_range: 0.39
+  enemylayers:
+    serializedVersion: 2
+    m_Bits: 0
   anim: {fileID: 1051202471}
   CurrentState: 
 --- !u!61 &1051202477
