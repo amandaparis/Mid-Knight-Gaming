@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Used to hold the updates
+//Used to hold the properties
 [System.Serializable]
 public struct TrapProperties
 {
