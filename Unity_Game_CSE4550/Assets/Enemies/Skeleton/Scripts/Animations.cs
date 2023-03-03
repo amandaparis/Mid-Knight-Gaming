@@ -114,7 +114,8 @@ public class Animations : MonoBehaviour
     //will add more if statements if there are more objects*********
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Sword Trap"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Sword Trap")
+            && !collision.gameObject.CompareTag("Enemy"))
         {
             transform.localScale = new Vector2(-(Mathf.Sign(Enemy.velocity.x)), transform.localScale.y);
         }
