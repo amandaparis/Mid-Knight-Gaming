@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class EnemySpawnerTrap : MonoBehaviour
 {
-    [SerializeField]
-     int delay_time;
-    [SerializeField]
-     float spawn_offset;
+    [Tooltip("Delays the enemy spawning")]
+    [SerializeField] int delay_time;
+    [Tooltip("The vertical offset position for the enemy spawning")]
+    [SerializeField] float spawn_offset_y;
+    [Tooltip("The distance from the player to spawn the enemy")]
+    [SerializeField] float spawn_distance;
+    [SerializeField] private GameObject EnemyReference;
+    [SerializeField] private GameObject particleObject;
 
     private bool active;
     private bool triggered;
 
-    [SerializeField]
-    private GameObject EnemyReference;
-
-    private GameObject spawnedEnemy;
     private Rigidbody2D spawnedEnemy_body;
+    private GameObject spawnedEnemy;
     private Transform grave;
+    private float distance;
+    PlayerActions player;
 
-
-    [SerializeField]
-    private GameObject particleObject;
     private ParticleSystem particleObject_dust;
 
     // Start is called before the first frame update
     void Start()
     {
         grave = GetComponent<Transform>();
+        player = FindObjectOfType<PlayerActions>();
     }
+    private void Update() {
 
-    private void OnTriggerEnter2D(Collider2D collision) 
-    {
-        if(!triggered)
-            StartCoroutine(SpawnMonsters());    
+        distance = Vector2.Distance(transform.position, player.transform.position);
+
+        if (distance <= spawn_distance && !triggered)
+            StartCoroutine(SpawnMonsters());  
     }
 
 
@@ -43,7 +45,7 @@ public class EnemySpawnerTrap : MonoBehaviour
         triggered = true;
 
         spawnedEnemy = Instantiate(EnemyReference);
-        spawnedEnemy.transform.position = new Vector2(grave.position.x, grave.position.y + spawn_offset );
+        spawnedEnemy.transform.position = new Vector2(grave.position.x, grave.position.y + spawn_offset_y );
         
         //Start Sequence
         particleObject_dust = particleObject.GetComponent<ParticleSystem>();

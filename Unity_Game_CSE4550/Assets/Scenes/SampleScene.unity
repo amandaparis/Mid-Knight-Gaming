@@ -35119,11 +35119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.25
+      value: 23.73
       objectReference: {fileID: 0}
     - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.82
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35160,50 +35160,6 @@ PrefabInstance:
     - target: {fileID: 8982138925636997517, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
       propertyPath: m_Name
       value: GraveTrapSpawner
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9041718306088033438, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
