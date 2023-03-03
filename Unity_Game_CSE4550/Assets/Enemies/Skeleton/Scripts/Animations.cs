@@ -44,9 +44,10 @@ public class Animations : MonoBehaviour
         anim = GetComponent<Animator>();
         rend = GetComponent<SpriteRenderer>();
         currentHp = maxHP;
-        hurt = false;
+        //hurt = false;
         player = FindObjectOfType<PlayerActions>();      //makes the player's functions avail to this script
         currentState = "WALK";
+        attackCools = timeBetweenAttacks;
     }
 
     // Update is called once per frame
@@ -64,13 +65,10 @@ public class Animations : MonoBehaviour
 
         //distance from enemy to player
         distance = Vector2.Distance(transform.position, player.transform.position);
-        //if distance is within attackrange then it will start to attack
-        /*
-        if (distance <= attackRange)
-            currentState = MovementState.Attack;
-        else
-            currentState = MovementState.Walk;
-        */
+        if (attackCools > 0) attackCools -= Time.deltaTime;
+        /////////////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////////////
+        //STATES
         switch (currentState)
         {
             case "REBORN":
@@ -80,10 +78,16 @@ public class Animations : MonoBehaviour
             case "WALK":
                 anim.SetInteger("state", 1);
                 Walk();
+                if(distance <= attackRange)
+                {
+                    currentState = "ATTACK";
+                }
+                //*******************
+                //WILL ADD WHEN SKELETON IS HURT
                 break;
 
             case "ATTACK":
-                anim.SetInteger("state", 2);
+                //anim.SetInteger("state", 2);
                 Attack();
                 break;
 
@@ -206,7 +210,7 @@ public class Animations : MonoBehaviour
     {
         if (attackCools < 0)
         {
-            //anim.SetBool("attack", true);
+            anim.SetInteger("state", 2);
             Invoke("ResetAttack", 0.1f);
             attackCools = timeBetweenAttacks;
         }
