@@ -11,6 +11,10 @@ public class PlayerActions : MonoBehaviour
 
       [SerializeField] private LayerMask jumpable_ground; 
 
+
+
+
+
         void Start()
         {
             player = GetComponent<Rigidbody2D>(); 
@@ -22,35 +26,43 @@ public class PlayerActions : MonoBehaviour
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////
+public Transform attTrans; 
 
-public Transform att_point; 
 public float att_range; 
 
  void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(att_point.position, att_range);
+        Gizmos.DrawWireSphere(attTrans.position, att_range);
     }
 
 
+
 ////////////////////////////////////////////////////////////////////////////////////////////
+
 
     ///movements 
 
     public void running()
     {
+       Debug.Log(attTrans.transform.position.x); 
+        Debug.Log(attTrans.position.x);
+
+        var pos = attTrans.transform.position;
+        pos += 0.1f; 
+
         float dirx =  Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
         if(dirx >  0f)
             { 
-              sprite_filp.flipX = false; 
-              att_point.position.x += 1; // ############## att_point.position.x = 1;
-              
+              sprite_filp.flipX = false;
+           //attTrans.transform.position.x = //new Vector2(0f , 0 );
             }
             else if(dirx <  0f)
             {
                 sprite_filp.flipX = true;
-                att_point.position.x += -1;//############## att_point.position.x = -1;
+
+    
             }
     }
 
@@ -84,7 +96,6 @@ public float att_range;
  
   public bool Isceiling() 
   {
-    //return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
     return Physics2D.BoxCast(head_hit_box.bounds.center, head_hit_box.bounds.size, 0f, Vector2.up, .1f, jumpable_ground); 
   }  
 
