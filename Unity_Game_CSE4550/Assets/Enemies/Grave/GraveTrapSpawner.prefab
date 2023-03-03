@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &861800693
+--- !u!1 &3335294288366694788
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,39 +8,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 861800694}
-  - component: {fileID: 861800696}
-  - component: {fileID: 861800695}
+  - component: {fileID: 5221900753783012141}
+  - component: {fileID: 9041718306088033438}
+  - component: {fileID: 458890919814353129}
   m_Layer: 0
   m_Name: Particle Object
-  m_TagString: Untagged
+  m_TagString: Sword Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &861800694
+--- !u!4 &5221900753783012141
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861800693}
+  m_GameObject: {fileID: 3335294288366694788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.03, y: 0.2, z: -10}
+  m_LocalPosition: {x: 0.03, y: 0.36, z: -10}
   m_LocalScale: {x: 0.45, y: 0.61, z: 1}
   m_Children: []
-  m_Father: {fileID: 2268236335211035344}
+  m_Father: {fileID: 2532815497460956342}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &861800696
+--- !u!198 &9041718306088033438
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861800693}
+  m_GameObject: {fileID: 3335294288366694788}
   serializedVersion: 7
-  lengthInSec: 1
+  lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
   cullingMode: 0
@@ -933,7 +933,7 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0
         - serializedVersion: 3
-          time: 0.4689331
+          time: 1
           value: 1
           inSlope: 2
           outSlope: 2
@@ -4814,14 +4814,14 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &861800695
+--- !u!199 &458890919814353129
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861800693}
+  m_GameObject: {fileID: 3335294288366694788}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4880,7 +4880,7 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1 &2268236335211035350
+--- !u!1 &8982138925636997517
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4888,38 +4888,39 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2268236335211035344}
-  - component: {fileID: 2268236335211035351}
-  - component: {fileID: 2268236335211035345}
+  - component: {fileID: 2532815497460956342}
+  - component: {fileID: 5517010023614134852}
+  - component: {fileID: 5048423673601698030}
+  - component: {fileID: 1348444709217411929}
   m_Layer: 0
-  m_Name: SkeletonSpawner
-  m_TagString: Untagged
+  m_Name: GraveTrapSpawner
+  m_TagString: Sword Trap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2268236335211035344
+--- !u!4 &2532815497460956342
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268236335211035350}
+  m_GameObject: {fileID: 8982138925636997517}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.89, y: -1.81, z: 0}
+  m_LocalPosition: {x: 13.25, y: -3.82, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 861800694}
+  - {fileID: 5221900753783012141}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2268236335211035351
+--- !u!212 &5517010023614134852
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268236335211035350}
+  m_GameObject: {fileID: 8982138925636997517}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4964,18 +4965,45 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2268236335211035345
+--- !u!61 &5048423673601698030
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8982138925636997517}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7083333, y: 0.75}
+    newSize: {x: 0.7083333, y: 0.75}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7083333, y: 0.75}
+  m_EdgeRadius: 0
+--- !u!114 &1348444709217411929
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2268236335211035350}
+  m_GameObject: {fileID: 8982138925636997517}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8542749ad934ec64581f0cf35d9b7cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a49737056f3244a9e0b18b2b1269e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  delay_time: 10
+  spawn_offset: 0.7
   EnemyReference: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
-  time: 5
-  particleObject: {fileID: 861800693}
+  particleObject: {fileID: 3335294288366694788}

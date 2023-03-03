@@ -373,6 +373,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 7120393072143822861, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_Name
       value: Skeleton
@@ -1499,99 +1503,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694382569}
   m_CullTransparentMesh: 1
---- !u!1001 &702195048
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 696201903, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 696201904, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 696201904, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: delay_time
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 696201904, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: spawn_offset
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802060953168886003, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: lengthInSec
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802060953168886003, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: EmissionModule.rateOverDistance.maxCurve.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802060953168886013, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.36
-      objectReference: {fileID: 0}
-    - target: {fileID: 7802060953168886014, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_TagString
-      value: Sword Trap
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 13.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -3.82
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620699, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620701, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_Name
-      value: Grave Trap Variant
-      objectReference: {fileID: 0}
-    - target: {fileID: 8303540350273620701, guid: 63518346f044dd64ca989e81dc058132, type: 3}
-      propertyPath: m_TagString
-      value: Sword Trap
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 63518346f044dd64ca989e81dc058132, type: 3}
 --- !u!1 &768691875
 GameObject:
   m_ObjectHideFlags: 0
@@ -35195,3 +35106,60 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4333d035c6293b448b41fd65b31b349c, type: 3}
+--- !u!1001 &7853392666112638099
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 13.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.82
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2532815497460956342, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982138925636997517, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_Name
+      value: GraveTrapSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
