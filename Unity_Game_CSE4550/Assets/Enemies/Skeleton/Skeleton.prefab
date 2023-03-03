@@ -4947,7 +4947,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 12
   m_Sprite: {fileID: 21300000, guid: e5f01c26c6ff1c64b86d565a5a6e7ebb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5041,11 +5041,10 @@ MonoBehaviour:
   deadParticle: {fileID: 1661911492}
   maxHP: 200
   currentState: 4
-  direction: 0
   distance: 0
-  attackRange: 0
+  attackRange: 1
   walkSpeed: 0.7
-  timeBetweenAttacks: 0
+  timeBetweenAttacks: 0.2
   attackCools: 0
   hurt: 0
   attacking: 0
