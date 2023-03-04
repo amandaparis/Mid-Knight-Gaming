@@ -33777,8 +33777,10 @@ MonoBehaviour:
   jumpable_ground:
     serializedVersion: 2
     m_Bits: 0
-  attTrans: {fileID: 0}
+  attTrans: {fileID: 370222314}
   att_range: 0
+  att_range_y: 1
+  att_rangex_: 1
   enemylayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33866,6 +33868,8 @@ MonoBehaviour:
     m_Bits: 8
   attTrans: {fileID: 370222314}
   att_range: 0.39
+  att_range_y: 0
+  att_rangex_: 0
   enemylayers:
     serializedVersion: 2
     m_Bits: 0

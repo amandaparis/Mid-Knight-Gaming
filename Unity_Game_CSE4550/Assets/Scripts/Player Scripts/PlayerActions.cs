@@ -27,10 +27,15 @@ public Transform attTrans;
 
 public float att_range; 
 
+public float att_range_y ;// 1 
+public float att_rangex_ ;  //1
+
  void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attTrans.position, att_range);
+        //Gizmos.DrawWireSphere(attTrans.position, att_range);
+        Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
+    
     }
 
 
@@ -40,7 +45,8 @@ int attack_damage = 50;
 public void attack() 
     {      
             Debug.Log("Sword read");
-            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
+            //Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
+            Collider2D[] hitenemies = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, enemylayers ); 
             
             foreach(Collider2D en in hitenemies)
             {
