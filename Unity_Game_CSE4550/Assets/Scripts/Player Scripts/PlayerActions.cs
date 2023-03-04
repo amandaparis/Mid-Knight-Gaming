@@ -78,7 +78,6 @@ void attack()
             {
                 sprite_filp.flipX = true;
               attTrans.transform.localPosition = new Vector3(-0.1f,0,0);
-    
             }
     }
 
@@ -90,11 +89,13 @@ void attack()
         player.velocity = new Vector2( speed * dirx, player.velocity.y);
         if(dirx >  0f)
             { 
-              sprite_filp.flipX = false;
+             sprite_filp.flipX = false;
+              attTrans.transform.localPosition = new Vector3(0.1f,0,0); 
             }
             else if(dirx <  0f)
             {
-              sprite_filp.flipX = true;   
+                sprite_filp.flipX = true;
+              attTrans.transform.localPosition = new Vector3(-0.1f,0,0);
             }
     }
 
