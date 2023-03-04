@@ -24,8 +24,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     // Update is called once per frame
 
-    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack  hurt  Death slide
-    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10      11     12    13
+    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack | hurt  Death slide
+    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10    |  11     12    13
 
     void Update()
     {
