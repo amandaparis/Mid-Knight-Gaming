@@ -48,6 +48,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay) )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 7);
                         CurrentState = "ATT_1";
@@ -112,6 +113,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 7);
                         CurrentState = "ATT_AIR";
@@ -208,6 +210,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 8);
                         CurrentState = "ATT_2";
@@ -229,6 +232,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                         // anim.SetInteger("state", 9);
                         CurrentState = "ATT_3";

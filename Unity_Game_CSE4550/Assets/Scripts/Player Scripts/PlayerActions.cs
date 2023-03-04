@@ -11,10 +11,6 @@ public class PlayerActions : MonoBehaviour
 
       [SerializeField] private LayerMask jumpable_ground; 
 
-
-
-
-
         void Start()
         {
             player = GetComponent<Rigidbody2D>(); 
@@ -41,7 +37,7 @@ public float att_range;
 public LayerMask enemylayers; 
 int attack_damage = 50;
 
-void attack() 
+public void attack() 
     {      
             Debug.Log("Sword read");
             Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
@@ -50,9 +46,6 @@ void attack()
             {
                 //en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
-
-        
-
     }
 
 
