@@ -36277,10 +36277,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordTrap
       objectReference: {fileID: 0}
-    - target: {fileID: 6283228939743071059, guid: 165d894b15df14e4d9014fd1c95d8c62, type: 3}
-      propertyPath: m_TagString
-      value: Sword Trap
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165d894b15df14e4d9014fd1c95d8c62, type: 3}
 --- !u!1001 &6314684756317689254
