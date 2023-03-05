@@ -7,14 +7,15 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     // Start is called before the first frame update
     public /*private*/ Animator anim;
     public string CurrentState; 
-   
-
-
    /////////////////////////////////////////////////////////////////////////
     float an_delay = 0f;
     float attack_rate = 1f ;
     float ATTACK_delay = 0f; // (Time.time >= ATTACK_delay)  ATTACK_delay= Time.time +1f/ attack_rate;
    //////////////////////////////////////////////////////////////////////////
+   float slide_rate = 1f; 
+    float SLIDE_delay = 0f ; 
+    float slide_an_delay = 0f;
+   /////////////////////////////////////////////////////////////////////////
      
     void Start()
     {
@@ -24,8 +25,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     // Update is called once per frame
 
-    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack  | slide |  Special STATES:  hurt  Death 
-    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10     |  11   |                    12     13    
+    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack   slide |  Special STATES:  hurt  Death 
+    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10       11   |                    12     13    
 
     void Update()
     {
@@ -34,23 +35,22 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
         {
                 case "IDE": // IDE STATEs // 0
                 ////////////////////////////////////////////////////////
-                    Debug.Log("IDE State"); 
                     anim.SetInteger("state", 0 ); 
                     if(player.velocity.y < -.1f)
                     {
                         CurrentState = "FALLING";
                     }
-                    else if(Input.GetButton("Jump") )  //&& (Time.time >= ATTACK_delay) )// && Isgound())
+                    else if(Input.GetButton("Jump") )  
                     {
                         jumping();
                         anim.SetInteger("state", 2 );
                         CurrentState = "JUMP";
                     }
-                    else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay) )
+                    else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2)) //(Time.time >= ATTACK_delay) )
                     {
                         attack();
                         an_delay  = Time.time +1f/2; 
-                         //anim.SetInteger("state", 7);
+                        
                         CurrentState = "ATT_1";
                     }
                     else if(Input.GetButton("DUCKING"))
@@ -66,15 +66,14 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     break;
                 ////////////////////////////////////////////////////////
                 case "RUN": // RUNNING STATE // 1 
-                ///////////////////////////////////////////////////////
-                    Debug.Log("Running State"); 
+                /////////////////////////////////////////////////////// 
                     running(); 
                     anim.SetInteger("state", 1 ); 
                     if(player.velocity.y < -.1f)
                     {
                         CurrentState = "FALLING";
                     }
-                    else if(Input.GetButton("Jump"))// && Isgound())
+                    else if(Input.GetButton("Jump"))
                     {
                         jumping();
                         anim.SetInteger("state", 2 );
@@ -85,22 +84,25 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         head_hit_box.enabled = false; 
                         CurrentState ="DUCK_IDE";
                     }
-                    else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay) )
+                    else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2))//(Time.time >= ATTACK_delay) )
                     {
                         an_delay  = Time.time +1f/2; 
-                         //anim.SetInteger("state", 7);
                         CurrentState = "ATT_1";
                     }
                     else if(!Input.GetButton("Horizontal"))
                     {
                          CurrentState = "IDE";
                     }
+                    else if(Input.GetButton("slide") && (Time.time >= SLIDE_delay) )
+                    {
+                         slide_an_delay  = Time.time +1f/2;
+                        head_hit_box.enabled = false; 
+                        CurrentState = "SLIDE";
+                    }
                     break;
                 ////////////////////////////////////////////////////////
                 case "JUMP": // JUMPING state // 2
                 ////////////////////////////////////////////////////////
-                    Debug.Log("JUMP STATE");
-                    
                     running();
                      if(Input.GetButtonDown("Jump")) 
                     {
@@ -115,7 +117,6 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         {
                         attack();
                         an_delay  = Time.time +1f/2; 
-                         //anim.SetInteger("state", 7);
                         CurrentState = "ATT_AIR";
                         }
                     break; 
@@ -146,7 +147,6 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
                         an_delay  = Time.time +1f/2; 
-                         //anim.SetInteger("state", 7);
                         CurrentState = "ATT_AIR";
                         }
                     break;  
@@ -163,7 +163,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     {
                         CurrentState ="DUCK_WALK";
                     }
-                    else if(!Input.GetButton("DUCKING") )//&& Isceiling())
+                    else if(!Input.GetButton("DUCKING") )
                     {
                         head_hit_box.enabled = true; 
                         if(Isceiling())
@@ -172,8 +172,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                             break;
                         }
                         CurrentState ="IDE";
-                    }
-                    
+                    } 
                     break;
                 ////////////////////////////////////////////////////////
                 case "DUCK_WALK": // crouching walk state // 6
@@ -189,7 +188,13 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     {
                         CurrentState ="DUCK_IDE";
                     }
-                    else if(!Input.GetButton("DUCKING") )//&&  Isceiling())
+                    else if(Input.GetButton("slide") && (Time.time >= SLIDE_delay) )
+                    {
+                         slide_an_delay  = Time.time +1f/2;
+                        head_hit_box.enabled = false; 
+                        CurrentState = "SLIDE";
+                    }
+                    else if(!Input.GetButton("DUCKING") )
                     {
                         head_hit_box.enabled = true; 
                         if(Isceiling())
@@ -199,20 +204,18 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                         CurrentState ="IDE";
                     }
-                    
                     break;
                 ////////////////////////////////////////////////////////
                 case "ATT_1": // attack state 1 // 7
                 ////////////////////////////////////////////////////////
+                x_dir(0.1f);// stops sliding when attacking
                 anim.SetInteger("state", 7);
-
                 if(an_delay <= Time.time)
                 {
                     if(Input.GetButton("Sword") )
                     {
                         attack();
                         an_delay  = Time.time +1f/2; 
-                         //anim.SetInteger("state", 8);
                         CurrentState = "ATT_2";
                     }
                  else
@@ -227,21 +230,19 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 case "ATT_2": // attack state 1 // 8
                 ////////////////////////////////////////////////////////
                 anim.SetInteger("state", 8);
-
                 if(an_delay <= Time.time)
                 {
                     if(Input.GetButton("Sword") )
                     {
                         attack();
                         an_delay  = Time.time +1f/2; 
-                        // anim.SetInteger("state", 9);
                         CurrentState = "ATT_3";
                     }
                  else
                     {
                         ATTACK_delay= Time.time +1f/ attack_rate;
-                    CurrentState ="IDE";
-                     x_dir(1.5f);
+                        CurrentState ="IDE";
+                        x_dir(1.5f);
                     }
                 }
                 break;
@@ -267,13 +268,33 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         {
                           jumping();
                           CurrentState = "2ndJMP";
-                         } 
-
+                        } 
+                    else 
+                        {
+                          CurrentState ="FALLING";
+                        }
+                    ATTACK_delay= (Time.time +1f/ attack_rate)/2;
+                }
+                break;
+                ///////////////////////////////////////////////////////
+                case "SLIDE": // slide // 11
+                ///////////////////////////////////////////////////////
+                    anim.SetInteger("state", 11);
+                    slide(); 
+                if((slide_an_delay <= Time.time))
+                {
+                    x_dir(0.1f);
+                    if(player.velocity.y < -.1f)
+                    {
+                        SLIDE_delay = Time.time +1f/slide_rate; 
+                        head_hit_box.enabled = true; 
+                        CurrentState = "FALLING";
+                    }
                     else 
                     {
-                    CurrentState ="FALLING";
-                    }
-                    ATTACK_delay= (Time.time +1f/ attack_rate)/2;
+                        SLIDE_delay = Time.time +1f/slide_rate; 
+                        CurrentState ="DUCK_IDE";
+                    }   
                 }
                 break;
                 ///////////////////////////////////////////////////////
