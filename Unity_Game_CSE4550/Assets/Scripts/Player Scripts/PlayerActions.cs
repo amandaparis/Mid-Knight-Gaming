@@ -102,6 +102,16 @@ public void attack()
     }
 
 
+
+  public void slide()
+  {
+    if(sprite_filp.flipX == false)
+      player.velocity = new Vector2( 0.03f+ player.velocity.x, player.velocity.y);
+    else
+          player.velocity = new Vector2( -0.03f+ player.velocity.x, player.velocity.y);
+  }
+
+
   public void jumping()
   {
     player.velocity = new Vector2(player.velocity.x,7f);
