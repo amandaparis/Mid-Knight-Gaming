@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class Player_Heath : MonoBehaviour
+public class Player_Heath : PlayerStateMachine// MonoBehaviour
 {
 
 
@@ -16,13 +16,11 @@ public class Player_Heath : MonoBehaviour
     public Sprite emptyHearts; 
 
 
-
-
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        health = 6;
     }
 
     // Update is called once per frame
@@ -54,6 +52,29 @@ public class Player_Heath : MonoBehaviour
             {
                 hearts[i].enabled = false; 
             }
+        }
+
+
+        if(Input.GetKeyDown("y"))
+        {
+            player_takeDamage(1);
+        }
+
+    }
+
+
+
+
+    public void player_takeDamage(int E_damage )
+    {
+          health = health -E_damage; 
+        if(health > 0) //hurt 
+        {
+            CurrentState = "hurt"; 
+        }
+        else // death
+        {
+            CurrentState = "death";
         }
     }
 }
