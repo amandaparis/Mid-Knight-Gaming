@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI; 
 
-public class Player_Heath : PlayerStateMachine// MonoBehaviour
+public class Player_Heath :  MonoBehaviour
 {
 
-
+    private Animator anim;
+    private  Rigidbody2D player; 
 
     public int health;
     public int numofhearts;  
@@ -15,17 +16,22 @@ public class Player_Heath : PlayerStateMachine// MonoBehaviour
     public Sprite fullHearts; 
     public Sprite emptyHearts; 
 
-
+    //GameObject varGameObject;
     
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
+        player = GetComponent<Rigidbody2D>(); 
         health = 6;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
 
             if(health > numofhearts)
             {
@@ -68,13 +74,18 @@ public class Player_Heath : PlayerStateMachine// MonoBehaviour
     public void player_takeDamage(int E_damage )
     {
           health = health -E_damage; 
-        if(health > 0) //hurt 
+        if(health > 0 )
         {
-            CurrentState = "hurt"; 
+            anim.SetTrigger("hurt");
+            
         }
         else // death
         {
-            CurrentState = "death";
+            anim.SetTrigger("death");
+           // player.bodyType = RigidbodyType2D.Static; 
+            GetComponent<PlayerStateMachine>().enabled = false;
         }
     }
+
+   
 }

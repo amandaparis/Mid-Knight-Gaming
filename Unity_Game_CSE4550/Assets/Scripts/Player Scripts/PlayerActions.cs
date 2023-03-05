@@ -11,12 +11,15 @@ public class PlayerActions : MonoBehaviour
 
       [SerializeField] private LayerMask jumpable_ground; 
 
+
+    
         void Start()
         {
             player = GetComponent<Rigidbody2D>(); 
             coll = GetComponent<BoxCollider2D>();
             sprite_filp = GetComponent<SpriteRenderer>() ;
             head_hit_box = GetComponent</*CircleCollider2D*/ BoxCollider2D>();
+          
         } 
 
 

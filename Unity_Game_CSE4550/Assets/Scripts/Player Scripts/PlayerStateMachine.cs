@@ -29,7 +29,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     void Update()
     {
-
+        
         switch(CurrentState)            
         {
                 case "IDE": // IDE STATEs // 0
