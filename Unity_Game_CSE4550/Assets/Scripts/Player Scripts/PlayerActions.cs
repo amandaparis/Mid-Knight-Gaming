@@ -106,9 +106,9 @@ public void attack()
   public void slide()
   {
     if(sprite_filp.flipX == false)
-      player.velocity = new Vector2( 0.03f+ player.velocity.x, player.velocity.y);
+      player.velocity = new Vector2( 0.09f+ player.velocity.x, player.velocity.y);//was 0.03f
     else
-          player.velocity = new Vector2( -0.03f+ player.velocity.x, player.velocity.y);
+          player.velocity = new Vector2( -0.09f+ player.velocity.x, player.velocity.y); // was -0.03f
   }
 
 
