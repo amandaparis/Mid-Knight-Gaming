@@ -24,12 +24,12 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     // Update is called once per frame
 
-    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack  hurt  Death slide
-    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10      11     12    13
+    ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack | hurt  Death slide
+    //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10    |  11     12    13
 
     void Update()
     {
-
+        
         switch(CurrentState)            
         {
                 case "IDE": // IDE STATEs // 0
@@ -48,6 +48,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay) )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 7);
                         CurrentState = "ATT_1";
@@ -112,6 +113,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 7);
                         CurrentState = "ATT_AIR";
@@ -208,6 +210,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                          //anim.SetInteger("state", 8);
                         CurrentState = "ATT_2";
@@ -229,6 +232,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                         // anim.SetInteger("state", 9);
                         CurrentState = "ATT_3";

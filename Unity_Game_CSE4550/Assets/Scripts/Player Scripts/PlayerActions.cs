@@ -12,15 +12,14 @@ public class PlayerActions : MonoBehaviour
       [SerializeField] private LayerMask jumpable_ground; 
 
 
-
-
-
+    
         void Start()
         {
             player = GetComponent<Rigidbody2D>(); 
             coll = GetComponent<BoxCollider2D>();
             sprite_filp = GetComponent<SpriteRenderer>() ;
             head_hit_box = GetComponent</*CircleCollider2D*/ BoxCollider2D>();
+          
         } 
 
 
@@ -31,28 +30,31 @@ public Transform attTrans;
 
 public float att_range; 
 
+public float att_range_y ;// 1 
+public float att_rangex_ ;  //1
+
  void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attTrans.position, att_range);
+        //Gizmos.DrawWireSphere(attTrans.position, att_range);
+        Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
+    
     }
 
 
 public LayerMask enemylayers; 
 int attack_damage = 50;
 
-void attack() 
+public void attack() 
     {      
             Debug.Log("Sword read");
-            Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
+            //Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
+            Collider2D[] hitenemies = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, enemylayers ); 
             
             foreach(Collider2D en in hitenemies)
             {
                 //en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
-
-        
-
     }
 
 
