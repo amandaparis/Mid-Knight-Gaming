@@ -33,6 +33,8 @@ public float att_range;
 public float att_range_y ;// 1 
 public float att_rangex_ ;  //1
 
+
+//*///////////////////////////test the saiz of the hit box //////////////////////////////////
  void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
@@ -40,6 +42,7 @@ public float att_rangex_ ;  //1
         Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
     
     }
+////////////////////////////////////////////////////////////////////////////////////////////*/
 
 
 public LayerMask enemylayers; 
@@ -66,9 +69,6 @@ public void attack()
 
     public void running()
     {
-       Debug.Log(attTrans.transform.localPosition.x); 
-
-
         float dirx =  Input.GetAxisRaw("Horizontal");
         player.velocity = new Vector2( 7f * dirx, player.velocity.y);
         if(dirx >  0f)
