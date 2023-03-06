@@ -119,6 +119,10 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_AIR";
                         }
+                        else if(Isgound())
+                        {
+                            CurrentState ="IDE";
+                        }
                     break; 
                 /////////////////////////////////////////////////////////////
                 case "2ndJMP": // air Rolling State // 3 
