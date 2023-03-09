@@ -82,22 +82,34 @@ public class Animations : MonoBehaviour
                 {
                     currentState = "ATTACK";
                 }
-                //*******************
-                //WILL ADD WHEN SKELETON IS HURT
+   
+                if (hurt)
+                {
+                    currentState = "HURT";
+                }
                 break;
 
             case "ATTACK":
                 //anim.SetInteger("state", 2);
                 Attack();
+                if (hurt)
+                {
+                    currentState = "HURT";
+                }
                 break;
 
             case "HURT":
                 anim.SetInteger("state", 3);
                 Hurt();
+                if (currentHp <= 0)
+                {
+                    currentState = "DEATH";
+                }
                 break;
 
             case "DEATH":
                 anim.SetInteger("state", 4);
+                Death();
                 break;
         }
         
@@ -159,25 +171,15 @@ public class Animations : MonoBehaviour
     public void takedamage(int damage)
     {
         currentHp = currentHp - damage;
-
-        //anim.SetTrigger("hit");
-
-
         Debug.Log("Enemy HP : " + damage);
-        if (currentHp <= 0)
-        {
-            animations_update();
-        }
-
     }
 
     public void Hurt()
     {
-        anim.SetBool("hurt", true);
         Invoke("ResetHurt", 0.1f);
     }
 
-    void ResetHurt()
+    public void ResetHurt()
     {
         anim.SetBool("hurt", false);
         hurt = false;
@@ -217,11 +219,6 @@ public class Animations : MonoBehaviour
         }
         else
             currentState = "WALK";
-    }
-
-    public void Walk()
-    {
-
     }
 
     void ResetAttack()
