@@ -77,27 +77,39 @@ public class Animations : MonoBehaviour
 
             case "WALK":
                 anim.SetInteger("state", 1);
-                Walk();
+                
                 if(distance <= attackRange)
                 {
                     currentState = "ATTACK";
                 }
-                //*******************
-                //WILL ADD WHEN SKELETON IS HURT
+   
+                if (hurt)
+                {
+                    currentState = "HURT";
+                }
                 break;
 
             case "ATTACK":
                 //anim.SetInteger("state", 2);
                 Attack();
+                if (hurt)
+                {
+                    currentState = "HURT";
+                }
                 break;
 
             case "HURT":
                 anim.SetInteger("state", 3);
                 Hurt();
+                if (currentHp <= 0)
+                {
+                    currentState = "DEATH";
+                }
                 break;
 
             case "DEATH":
                 anim.SetInteger("state", 4);
+                
                 break;
         }
         
@@ -114,7 +126,8 @@ public class Animations : MonoBehaviour
     //will add more if statements if there are more objects*********
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Sword Trap"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Sword Trap")
+            && !collision.gameObject.CompareTag("Enemy"))
         {
             transform.localScale = new Vector2(-(Mathf.Sign(Enemy.velocity.x)), transform.localScale.y);
         }
@@ -158,25 +171,15 @@ public class Animations : MonoBehaviour
     public void takedamage(int damage)
     {
         currentHp = currentHp - damage;
-
-        //anim.SetTrigger("hit");
-
-
         Debug.Log("Enemy HP : " + damage);
-        if (currentHp <= 0)
-        {
-            animations_update();
-        }
-
     }
 
     public void Hurt()
     {
-        anim.SetBool("hurt", true);
         Invoke("ResetHurt", 0.1f);
     }
 
-    void ResetHurt()
+    public void ResetHurt()
     {
         anim.SetBool("hurt", false);
         hurt = false;
@@ -216,11 +219,6 @@ public class Animations : MonoBehaviour
         }
         else
             currentState = "WALK";
-    }
-
-    public void Walk()
-    {
-
     }
 
     void ResetAttack()
