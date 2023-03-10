@@ -518,6 +518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton
       objectReference: {fileID: 0}
+    - target: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
 --- !u!1 &287860931
@@ -36905,6 +36909,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwordTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 6283228939743071059, guid: 165d894b15df14e4d9014fd1c95d8c62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 165d894b15df14e4d9014fd1c95d8c62, type: 3}
 --- !u!1001 &6314684756317689254
@@ -36962,6 +36970,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Corpse Spawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6314684756430815366, guid: 4333d035c6293b448b41fd65b31b349c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4333d035c6293b448b41fd65b31b349c, type: 3}
 --- !u!1001 &7853392666112638099
@@ -37018,6 +37030,10 @@ PrefabInstance:
     - target: {fileID: 8982138925636997517, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
       propertyPath: m_Name
       value: GraveTrapSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982138925636997517, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fadb178868d82f048b8d0d44f613d23d, type: 3}
