@@ -77,7 +77,7 @@ public class Animations : MonoBehaviour
 
             case "WALK":
                 anim.SetInteger("state", 1);
-                Walk();
+                
                 if(distance <= attackRange)
                 {
                     currentState = "ATTACK";
@@ -109,7 +109,7 @@ public class Animations : MonoBehaviour
 
             case "DEATH":
                 anim.SetInteger("state", 4);
-                Death();
+                
                 break;
         }
         
