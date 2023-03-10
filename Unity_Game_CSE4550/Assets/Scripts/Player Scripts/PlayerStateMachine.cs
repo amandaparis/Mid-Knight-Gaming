@@ -149,6 +149,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                         else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
+                        attack();
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_AIR";
                         }
