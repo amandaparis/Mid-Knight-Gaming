@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy_class : MonoBehaviour
 {
-
+        public /*private*/ Animator anim;
         public int enemyHp;
         public int maxHp; 
        // public Player_Heath playerHP; 
@@ -25,7 +25,7 @@ public class enemy_class : MonoBehaviour
 public void Enemy_take_damage(int damage)
     {
         enemyHp = enemyHp - damage;
-        anim.SetTrigger("hit");
+        anim.SetTrigger("hurt");
         Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
