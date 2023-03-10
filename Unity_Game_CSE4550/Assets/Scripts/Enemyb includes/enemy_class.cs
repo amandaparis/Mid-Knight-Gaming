@@ -7,7 +7,7 @@ public class enemy_class : MonoBehaviour
 
         public int enemyHp;
         public int maxHp; 
-        public Player_Heath playerHP; 
+       // public Player_Heath playerHP; 
 
  /*   void Start()
     {   
@@ -18,27 +18,32 @@ public class enemy_class : MonoBehaviour
     }
 */
 
+
+
+
+
 public void Enemy_take_damage(int damage)
     {
         enemyHp = enemyHp - damage;
-        //anim.SetTrigger("hit");
+        anim.SetTrigger("hit");
         Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
             {
-            //anim.SetTrigger("death");
+            anim.SetTrigger("death");
             Debug.Log("Enemy Death");
             }
 
     }
 
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*
+    private void OnCollisionEnter2D(Collision2D collision) 
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player_Attack_point"))
         {
-            playerHP.player_takeDamage(1);
+          playerHP.
         }
-    }
+    }//*/
 
 }

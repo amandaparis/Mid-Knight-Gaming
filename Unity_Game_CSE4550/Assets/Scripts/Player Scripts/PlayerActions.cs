@@ -28,7 +28,7 @@ public class PlayerActions : MonoBehaviour
 
 public Transform attTrans; 
 
-public float att_range; 
+//public float att_range; 
 
 public float att_range_y ;// 1 
 public float att_rangex_ ;  //1
@@ -46,16 +46,19 @@ public float att_rangex_ ;  //1
 
 
 public LayerMask enemylayers; 
-int attack_damage = 50;
+int attack_damage = 10;
 
 public void attack() 
     {      
-            Debug.Log("Sword read");
+            
             //Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
             Collider2D[] hitenemies = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, enemylayers ); 
             
-            foreach(Collider2D en in hitenemies)
+            //foreach(Collider2D en in hitenemies)
+            for(int i = 0; i < hitenemies.Length; i++)
             {
+              Debug.Log("damage enemy");
+                hitenemies[i].GetComponent<enemy_class>().Enemy_take_damage(attack_damage);
                 //en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
     }

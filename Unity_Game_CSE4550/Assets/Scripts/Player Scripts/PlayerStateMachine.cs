@@ -60,7 +60,6 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Horizontal"))
                     {
-                         Debug.Log("Hor. Action read"); 
                         CurrentState = "RUN";
                     }
                     break;

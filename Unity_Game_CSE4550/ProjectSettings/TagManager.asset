@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Sword Trap
   - Enemy
+  - Player_Attack_point
   layers:
   - Default
   - TransparentFX
