@@ -36997,6 +36997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb43ffa01897a54db264e36cf79d14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 2028452185}
   enemyHp: 27
   maxHp: 10
 --- !u!95 &2028452185
