@@ -458,6 +458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7120393072143822857, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+      propertyPath: playerHP
+      value: 
+      objectReference: {fileID: 1051202478}
     - target: {fileID: 7120393072143822859, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -504,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822861, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_BodyType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822862, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_Size.y
@@ -520,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
@@ -36866,6 +36870,7 @@ GameObject:
   - component: {fileID: 2028452183}
   - component: {fileID: 2028452184}
   - component: {fileID: 2028452185}
+  - component: {fileID: 2028452186}
   m_Layer: 6
   m_Name: Goblin Enemy
   m_TagString: Enemy
@@ -37000,6 +37005,7 @@ MonoBehaviour:
   anim: {fileID: 2028452185}
   enemyHp: 27
   maxHp: 10
+  playerHP: {fileID: 1051202478}
 --- !u!95 &2028452185
 Animator:
   serializedVersion: 3
@@ -37019,6 +37025,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2028452186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028452179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c15973a6b9221b640ae0b78fb0d44216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 0}
+--- !u!1 &2137137907 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+  m_PrefabInstance: {fileID: 273737183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2137137908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137137907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb43ffa01897a54db264e36cf79d14b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 2137137911}
+  enemyHp: 10
+  maxHp: 20
+  playerHP: {fileID: 1051202478}
+--- !u!95 &2137137911 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7120393072143822858, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+  m_PrefabInstance: {fileID: 273737183}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6283228939333786845
 PrefabInstance:
   m_ObjectHideFlags: 0

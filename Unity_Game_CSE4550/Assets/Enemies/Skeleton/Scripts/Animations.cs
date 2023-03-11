@@ -35,7 +35,7 @@ public class Animations : MonoBehaviour
     public bool hurt;                   //if enemy is hurt, for hurt animation
     public bool attacking = false;      //if enemy is attacking, for attacking animation
 
-
+public Player_Heath playerHP; 
 
     private void Start()
     {
@@ -145,7 +145,7 @@ public class Animations : MonoBehaviour
         {
             if (attacking == true)
             {
-
+                    playerHP.player_takeDamage(1);
             }
         }
     }

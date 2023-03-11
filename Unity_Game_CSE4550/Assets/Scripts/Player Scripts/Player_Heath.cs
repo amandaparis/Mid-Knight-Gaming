@@ -90,7 +90,7 @@ public class Player_Heath :  MonoBehaviour
     }
 
 
-    /*
+    //*
     private void OnCollisionEnter2D(Collision2D collision) //Player_Attack_point
     {
         if (collision.gameObject.CompareTag("Enemy"))
