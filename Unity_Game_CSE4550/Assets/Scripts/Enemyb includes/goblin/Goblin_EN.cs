@@ -8,9 +8,7 @@ public class Goblin_EN : MonoBehaviour
     public Rigidbody2D Enemy;
     int enemyHp; 
     int CurrentHp; 
-    string CurrentState ; 
-
-      private BoxCollider2D coll;
+    private BoxCollider2D coll;
     
 
     public /*private*/ SpriteRenderer sprite_filp;
@@ -26,6 +24,7 @@ public class Goblin_EN : MonoBehaviour
 
 
     // Update is called once per frame
+    //*
     void Update()
     {
 
@@ -36,37 +35,44 @@ public class Goblin_EN : MonoBehaviour
             coll.isTrigger = true; 
             Enemy.bodyType = RigidbodyType2D.Static;
             coll.enabled = false; 
-            CurrentState = "death"; 
+            //CurrentState = "DEATH"; 
         }
         else if(enemyHp != CurrentHp)
         {
             CurrentHp = enemyHp; 
 
-            CurrentState = "hurt"; 
+            //CurrentState = "HURT"; 
            
         }   
-        else{
 
-        if(Enemy.position.x > max_x)
+    }//*/
+
+
+    public string checkHP(string State)
+    {
+        CurrentHp = enemyHp; 
+        enemyHp = GetComponent<enemy_class>().CurrentHp(); 
+
+    
+    
+    //Debug.Log(" Enemy: " + enemyHp);
+
+    //Debug.Log(" Current: " + CurrentHp);
+
+        if(enemyHp <= 0)
         {
-            sprite_filp.flipX = true;
-            Debug.Log("flip NEG" ); //+ Enemy.position.x);
-            //Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
+            //coll.isTrigger = true; 
+            //Enemy.bodyType = RigidbodyType2D.Static;
+            //coll.enabled = false; 
+            State = "DEATH";  
         }
-        else if(Enemy.position.x < min_x)
+        else if(enemyHp != CurrentHp)
         {
-            sprite_filp.flipX = false;
-            Debug.Log("flip POS" );
-            Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
-            
+            //CurrentHp = enemyHp;
+            State = "HURT"; 
         }
-
-        Debug.Log("position: " + Enemy.position.x);
-        Debug.Log("MAX: " + max_x);
-        walk(); 
-        }
-
-    }
+        return State; 
+    } 
 
 
 
@@ -75,7 +81,7 @@ public class Goblin_EN : MonoBehaviour
 
     public float W_speed = 1.5f; 
 
-    void walk()
+   public  void walk()
     {
 
         if(sprite_filp.flipX == false)
@@ -84,7 +90,7 @@ public class Goblin_EN : MonoBehaviour
              Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
     }
 
-    void enemy_stop()
+    public void enemy_stop()
     {
         Enemy.velocity= new Vector2(  0 ,Enemy.velocity.y);
     }

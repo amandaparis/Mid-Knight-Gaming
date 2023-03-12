@@ -20,9 +20,9 @@ public class enemy_class : MonoBehaviour
 
 public void Enemy_take_damage(int damage)
     {
-        enemyHp = enemyHp - damage;
-        anim.SetTrigger("hurt");
-        Debug.Log("Enemy HP : " + damage);
+            enemyHp = enemyHp - damage;
+            anim.SetTrigger("hurt");
+            Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
             {
