@@ -81,7 +81,7 @@ public class enemy_actions : MonoBehaviour
         else 
         {
              Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
-             attTrans.transform.localPosition = new Vector3(-transX,-transY,0);
+             attTrans.transform.localPosition = new Vector3(-transX,transY,0);
         }
     }
 
@@ -128,6 +128,9 @@ public bool  trigger_attack()
 
 
 
+public int enemy_daamge = 1 ;  
+
+
 
 public void damage_player()
 {
@@ -135,7 +138,7 @@ public void damage_player()
 
            if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
             {
-                hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(1);
+                hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(enemy_daamge);
             }
 }
 
