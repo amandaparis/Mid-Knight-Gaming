@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class enemy_class : MonoBehaviour
 {
-        public /*private*/ Animator anim;
+        public Animator anim;
         public int enemyHp;
         public int maxHp; 
        //public Player_Heath playerHP; 
@@ -18,26 +18,24 @@ public class enemy_class : MonoBehaviour
     }
 */
 
-public void Enemy_take_damage(int damage)
+    public void Enemy_take_damage(int damage)
     {
             enemyHp = enemyHp - damage;
             anim.SetTrigger("hurt");
-            Debug.Log("Enemy HP : " + damage);
+            //Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
             {
             anim.SetTrigger("death");
-            Debug.Log("Enemy Death");
+            //Debug.Log("Enemy Death");
             }
 
     }
 
-
-
-public int CurrentHp()
-{
-    return enemyHp;
-} 
+    public int CurrentHp()
+    {
+        return enemyHp;
+    } 
 
     /*
     private void OnCollisionEnter2D(Collision2D collision) 

@@ -9,9 +9,7 @@ public class Goblin_EN : MonoBehaviour
     int enemyHp; 
     int CurrentHp; 
     private BoxCollider2D coll;
-    
-
-    public /*private*/ SpriteRenderer sprite_filp;
+    public SpriteRenderer sprite_filp;
     
 
     void Start()
@@ -34,15 +32,11 @@ public class Goblin_EN : MonoBehaviour
         {
             coll.isTrigger = true; 
             Enemy.bodyType = RigidbodyType2D.Static;
-            coll.enabled = false; 
-            //CurrentState = "DEATH"; 
+            coll.enabled = false;  
         }
         else if(enemyHp != CurrentHp)
         {
-            CurrentHp = enemyHp; 
-
-            //CurrentState = "HURT"; 
-           
+            CurrentHp = enemyHp;  
         }   
 
     }//*/
@@ -53,22 +47,13 @@ public class Goblin_EN : MonoBehaviour
         CurrentHp = enemyHp; 
         enemyHp = GetComponent<enemy_class>().CurrentHp(); 
 
-    
-    
-    //Debug.Log(" Enemy: " + enemyHp);
-
-    //Debug.Log(" Current: " + CurrentHp);
 
         if(enemyHp <= 0)
         {
-            //coll.isTrigger = true; 
-            //Enemy.bodyType = RigidbodyType2D.Static;
-            //coll.enabled = false; 
             State = "DEATH";  
         }
         else if(enemyHp != CurrentHp)
         {
-            //CurrentHp = enemyHp;
             State = "HURT"; 
         }
         return State; 
@@ -85,9 +70,15 @@ public class Goblin_EN : MonoBehaviour
     {
 
         if(sprite_filp.flipX == false)
+        {
             Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
+            attTrans.transform.localPosition = new Vector3(0.25f,-0.11f,0);
+        }
         else 
+        {
              Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
+             attTrans.transform.localPosition = new Vector3(-0.25f,-0.11f,0);
+        }
     }
 
     public void enemy_stop()
@@ -102,10 +93,7 @@ public class Goblin_EN : MonoBehaviour
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 public Transform attTrans; 
-
-//public float att_range; 
-
-public float att_range_y ;// 1 
+public float att_range_y ;  //1 
 public float att_rangex_ ;  //1
 
 
