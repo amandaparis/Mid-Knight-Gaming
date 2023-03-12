@@ -108,8 +108,31 @@ public float att_rangex_ ;  //1
 ////////////////////////////////////////////////////////////////////////////////////////////*
 
 
+public LayerMask playerlayers; 
+
+public bool  trigger_attack() 
+    {      
+        Debug.Log("checking if bool read");
+        Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
+            if(hitplayer.Length > 0)
+            {
+                return true; 
+            }
+            else
+                return false;
+    }
 
 
 
+
+public void damage_player()
+{
+    Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
+
+           if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
+            {
+                hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(1);
+            }
+}
 
 }

@@ -6,14 +6,14 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
 {
     public /*private*/ Animator anim;
 
-    float ATT_delay = 1f; 
+    float ATT_delay = 0f; 
     float STUN_delay = 1f; 
     public string CurrentState ; 
 
     // Start is called before the first frame update
     void Start()
     {
-         anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         CurrentState  = "IDE"; 
     }
 
@@ -32,9 +32,15 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
             case "IDE": // IDE STATEs // 0
             ////////////////////////////////////////////////////////
             anim.SetInteger("state", 0 ); 
-            if(stun_time <= Time.time )
+                if(stun_time <= Time.time )
                 {
-                    CurrentState = "WALK"; 
+                    if(trigger_attack())
+                    {
+                        ATT_delay  = Time.time + 1f/2;
+                        CurrentState = "ATT";
+                    }
+                    else
+                        CurrentState = "WALK"; 
                 }
                 break;    
             ////////////////////////////////////////////////////////
@@ -49,14 +55,24 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
                 {
                     sprite_filp.flipX = false;
                 }
-                walk();  
+                walk(); 
+
+                if(trigger_attack())
+                {
+                    ATT_delay  = Time.time + 1f/2;
+                        CurrentState = "ATT"; 
+                }
+
                 break; 
             ///////////////////////////////////////////////////////
              case "ATT": // att STATE // 2 
             /////////////////////////////////////////////////////// 
-                anim.SetInteger("state", 2 );
-
-                
+                anim.SetInteger("state", 2 ); 
+                if(ATT_delay <= Time.time)
+                {
+                    damage_player();
+                    CurrentState ="IDE";
+                }
 
                 break; 
             ///////////////////////////////////////////////////////
