@@ -36989,7 +36989,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 10
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -37042,8 +37042,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
-  max_x: 0
-  min_x: 0
+  sprite_filp: {fileID: 0}
+  max_x: 0.57
+  min_x: -2
+  W_speed: 1.5
 --- !u!1 &2137137907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}

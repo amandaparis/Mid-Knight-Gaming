@@ -60,10 +60,11 @@ public class Player_Heath :  MonoBehaviour
             }
         }
 
-    /*//// testing player taking damage ////////
+    //*//// testing player taking damage ////////
         if(Input.GetKeyDown("y"))
         {
             player_takeDamage(1);
+            RestartLevel();
         }
     //////////////////////////////////////////*/
     }
