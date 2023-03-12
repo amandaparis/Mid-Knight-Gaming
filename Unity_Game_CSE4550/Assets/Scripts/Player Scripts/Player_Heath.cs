@@ -90,12 +90,16 @@ public class Player_Heath :  MonoBehaviour
     }
 
 
-    /*
+public float thrust = 5f;
+
+    //*
     private void OnCollisionEnter2D(Collision2D collision) //Player_Attack_point
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
             player_takeDamage(1);
+            //player.AddForce(transform.up * thrust);
+            player.AddForce(transform.up * thrust, ForceMode2D.Impulse);
         }
     }//*/
 

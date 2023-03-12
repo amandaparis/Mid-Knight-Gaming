@@ -7,7 +7,7 @@ public class enemy_class : MonoBehaviour
         public /*private*/ Animator anim;
         public int enemyHp;
         public int maxHp; 
-       public Player_Heath playerHP; 
+       //public Player_Heath playerHP; 
 
  /*   void Start()
     {   
@@ -39,7 +39,7 @@ public int CurrentHp()
     return enemyHp;
 } 
 
-    ///*
+    /*
     private void OnCollisionEnter2D(Collision2D collision) 
     {
         if (collision.gameObject.CompareTag("Player"))

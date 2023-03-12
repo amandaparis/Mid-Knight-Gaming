@@ -458,6 +458,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 195461282, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7120393072143822857, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
       propertyPath: playerHP
       value: 
@@ -34433,6 +34437,7 @@ MonoBehaviour:
   - {fileID: 912678702}
   fullHearts: {fileID: 21300000, guid: 340df6c58c269294d8c20fd89e955a7c, type: 3}
   emptyHearts: {fileID: 21300000, guid: 8a40c7d26bc0bfb419bf39a932d15c2f, type: 3}
+  thrust: 5
 --- !u!1 &1082762476
 GameObject:
   m_ObjectHideFlags: 0
@@ -37005,7 +37010,6 @@ MonoBehaviour:
   anim: {fileID: 2028452185}
   enemyHp: 27
   maxHp: 10
-  playerHP: {fileID: 1051202478}
 --- !u!95 &2028452185
 Animator:
   serializedVersion: 3
@@ -37038,6 +37042,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Enemy: {fileID: 0}
+  max_x: 0
+  min_x: 0
 --- !u!1 &2137137907 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7120393072143822863, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}
@@ -37058,7 +37064,6 @@ MonoBehaviour:
   anim: {fileID: 2137137911}
   enemyHp: 10
   maxHp: 20
-  playerHP: {fileID: 1051202478}
 --- !u!95 &2137137911 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 7120393072143822858, guid: 2328c69ebf5d5fb4f865e7ae87750b60, type: 3}

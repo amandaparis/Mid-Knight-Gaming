@@ -12,7 +12,7 @@ public class Goblin_EN : MonoBehaviour
 
       private BoxCollider2D coll;
 
-
+    
 
     void Start()
     {
@@ -39,8 +39,19 @@ public class Goblin_EN : MonoBehaviour
         else if(enemyHp != CurrentHp)
         {
             CurrentHp = enemyHp; 
+           
         }   
 
 
     }
+
+
+
+    public int max_x; 
+    public int min_x;
+
+
+
+    
+     
 }
