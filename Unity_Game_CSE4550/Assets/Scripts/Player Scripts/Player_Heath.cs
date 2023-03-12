@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+////////////////////////////////////////////////////////////
+using UnityEngine.SceneManagement;
+//////////////////////////////////////////////////////////// 
 
 public class Player_Heath :  MonoBehaviour
 {
@@ -30,9 +33,6 @@ public class Player_Heath :  MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-
             if(health > numofhearts)
             {
                 health = numofhearts;
@@ -64,6 +64,7 @@ public class Player_Heath :  MonoBehaviour
         if(Input.GetKeyDown("y"))
         {
             player_takeDamage(1);
+            RestartLevel();
         }
     //////////////////////////////////////////*/
     }
@@ -83,12 +84,32 @@ public class Player_Heath :  MonoBehaviour
         {
             anim.SetTrigger("death");
            // player.bodyType = RigidbodyType2D.Static; 
+
             GetComponent<PlayerStateMachine>().enabled = false;
+
         }
     }
 
 
-    
+public float thrust = 5f;
+
+    //*
+    private void OnCollisionEnter2D(Collision2D collision) //Player_Attack_point
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            player_takeDamage(1);
+            //player.AddForce(transform.up * thrust);
+            player.AddForce(transform.up * thrust, ForceMode2D.Impulse);
+        }
+    }//*/
+
+
+
+    private void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 
 
    
