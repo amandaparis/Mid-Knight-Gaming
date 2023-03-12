@@ -97,4 +97,31 @@ public class Goblin_EN : MonoBehaviour
 
 
 
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+public Transform attTrans; 
+
+//public float att_range; 
+
+public float att_range_y ;// 1 
+public float att_rangex_ ;  //1
+
+
+//*///////////////////////////test the saiz of the hit box //////////////////////////////////
+ void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(attTrans.position, att_range);
+        Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
+    
+    }
+////////////////////////////////////////////////////////////////////////////////////////////*
+
+
+
+
+
+
 }
