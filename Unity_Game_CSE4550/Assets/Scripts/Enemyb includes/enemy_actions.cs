@@ -72,7 +72,6 @@ public class enemy_actions : MonoBehaviour
 
    public  void walk()
     {
-
         if(sprite_filp.flipX == false)
         {
             Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
