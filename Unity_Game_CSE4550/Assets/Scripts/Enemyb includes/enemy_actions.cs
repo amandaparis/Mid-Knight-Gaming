@@ -45,15 +45,19 @@ public class enemy_actions : MonoBehaviour
     public string checkHP(string State)
     {
         CurrentHp = enemyHp; 
+        Debug.Log(CurrentHp);
+        Debug.Log(enemyHp);
         enemyHp = GetComponent<enemy_class>().CurrentHp(); 
 
 
         if(enemyHp <= 0)
         {
+            Debug.Log("DEATH");
             State = "DEATH";  
         }
         else if(enemyHp != CurrentHp)
         {
+            Debug.Log("HURT");
             State = "HURT"; 
         }
         return State; 

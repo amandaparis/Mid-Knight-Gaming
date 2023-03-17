@@ -385,13 +385,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154600563}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: attack_box
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &154600563
 Transform:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154600562}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.131, y: -0.003, z: 7}
+  m_LocalPosition: {x: -0.34, y: -0.003, z: 7}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1053351551}
@@ -34304,7 +34304,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &839334234
 Transform:
   m_ObjectHideFlags: 0
@@ -35140,42 +35140,15 @@ GameObject:
   - component: {fileID: 1053351548}
   - component: {fileID: 1053351547}
   - component: {fileID: 1053351546}
-  - component: {fileID: 1053351545}
   - component: {fileID: 1053351552}
-  m_Layer: 0
+  - component: {fileID: 1053351553}
+  m_Layer: 6
   m_Name: Rat
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1053351545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1053351544}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ec4ec08446c7ba4fa993aecb9e0d72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Enemy: {fileID: 0}
-  sprite_filp: {fileID: 0}
-  max_x: 0
-  min_x: 0
-  W_speed: 1.5
-  transX: 0
-  transY: 0
-  attTrans: {fileID: 0}
-  att_range_y: 0
-  att_rangex_: 0
-  playerlayers:
-    serializedVersion: 2
-    m_Bits: 0
-  enemy_daamge: 1
-  current_actions: 0
+  m_IsActive: 0
 --- !u!114 &1053351546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35250,7 +35223,7 @@ Animator:
   m_GameObject: {fileID: 1053351544}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9875fccf02d200243af216803cc8769b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -35305,7 +35278,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &1053351551
 Transform:
   m_ObjectHideFlags: 0
@@ -35314,8 +35287,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053351544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.65, y: -1.56, z: -7}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalPosition: {x: -1.24, y: -1.56, z: -7}
+  m_LocalScale: {x: -1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 154600563}
   m_Father: {fileID: 0}
@@ -35336,6 +35309,36 @@ MonoBehaviour:
   anim: {fileID: 0}
   enemyHp: 20
   maxHp: 20
+--- !u!114 &1053351553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053351544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e03ca886685ec8c4785c7559a922b637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 1053351550}
+  sprite_filp: {fileID: 1053351547}
+  max_x: 1
+  min_x: -1
+  W_speed: 1.5
+  transX: -0.34
+  transY: -0.003
+  attTrans: {fileID: 154600563}
+  att_range_y: 0.66
+  att_rangex_: 1.11
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 128
+  enemy_daamge: 1
+  coll: {fileID: 0}
+  attack_delay: 10
+  stun_delay: 0.25
+  current_actions: 0
 --- !u!1 &1061658321
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Kevins_StateMachine : enemy_actions
 {
+    [HideInInspector] public BoxCollider2D coll;
+    
+    public float attack_delay;
+    public float stun_delay;
+    private float stun_time = 0; 
+    int hp;
+    int current_hp;
+
     private delegate void state();
+    public enum actions { idle, walk, jump, attack, hurt, death }
     public actions current_actions;
-    public enum actions
-    { idle, walk, jump, attack, hurt, death }
     private Dictionary<actions, state> stateDictionary = new Dictionary<actions, state>()
     {
     };
 
-    // Start is called before the first frame update
+    // *Start and updates might cause problem
     protected virtual void Start()
     {
         //FSM
@@ -27,22 +34,15 @@ public class Kevins_StateMachine : enemy_actions
 
     protected virtual void Update()
     {
-        // /* check if the current actions has changed from the previous frame, to -
-        // prevent duplicates */
-        // if (current_actions != previous_actions)
-        // {
-
-        //     Debug.Log(current_actions);
-        //     previous_actions = current_actions;
-        //     stateDictionary[current_actions].Invoke();
-        //     //Activate states via the key (current_actions)
-            
-        // }
+        actionscheckHP();
+        
+        if(current_actions != actions.hurt && current_actions != actions.idle )
+        {
+            stun_time = Time.time + stun_delay; 
+        }
 
         stateDictionary[current_actions].Invoke();
-
     }
-
 
     ///////////////////////////////////////////////////
     ////////// States
@@ -51,25 +51,28 @@ public class Kevins_StateMachine : enemy_actions
     protected virtual void idle_state()
     {
         on_idle();
-        // if (trigger_attack())
-        // {
-        //     current_actions = actions.attack;
-        // }
-        // else
-        // {
-        //     current_actions = actions.walk;
-        // }
-
+        if (stun_time <= Time.time)
+        {
+            if (trigger_attack())
+            {
+                attack_delay = Time.time + 1f / 2;
+                current_actions = actions.attack;
+            }
+            else
+            {
+                current_actions = actions.walk;
+            }
+        }
 
     }
     protected virtual void walk_state()
     {
         on_walk();
         Debug.Log("walk state");
-        
         if (trigger_attack())
         {
-             Debug.Log("trigger attack");
+            Debug.Log("trigger attack");
+            attack_delay = Time.time + 1f / 2;
             current_actions = actions.attack;
         }
     }
@@ -82,22 +85,38 @@ public class Kevins_StateMachine : enemy_actions
     {
         Debug.Log("attack state");
         on_attack();
+
+        if (attack_delay <= Time.time)
+        {
+            damage_player();
+            current_actions = actions.idle;
+
+        }
     }
     protected virtual void hurt_state()
     {
         Debug.Log("hurt state");
         on_hurt();
-        current_actions = actions.idle;
+
+        if (stun_time <= Time.time)
+        {
+            stun_time = Time.time + stun_delay;
+            current_actions = actions.idle;
+        }
     }
     protected virtual void death_state()
     {
         Debug.Log("death state");
         on_death();
+
+        coll.isTrigger = true;
+        Enemy.bodyType = RigidbodyType2D.Static;
+        coll.enabled = false;  
     }
 
 
     ///////////////////////////////////////////////////
-    ////////// On States to overide 
+    ////////// On States to override 
     ///////////////////////////////////////////////////
 
     protected virtual void on_idle()
@@ -129,23 +148,26 @@ public class Kevins_StateMachine : enemy_actions
 
     }
 
+    ///////////////////////////////////////////////////
+    ////////// Misc
+    ///////////////////////////////////////////////////
 
-    //     /* 
-    //     Constructor: constructs the class with states values
-    //         must be at the bottom because you can't initialize the dictionary with
-    //         states when first creating it, only after its created
-    //     */
-    //     public Enemy_class()
-    //     {
-    //         stateDictionary = new Dictionary<actions, state>()
-    //        {
-    //            //The states for the FSM
-    //            {actions.idle,idle_state},
-    //            {actions.walk,walk_state},
-    //            {actions.jump,jump_state},
-    //            {actions.attack,attack_state},
-    //            {actions.hurt,hurt_state},
-    //            {actions.death,death_state},
-    //        };
-    //     }
+    //Convert from strings to actions
+    public void actionscheckHP()
+    {
+        current_hp = hp;
+        hp = GetComponent<enemy_class>().CurrentHp();
+
+        switch (checkHP(""))
+        {
+            case "DEATH":
+                current_actions = actions.death;
+                break;
+            case "HURT":
+                current_actions = actions.hurt;
+                break;
+            default:
+                break;
+        }
+    }
 }
