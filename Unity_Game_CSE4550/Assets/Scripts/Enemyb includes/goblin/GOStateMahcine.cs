@@ -37,6 +37,7 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
                     if(trigger_attack())
                     {
                         ATT_delay  = Time.time + 1f/2;
+                        Debug.Log(ATT_delay);
                         CurrentState = "ATT";
                     }
                     else

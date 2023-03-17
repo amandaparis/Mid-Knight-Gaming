@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Kevins_StateMachine : enemy_actions
 {
+    [HideInInspector] public LayerMask jumpable_ground; 
     [HideInInspector] public BoxCollider2D coll;
-    
     public float attack_delay;
     public float stun_delay;
-    private float stun_time = 0; 
+    private float stun_time; 
     int hp;
     int current_hp;
 
@@ -30,18 +30,22 @@ public class Kevins_StateMachine : enemy_actions
         stateDictionary.Add(actions.attack, attack_state);
         stateDictionary.Add(actions.hurt, hurt_state);
         stateDictionary.Add(actions.death, death_state);
+
+        jumpable_ground = LayerMask.GetMask("ground");
+        coll = GetComponent<BoxCollider2D>();
     }
 
     protected virtual void Update()
     {
         actionscheckHP();
         
+        stateDictionary[current_actions].Invoke();
+        
         if(current_actions != actions.hurt && current_actions != actions.idle )
         {
             stun_time = Time.time + stun_delay; 
         }
 
-        stateDictionary[current_actions].Invoke();
     }
 
     ///////////////////////////////////////////////////
@@ -50,12 +54,12 @@ public class Kevins_StateMachine : enemy_actions
 
     protected virtual void idle_state()
     {
-        on_idle();
         if (stun_time <= Time.time)
         {
+            on_idle();
             if (trigger_attack())
             {
-                attack_delay = Time.time + 1f / 2;
+                attack_delay = Time.time + 1f/2;
                 current_actions = actions.attack;
             }
             else
@@ -68,34 +72,32 @@ public class Kevins_StateMachine : enemy_actions
     protected virtual void walk_state()
     {
         on_walk();
-        Debug.Log("walk state");
         if (trigger_attack())
         {
             Debug.Log("trigger attack");
-            attack_delay = Time.time + 1f / 2;
+            attack_delay = Time.time + 1f/2;
             current_actions = actions.attack;
         }
     }
     protected virtual void jump_state()
     {
-        Debug.Log("jump state");
-        on_jump();
+        if (is_ground())
+        {
+            on_jump();
+            current_actions = actions.idle; 
+        }
     }
     protected virtual void attack_state()
     {
-        Debug.Log("attack state");
         on_attack();
-
         if (attack_delay <= Time.time)
         {
             damage_player();
             current_actions = actions.idle;
-
         }
     }
     protected virtual void hurt_state()
     {
-        Debug.Log("hurt state");
         on_hurt();
 
         if (stun_time <= Time.time)
@@ -106,14 +108,8 @@ public class Kevins_StateMachine : enemy_actions
     }
     protected virtual void death_state()
     {
-        Debug.Log("death state");
         on_death();
-
-        coll.isTrigger = true;
-        Enemy.bodyType = RigidbodyType2D.Static;
-        coll.enabled = false;  
     }
-
 
     ///////////////////////////////////////////////////
     ////////// On States to override 
@@ -153,7 +149,7 @@ public class Kevins_StateMachine : enemy_actions
     ///////////////////////////////////////////////////
 
     //Convert from strings to actions
-    public void actionscheckHP()
+    private void actionscheckHP()
     {
         current_hp = hp;
         hp = GetComponent<enemy_class>().CurrentHp();
@@ -169,5 +165,10 @@ public class Kevins_StateMachine : enemy_actions
             default:
                 break;
         }
+    }
+
+    private bool is_ground()
+    {
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground);
     }
 }

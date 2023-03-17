@@ -21,13 +21,13 @@ public class enemy_class : MonoBehaviour
     public void Enemy_take_damage(int damage)
     {
             enemyHp = enemyHp - damage;
-            // anim.SetTrigger("hurt");
-            Debug.Log("Enemy HP : " + damage);
+            anim.SetTrigger("hurt");
+            //Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
             {
-            // anim.SetTrigger("death");
-            Debug.Log("Enemy Death");
+            anim.SetTrigger("death");
+            //Debug.Log("Enemy Death");
             }
 
     }

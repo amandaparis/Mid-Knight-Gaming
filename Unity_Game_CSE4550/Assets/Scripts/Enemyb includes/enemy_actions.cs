@@ -45,8 +45,8 @@ public class enemy_actions : MonoBehaviour
     public string checkHP(string State)
     {
         CurrentHp = enemyHp; 
-        Debug.Log(CurrentHp);
-        Debug.Log(enemyHp);
+        // Debug.Log(CurrentHp);
+        // Debug.Log(enemyHp);
         enemyHp = GetComponent<enemy_class>().CurrentHp(); 
 
 
