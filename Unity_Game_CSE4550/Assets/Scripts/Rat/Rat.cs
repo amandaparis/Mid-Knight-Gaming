@@ -13,6 +13,7 @@ public class Rat : Kevins_StateMachine
         base.Start();
         current_actions = actions.walk;
         anim = GetComponent<Animator>();
+        
 
     }
 
@@ -20,6 +21,7 @@ public class Rat : Kevins_StateMachine
     void Update()
     {
         base.Update();
+        attack_delay = 2;
     }
 
     ///////////////////////////////////////////////////
@@ -38,9 +40,8 @@ public class Rat : Kevins_StateMachine
                 current_actions = actions.jump;
             }
             else
-            {
+            {   //Damage player function is activated by itself as a keyframe on "Death" animation
                 on_attack();
-                damage_player();
                 current_actions = actions.idle;
             }
         }
@@ -91,7 +92,6 @@ public class Rat : Kevins_StateMachine
              break;
         }
     }
-
     protected override void on_death()
     {;
         Enemy.bodyType = RigidbodyType2D.Static;

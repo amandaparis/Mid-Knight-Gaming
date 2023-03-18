@@ -15,6 +15,7 @@ public class Kevins_StateMachine : enemy_actions
     private delegate void state();
     public enum actions { idle, walk, jump, attack, hurt, death }
     public actions current_actions;
+    public actions previous_actions;
     private Dictionary<actions, state> stateDictionary = new Dictionary<actions, state>()
     {
     };
@@ -34,18 +35,16 @@ public class Kevins_StateMachine : enemy_actions
         jumpable_ground = LayerMask.GetMask("ground");
         coll = GetComponent<BoxCollider2D>();
     }
-
     protected virtual void Update()
     {
         actionscheckHP();
         
         stateDictionary[current_actions].Invoke();
-        
-        if(current_actions != actions.hurt && current_actions != actions.idle )
-        {
-            stun_time = Time.time + stun_delay; 
-        }
 
+        if (current_actions != actions.hurt && current_actions != actions.idle)
+        {
+            stun_time = Time.time + stun_delay;
+        }
     }
 
     ///////////////////////////////////////////////////
@@ -74,7 +73,6 @@ public class Kevins_StateMachine : enemy_actions
         on_walk();
         if (trigger_attack())
         {
-            Debug.Log("trigger attack");
             attack_delay = Time.time + 1f/2;
             current_actions = actions.attack;
         }
