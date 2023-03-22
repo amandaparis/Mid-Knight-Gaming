@@ -13,7 +13,7 @@ public class Rat : Kevins_StateMachine
         base.Start();
         current_actions = actions.walk;
         anim = GetComponent<Animator>();
-        
+
 
     }
 
@@ -22,6 +22,7 @@ public class Rat : Kevins_StateMachine
     {
         base.Update();
         attack_delay = 2;
+
     }
 
     ///////////////////////////////////////////////////
@@ -35,6 +36,7 @@ public class Rat : Kevins_StateMachine
         if (attack_delay <= Time.time)
         {
             random_number = Random.Range(1, 3);
+
             if (random_number == 2)
             {
                 current_actions = actions.jump;
@@ -83,20 +85,31 @@ public class Rat : Kevins_StateMachine
         {
             case true:
                 Enemy.velocity = new Vector2(Enemy.velocity.x - 1.5f, 3f);
-            break;
+                break;
             case false:
                 Enemy.velocity = new Vector2(Enemy.velocity.x + 1.5f, 3f);
-            break;
+                break;
             default:
-                Enemy.velocity = new Vector2(Enemy.velocity.x,Enemy.velocity.y);
-             break;
+                Enemy.velocity = new Vector2(Enemy.velocity.x, Enemy.velocity.y);
+                break;
         }
     }
     protected override void on_death()
-    {;
-        Enemy.bodyType = RigidbodyType2D.Static;
-        coll.isTrigger = true;
-        coll.enabled = false;
+    {
+
+        //Create an infinitely long ray where the player is and check if it hits ground layermask
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, ground);
+
+        //If the ray the ray hits
+        if ((hit.collider != null))
+        {
+            transform.position = new Vector3(transform.position.x, hit.point.y + 0.20f, transform.position.z);
+
+            Enemy.bodyType = RigidbodyType2D.Static;
+            coll.isTrigger = true;
+            coll.enabled = false;
+        }
+
     }
 
 

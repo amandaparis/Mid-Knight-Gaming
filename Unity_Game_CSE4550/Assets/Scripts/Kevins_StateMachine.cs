@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Kevins_StateMachine : enemy_actions
 {
-    [HideInInspector] public LayerMask jumpable_ground; 
+    [HideInInspector] public LayerMask ground; 
     [HideInInspector] public BoxCollider2D coll;
     public float attack_delay;
     public float stun_delay;
@@ -15,7 +15,6 @@ public class Kevins_StateMachine : enemy_actions
     private delegate void state();
     public enum actions { idle, walk, jump, attack, hurt, death }
     public actions current_actions;
-    public actions previous_actions;
     private Dictionary<actions, state> stateDictionary = new Dictionary<actions, state>()
     {
     };
@@ -32,7 +31,7 @@ public class Kevins_StateMachine : enemy_actions
         stateDictionary.Add(actions.hurt, hurt_state);
         stateDictionary.Add(actions.death, death_state);
 
-        jumpable_ground = LayerMask.GetMask("ground");
+        ground = LayerMask.GetMask("ground");
         coll = GetComponent<BoxCollider2D>();
     }
     protected virtual void Update()
@@ -167,6 +166,6 @@ public class Kevins_StateMachine : enemy_actions
 
     private bool is_ground()
     {
-        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, jumpable_ground);
+        return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, ground);
     }
 }
