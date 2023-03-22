@@ -40,7 +40,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     {
                         CurrentState = "FALLING";
                     }
-                    else if(Input.GetButton("Jump") )  
+                    else if(Input.GetButtonDown("Jump") )  
                     {
                         jumping();
                         anim.SetInteger("state", 2 );
