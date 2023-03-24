@@ -116,6 +116,7 @@ public bool  trigger_attack()
         Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
             if(hitplayer.Length > 0)
             {
+                Debug.Log("True");
                 return true; 
             }
             else

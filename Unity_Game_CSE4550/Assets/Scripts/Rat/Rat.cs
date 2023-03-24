@@ -103,7 +103,7 @@ public class Rat : Kevins_StateMachine
         //If the ray the ray hits
         if ((hit.collider != null))
         {
-            transform.position = new Vector3(transform.position.x, hit.point.y + 0.20f, transform.position.z);
+            transform.position = new Vector3(transform.position.x, hit.point.y + 0.30f, transform.position.z);
 
             Enemy.bodyType = RigidbodyType2D.Static;
             coll.isTrigger = true;
