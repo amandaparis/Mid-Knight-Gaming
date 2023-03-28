@@ -16,7 +16,9 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     float SLIDE_delay = 0f ; 
     float slide_an_delay = 0f;
    /////////////////////////////////////////////////////////////////////////
-     
+     float HIT_delay = 0f; 
+    ////////////////////////////////////////////////////////////////////////
+
     void Start()
     {
         CurrentState = "IDE";
@@ -34,8 +36,6 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
         switch(CurrentState)            
         {
 
-
-            
                 case "IDE": // IDE STATEs // 0
                 ////////////////////////////////////////////////////////
                     anim.SetInteger("state", 0 ); 
@@ -300,6 +300,25 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     else 
                     {
                         SLIDE_delay = Time.time +1f/slide_rate; 
+                        CurrentState ="DUCK_IDE";
+                    }   
+                }
+                break;
+                ///////////////////////////////////////////////////////
+                case "HURT":
+                ///////////////////////////////////////////////////////
+                if((HIT_delay <= Time.time))
+                {
+                    if(player.velocity.y < -.1f)
+                    {
+                        SLIDE_delay = Time.time +1f/slide_rate; 
+                        head_hit_box.enabled = true; 
+                        CurrentState = "FALLING";
+                    }
+                    else 
+                    {
+                        SLIDE_delay = Time.time +1f/slide_rate;
+                        head_hit_box.enabled = false;  
                         CurrentState ="DUCK_IDE";
                     }   
                 }
