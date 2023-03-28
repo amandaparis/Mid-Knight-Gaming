@@ -33,6 +33,9 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
         
         switch(CurrentState)            
         {
+
+
+            
                 case "IDE": // IDE STATEs // 0
                 ////////////////////////////////////////////////////////
                     anim.SetInteger("state", 0 ); 

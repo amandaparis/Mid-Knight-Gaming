@@ -54,7 +54,7 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
                 }
                 else if(Enemy.position.x < min_x)
                 {
-                    sprite_filp.flipX = false;
+                    sprite_filp.flipX = false;    
                 }
                 walk(); 
 

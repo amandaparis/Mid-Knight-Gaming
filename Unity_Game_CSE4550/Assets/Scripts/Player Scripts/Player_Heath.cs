@@ -10,7 +10,7 @@ public class Player_Heath :  MonoBehaviour
 {
 
     private Animator anim;
-    private  Rigidbody2D player; 
+    private Rigidbody2D player; 
 
     public int health;
     public int numofhearts;  
@@ -78,7 +78,6 @@ public class Player_Heath :  MonoBehaviour
         if(health > 0 )
         {
             anim.SetTrigger("hurt");
-            
         }
         else // death
         {
