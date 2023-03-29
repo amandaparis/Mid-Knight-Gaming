@@ -71,6 +71,12 @@ public class Player_Heath :  MonoBehaviour
 
 
 
+    public int CurrentHp()
+    {
+        return health; 
+    }
+
+
 
     public void player_takeDamage(int E_damage )
     {
@@ -90,7 +96,7 @@ public class Player_Heath :  MonoBehaviour
     }
 
 
-public float thrust = 5f;
+public float thrust = 7f;
 
     //*
     private void OnCollisionEnter2D(Collision2D collision) //Player_Attack_point

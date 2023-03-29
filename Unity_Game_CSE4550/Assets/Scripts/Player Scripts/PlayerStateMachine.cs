@@ -17,12 +17,14 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     float slide_an_delay = 0f;
    /////////////////////////////////////////////////////////////////////////
      float HIT_delay = 0f; 
+    int HP_of_player; 
     ////////////////////////////////////////////////////////////////////////
 
     void Start()
     {
         CurrentState = "IDE";
         anim = GetComponent<Animator>();
+        HP_of_player = GetComponent<Player_Heath>().CurrentHp();
     }
 
     // Update is called once per frame
@@ -30,12 +32,22 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack   slide |  Special STATES:  hurt  Death 
     //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10       11   |                    12     13    
 
+
+
     void Update()
     {
+
+        if(HP_of_player != GetComponent<Player_Heath>().CurrentHp())
+        {
+            HP_of_player = GetComponent<Player_Heath>().CurrentHp();
+            HIT_delay = Time.time +1f/2; 
+            CurrentState = "HURT";
+        }
         
+
+
         switch(CurrentState)            
         {
-
                 case "IDE": // IDE STATEs // 0
                 ////////////////////////////////////////////////////////
                     anim.SetInteger("state", 0 ); 
