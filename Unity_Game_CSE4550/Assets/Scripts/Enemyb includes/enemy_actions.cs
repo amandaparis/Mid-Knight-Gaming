@@ -75,18 +75,23 @@ public class enemy_actions : MonoBehaviour
 
  
 
+ public float KnockBack_force = 0f; 
+
+    float  pushback_force; 
+
    public  void walk()
     {
         if(sprite_filp.flipX == false)
         {
             Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
             attTrans.transform.localPosition = new Vector3(transX,transY,0);
-            
+            pushback_force = KnockBack_force; 
         }
         else 
         {
              Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
              attTrans.transform.localPosition = new Vector3(-transX,transY,0);
+             pushback_force = -KnockBack_force; 
             
         }
     }
@@ -139,6 +144,8 @@ public int enemy_daamge = 1 ;
 
 
 
+public Rigidbody2D player_RB;
+
 public void damage_player()
 {
     Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
@@ -146,7 +153,7 @@ public void damage_player()
            if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
             {
                 hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(enemy_daamge);
-
+                player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
             }
 }
 
