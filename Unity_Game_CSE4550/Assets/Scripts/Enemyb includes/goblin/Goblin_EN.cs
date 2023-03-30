@@ -66,6 +66,11 @@ public class Goblin_EN : MonoBehaviour
 
     public float W_speed = 1.5f; 
 
+    public float KnockBack_force = 7f; 
+
+    float  pushback_force; 
+
+
    public  void walk()
     {
 
@@ -73,11 +78,13 @@ public class Goblin_EN : MonoBehaviour
         {
             Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
             attTrans.transform.localPosition = new Vector3(0.25f,-0.11f,0);
+            pushback_force = KnockBack_force; 
         }
         else 
         {
              Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
              attTrans.transform.localPosition = new Vector3(-0.25f,-0.11f,0);
+             pushback_force = -KnockBack_force; 
         }
     }
 
@@ -126,6 +133,8 @@ public bool  trigger_attack()
 
 
 
+public Rigidbody2D player_RB;
+
 public void damage_player()
 {
     Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
@@ -133,6 +142,8 @@ public void damage_player()
            if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
             {
                 hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(1);
+
+                 player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
             }
 }
 

@@ -16,11 +16,15 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     float SLIDE_delay = 0f ; 
     float slide_an_delay = 0f;
    /////////////////////////////////////////////////////////////////////////
-     
+     float HIT_delay = 0f; 
+    int HP_of_player; 
+    ////////////////////////////////////////////////////////////////////////
+
     void Start()
     {
         CurrentState = "IDE";
         anim = GetComponent<Animator>();
+        HP_of_player = GetComponent<Player_Heath>().CurrentHp();
     }
 
     // Update is called once per frame
@@ -28,9 +32,20 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     ///STATES: IDE RUN JUMP  2ndJUMP  FALLING  crouching crouchwalking  attck#1 attck#2 attck#3 Airattack   slide |  Special STATES:  hurt  Death 
     //ACTIONS:  0   1   2       3        4         5           6           7       8      9         10       11   |                    12     13    
 
+
+
     void Update()
     {
+
+        if(HP_of_player != GetComponent<Player_Heath>().CurrentHp())
+        {
+            HP_of_player = GetComponent<Player_Heath>().CurrentHp();
+            HIT_delay = Time.time +1f/2; 
+            CurrentState = "HURT";
+        }
         
+
+
         switch(CurrentState)            
         {
                 case "IDE": // IDE STATEs // 0
@@ -40,7 +55,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     {
                         CurrentState = "FALLING";
                     }
-                    else if(Input.GetButtonDown("Jump") )  
+                    else if(Input.GetButton("Jump") )  
                     {
                         jumping();
                         anim.SetInteger("state", 2 );
@@ -138,7 +153,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 //////////////////////////////////////////////////////
                        running(); 
                        anim.SetInteger("state", 4 );     
-                        if(Input.GetButtonDown("Jump"))
+                        if(Input.GetButton("Jump"))
                         {
                           jumping();
                           CurrentState = "2ndJMP";
@@ -297,6 +312,25 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     else 
                     {
                         SLIDE_delay = Time.time +1f/slide_rate; 
+                        CurrentState ="DUCK_IDE";
+                    }   
+                }
+                break;
+                ///////////////////////////////////////////////////////
+                case "HURT":
+                ///////////////////////////////////////////////////////
+                if((HIT_delay <= Time.time))
+                {
+                    if(player.velocity.y < -.1f)
+                    {
+                        SLIDE_delay = Time.time +1f/slide_rate; 
+                        head_hit_box.enabled = true; 
+                        CurrentState = "FALLING";
+                    }
+                    else 
+                    {
+                        SLIDE_delay = Time.time +1f/slide_rate;
+                        head_hit_box.enabled = false;  
                         CurrentState ="DUCK_IDE";
                     }   
                 }

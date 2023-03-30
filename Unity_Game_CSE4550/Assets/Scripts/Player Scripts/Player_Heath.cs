@@ -10,7 +10,7 @@ public class Player_Heath :  MonoBehaviour
 {
 
     private Animator anim;
-    private  Rigidbody2D player; 
+    private Rigidbody2D player; 
 
     public int health;
     public int numofhearts;  
@@ -71,6 +71,12 @@ public class Player_Heath :  MonoBehaviour
 
 
 
+    public int CurrentHp()
+    {
+        return health; 
+    }
+
+
 
     public void player_takeDamage(int E_damage )
     {
@@ -78,7 +84,6 @@ public class Player_Heath :  MonoBehaviour
         if(health > 0 )
         {
             anim.SetTrigger("hurt");
-            
         }
         else // death
         {
@@ -91,7 +96,7 @@ public class Player_Heath :  MonoBehaviour
     }
 
 
-public float thrust = 5f;
+public float thrust = 7f;
 
     //*
     private void OnCollisionEnter2D(Collision2D collision) //Player_Attack_point
