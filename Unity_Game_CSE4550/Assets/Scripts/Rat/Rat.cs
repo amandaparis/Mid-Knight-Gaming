@@ -6,6 +6,8 @@ public class Rat : Kevins_StateMachine
 {
     private Animator anim;
     float random_number;
+    [SerializeField] private AudioSource deathSoundEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +25,10 @@ public class Rat : Kevins_StateMachine
         base.Update();
         attack_delay = 2;
 
+        if (current_actions == actions.hurt)
+        {
+            deathSoundEffect.Play();
+        }
     }
 
     ///////////////////////////////////////////////////

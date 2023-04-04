@@ -8,9 +8,8 @@ public class PlayerActions : MonoBehaviour
         public /*private*/ SpriteRenderer sprite_filp; 
         public /*private/  CircleCollider2D */ BoxCollider2D head_hit_box;
         public /*private*/  BoxCollider2D coll; 
-
-      [SerializeField] private LayerMask jumpable_ground; 
-
+        
+      [SerializeField] private LayerMask jumpable_ground;
 
     
         void Start()

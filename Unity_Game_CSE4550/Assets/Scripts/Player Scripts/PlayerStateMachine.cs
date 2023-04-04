@@ -15,8 +15,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
    float slide_rate = 1f; 
     float SLIDE_delay = 0f ; 
     float slide_an_delay = 0f;
-   /////////////////////////////////////////////////////////////////////////
-     
+    /////////////////////////////////////////////////////////////////////////
+    [SerializeField] private AudioSource attackSoundEffect;
     void Start()
     {
         CurrentState = "IDE";
@@ -30,7 +30,10 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
 
     void Update()
     {
-        
+        if (CurrentState == "ATT_1" || CurrentState == "ATT_2" || CurrentState == "ATT_3" || CurrentState == "ATT_AIR" )
+        {
+            attackSoundEffect.Play();
+        }
         switch(CurrentState)            
         {
                 case "IDE": // IDE STATEs // 0

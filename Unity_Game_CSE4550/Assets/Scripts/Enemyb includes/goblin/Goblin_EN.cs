@@ -10,7 +10,6 @@ public class Goblin_EN : MonoBehaviour
     int CurrentHp; 
     private BoxCollider2D coll;
     public SpriteRenderer sprite_filp;
-    
 
     void Start()
     {
@@ -50,7 +49,7 @@ public class Goblin_EN : MonoBehaviour
 
         if(enemyHp <= 0)
         {
-            State = "DEATH";  
+            State = "DEATH";
         }
         else if(enemyHp != CurrentHp)
         {

@@ -8,7 +8,9 @@ public /*private*/ Animator anim;
 
     float ATT_delay = 0f; 
     float STUN_delay = 1f; 
-    public string CurrentState ; 
+    public string CurrentState ;
+
+    [SerializeField] private AudioSource deathSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +28,12 @@ public /*private*/ Animator anim;
 
         if(CurrentState != "HURT" && CurrentState != "IDE" )
             stun_time = Time.time + STUN_delay; 
-
+/*
+        if(CurrentState == "HURT")
+        {
+            deathSoundEffect.Play();
+        }
+*/
         switch(CurrentState) 
         {
             case "IDE": // IDE STATEs // 0
@@ -77,9 +84,10 @@ public /*private*/ Animator anim;
                 break; 
             ///////////////////////////////////////////////////////
              case "HURT": // Hurt STATE // 3 
-            /////////////////////////////////////////////////////// 
-                //enemy_stop();
-                if(stun_time <= Time.time )
+                          /////////////////////////////////////////////////////// 
+                          //enemy_stop();
+                deathSoundEffect.Play();
+                if (stun_time <= Time.time )
                 {
                      stun_time = Time.time + STUN_delay; 
                     CurrentState = "IDE"; 

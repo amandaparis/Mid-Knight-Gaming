@@ -8,7 +8,9 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
 
     float ATT_delay = 0f; 
     float STUN_delay = 1f; 
-    public string CurrentState ; 
+    public string CurrentState ;
+
+    [SerializeField] private AudioSource deathSoundEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +24,11 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (CurrentState == "HURT")
+        {
+            deathSoundEffect.Play();
+        }
+
         CurrentState = checkHP(CurrentState); 
 
         if(CurrentState != "HURT" && CurrentState != "IDE" )
