@@ -6,7 +6,6 @@ public class Rat : Kevins_StateMachine
 {
     private Animator anim;
     float random_number;
-    private bool hasPlayedDeathSound = false;
     [SerializeField] private AudioSource deathSoundEffect;
 
     // Start is called before the first frame update
@@ -26,10 +25,10 @@ public class Rat : Kevins_StateMachine
         base.Update();
         attack_delay = 2;
 
-        // if (current_actions == actions.hurt)
-        // {
-        //     deathSoundEffect.Play();
-        // }
+        if (current_actions == actions.hurt)
+        {
+            deathSoundEffect.Play();
+        }
     }
 
     ///////////////////////////////////////////////////
@@ -101,20 +100,8 @@ public class Rat : Kevins_StateMachine
                 break;
         }
     }
-
-    protected override void on_hurt()
-    {
-        deathSoundEffect.Play();
-    }
-
     protected override void on_death()
     {
-
-        if (!hasPlayedDeathSound)
-        {
-            deathSoundEffect.Play();
-            hasPlayedDeathSound = true;
-        }
 
         //Create an infinitely long ray where the player is and check if it hits ground layermask
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, Mathf.Infinity, ground);
