@@ -27,7 +27,7 @@ public class enemy_class : MonoBehaviour
             if (enemyHp <= 0)
             {
             anim.SetTrigger("death");
-            //Debug.Log("Enemy Death");
+            // Debug.Log("Enemy Death");
             }
 
     }

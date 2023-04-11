@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Chest : Kevins_StateMachine
+public class Chest : Chest_StateMachine
 {
     private Animator anim;
     float random_number;
     private SpriteRenderer spriteRenderer;
-    public float speed; // adjust this to control the speed of the enemy
+    public float speed = 1.5f; // adjust this to control the speed of the enemy
     private Transform player; // reference to the player's transform
     private Vector3 newPosition;
 
@@ -16,7 +16,7 @@ public class Chest : Kevins_StateMachine
     {
 
         base.Start();
-        current_actions = actions.walk;
+        current_actions = actions.idle;
 
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -48,19 +48,26 @@ public class Chest : Kevins_StateMachine
    ///////////////////////////////////////////////////
    ////////// Function - Overrides
    ///////////////////////////////////////////////////
-    protected override void on_walk()
+    protected override void on_follow()
     {
         if (transform.position.x >= player.position.x)
         {
-            spriteRenderer.flipX = true;
+            spriteRenderer.flipX = false;
         }
         else if (transform.position.x <= player.position.x)
         {
-            spriteRenderer.flipX = false;
+            spriteRenderer.flipX = true;
         }
-        anim.SetInteger("state", (int)actions.walk);
+        anim.SetInteger("state", (int)actions.follow);
         FollowPlayer();
     }
+
+    protected override void on_attack()
+    {
+        anim.SetInteger("state", (int)actions.attack);
+    }
+
+    
 
 
     /////////////////////////////////////////////////
