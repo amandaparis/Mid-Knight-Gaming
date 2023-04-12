@@ -22,12 +22,12 @@ public class enemy_class : MonoBehaviour
     {
             enemyHp = enemyHp - damage;
             anim.SetTrigger("hurt");
-            //Debug.Log("Enemy HP : " + damage);
+            Debug.Log("Enemy HP : " + damage);
         
             if (enemyHp <= 0)
             {
             anim.SetTrigger("death");
-            // Debug.Log("Enemy Death");
+            Debug.Log("Enemy Death");
             }
 
     }

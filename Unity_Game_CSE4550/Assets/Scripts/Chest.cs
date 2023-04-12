@@ -67,7 +67,12 @@ public class Chest : Chest_StateMachine
         anim.SetInteger("state", (int)actions.attack);
     }
 
-    
+    protected override void on_death()
+    {
+            Enemy.bodyType = RigidbodyType2D.Static;
+            coll.isTrigger = true;
+            coll.enabled = false;
+    }
 
 
     /////////////////////////////////////////////////
