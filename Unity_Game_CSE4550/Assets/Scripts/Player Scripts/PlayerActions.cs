@@ -57,9 +57,8 @@ public void attack()
             //foreach(Collider2D en in hitenemies)
             for(int i = 0; i < hitenemies.Length; i++)
             {
-              Debug.Log("damage enemy");
+                Debug.Log("damage enemy");
                 hitenemies[i].GetComponent<enemy_class>().Enemy_take_damage(attack_damage);
-                //en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
     }
 
