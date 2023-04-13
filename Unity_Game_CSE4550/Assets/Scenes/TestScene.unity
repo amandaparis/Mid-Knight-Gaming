@@ -8603,7 +8603,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3934287998148723921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 14c0a772eedc83d4dbe309f3e6210913, type: 3}
   m_Name: 
@@ -8628,7 +8628,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   coll: {fileID: 0}
-  attack_delay: 0
+  attack_delay: 1
   stun_delay: 0.5
   current_actions: 0
   speed: 2.5

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walk
+  m_Name: Chest_Hurt
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,13 +20,7 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: -3200557929378372432, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - time: 0.041666668
-      value: {fileID: -2388398115580433784, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - time: 0.083333336
-      value: {fileID: -7381099762820785744, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - time: 0.125
-      value: {fileID: -5396011869953829888, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
+      value: {fileID: -4498405863634782596, guid: 3ce3856e637ba2c439513f41148c6c4e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,16 +40,13 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: -3200557929378372432, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - {fileID: -2388398115580433784, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - {fileID: -7381099762820785744, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
-    - {fileID: -5396011869953829888, guid: 1143fc0a02cde134c861958ed6da4482, type: 3}
+    - {fileID: -4498405863634782596, guid: 3ce3856e637ba2c439513f41148c6c4e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.16666667
+    m_StopTime: 0.041666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
