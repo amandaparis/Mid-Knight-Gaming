@@ -41,7 +41,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     }
                 }
                 break;
-            case "awaking"
+            case "awaking":
                 {
                      anim.SetInteger("state", 1);
                      if(awakening_delay =< Time.time )
