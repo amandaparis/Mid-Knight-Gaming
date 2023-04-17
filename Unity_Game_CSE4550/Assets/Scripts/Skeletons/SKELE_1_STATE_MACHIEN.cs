@@ -36,7 +36,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     anim.SetInteger("state", 0 ); 
                     if(skel_awake())
                     {
-                        awakening_delay = Time.time + 1;    
+                        awakening_delay = Time.time + 1/2;    
                         CurrentState = "awaking"; 
                     }
                 }
@@ -44,7 +44,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
             case "awaking":
                 {
                      anim.SetInteger("state", 1);
-                     if(awakening_delay =< Time.time )
+                     if(awakening_delay <= Time.time )
                      {
                         CurrentState = "IDE";
                      }
