@@ -9,6 +9,8 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     string CurrentState ;
 
     public bool awaking = true;   
+    float awakening_delay = 0f; 
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,8 +36,13 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     anim.SetInteger("state", 0 ); 
                     if(skel_awake())
                     {
+                        awakening_delay = Time.time + 1;    
                         CurrentState = "IDE"; 
+
+                        while(awakening_delay > Time.time )
+                        {
                          anim.SetInteger("state", 1); 
+                        }
                     }
                 }
                 break;
