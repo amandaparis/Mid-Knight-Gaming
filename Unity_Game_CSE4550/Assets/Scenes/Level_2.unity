@@ -1919,6 +1919,7 @@ GameObject:
   - component: {fileID: 1412996185}
   - component: {fileID: 1412996186}
   - component: {fileID: 1412996187}
+  - component: {fileID: 1412996188}
   m_Layer: 6
   m_Name: SKELE_base
   m_TagString: Enemy
@@ -2050,7 +2051,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb43ffa01897a54db264e36cf79d14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
+  anim: {fileID: 1412996188}
   enemyHp: 10
   maxHp: 10
 --- !u!114 &1412996186
@@ -2079,6 +2080,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a4dfe8e68da5094e9a5c4016acef5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Enemy: {fileID: 1412996181}
+  sprite_filp: {fileID: 1412996182}
+  anim: {fileID: 1412996188}
+  awaking: 1
+--- !u!95 &1412996188
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1412996180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c4b6f7c0f488aa945bec60c431ba3701, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1557102964
 GameObject:
   m_ObjectHideFlags: 0

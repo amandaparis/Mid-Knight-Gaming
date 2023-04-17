@@ -14,11 +14,39 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     void Start()
     {
         anim = GetComponent<Animator>();
+        if(awaking)
+        {
+            CurrentState = "base";  
+        }
+        else
+        {
+            CurrentState = "IDE"; 
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        switch(CurrentState) 
+        {
+            case "base":
+                {
+                    anim.SetInteger("state", 0 ); 
+                    if(skel_awake())
+                    {
+                        CurrentState = "IDE"; 
+                         anim.SetInteger("state", 1); 
+                    }
+                }
+                break;
+            case "IDE":
+                {
+                    anim.SetInteger("state", 2); 
+                }
+                break;
+            default:
+                Debug.Log("Unknown Action"); 
+                break;
+        }
     }
 }

@@ -27,7 +27,7 @@ public class basic_skele_class : MonoBehaviour
         if(enemyHp <= 0)
         {
             coll.isTrigger = true; 
-            Enemy.bodyType = RigidbodyType2D.Static;
+            //Enemy.bodyType = RigidbodyType2D.Static;
             coll.enabled = false;  
         }
         else if(enemyHp != CurrentHp)
@@ -35,4 +35,36 @@ public class basic_skele_class : MonoBehaviour
             CurrentHp = enemyHp;  
         }  
     }
+
+    public LayerMask playerlayers; 
+
+
+    public Transform viewTrans; 
+    public float v_range_y ;  //1 
+    public float v_range_x ;  //1
+
+
+//*///////////////////////////test the saiz of the hit box //////////////////////////////////
+ void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(viewTrans.position, new Vector3(v_range_x, v_range_y,1));
+    
+    }
+
+
+    public bool skel_awake()
+    {
+            Debug.Log("skeleton will awaken ");
+        Collider2D[] hitplayer = Physics2D.OverlapBoxAll(viewTrans.position, new Vector2(v_range_x, v_range_y),0, playerlayers );         
+        
+        if(hitplayer.Length > 0)
+            return true; 
+        else
+            return false; 
+    }
+
+
+
+
 }

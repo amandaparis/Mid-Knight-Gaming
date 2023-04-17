@@ -127,7 +127,6 @@ public LayerMask playerlayers;
 
 public bool  trigger_attack() 
     {      
-        Debug.Log("checking if bool read");
         Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, playerlayers );         
             if(hitplayer.Length > 0)
             {
