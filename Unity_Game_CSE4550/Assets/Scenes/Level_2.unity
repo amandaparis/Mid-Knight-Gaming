@@ -2893,8 +2893,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 1412996188}
-  enemyHp: 10
-  maxHp: 10
+  enemyHp: 50
+  maxHp: 50
 --- !u!114 &1412996186
 MonoBehaviour:
   m_ObjectHideFlags: 0
