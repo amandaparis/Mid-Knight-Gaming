@@ -74,6 +74,11 @@ public class Chest : Chest_StateMachine
             coll.enabled = false;
     }
 
+    protected override void on_stun()
+    {
+        anim.SetInteger("state", (int)actions.idle);
+    }
+
 
     /////////////////////////////////////////////////
     //////// Misc
