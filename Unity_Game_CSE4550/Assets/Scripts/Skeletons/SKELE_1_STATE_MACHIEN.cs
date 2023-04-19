@@ -12,6 +12,8 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     float awakening_delay = 0f; 
 
 
+    float STUN_delay = 1f; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,9 +31,19 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     // Update is called once per frame
     void Update()
     {
+
+          CurrentState = checkHP(CurrentState); 
+
+        if(CurrentState != "HURT" && CurrentState != "IDE" )
+            stun_time = Time.time + STUN_delay; 
+
+
+
         switch(CurrentState) 
         {
+            /////////////////////////////////////////////////
             case "base":
+            //////////////////////////////////////////////////
                 {
                     anim.SetInteger("state", 0 ); 
                     if(skel_awake())
@@ -41,7 +53,9 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     }
                 }
                 break;
+            /////////////////////////////////////////////////////
             case "awaking":
+            /////////////////////////////////////////////////////
                 {
                      anim.SetInteger("state", 1);
                      if(awakening_delay <= Time.time )
@@ -50,11 +64,14 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                      }
                 }
                 break;
+            ///////////////////////////////////////////////////////
             case "IDE":
+            ///////////////////////////////////////////////////////
                 {
                     anim.SetInteger("state", 2); 
                 }
                 break;
+            ///////////////////////////////////////////////////////
             default:
                 Debug.Log("Unknown Action"); 
                 break;
