@@ -13,7 +13,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
 
 
     float STUN_delay = 1f; 
-
+    float stun_time =0; 
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +72,15 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                 }
                 break;
             ///////////////////////////////////////////////////////
+             case "HURT": // Hurt STATE // 3 
+            /////////////////////////////////////////////////////// 
+                //enemy_stop();
+                if(stun_time <= Time.time )
+                {
+                     stun_time = Time.time + STUN_delay; 
+                    CurrentState = "IDE"; 
+                }
+                break; 
             default:
                 Debug.Log("Unknown Action"); 
                 break;
