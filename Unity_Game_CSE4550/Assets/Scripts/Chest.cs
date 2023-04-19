@@ -10,6 +10,7 @@ public class Chest : Chest_StateMachine
     public float speed = 1.5f; // adjust this to control the speed of the enemy
     private Transform player; // reference to the player's transform
     private Vector3 newPosition;
+    private Transform newPosition_enemy; //TODO: Change name to something different because it might get confusing
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Chest : Chest_StateMachine
         spriteRenderer = GetComponent<SpriteRenderer>();
         // Find the player game object and get its transform
         player = GameObject.FindWithTag("Player").transform;
+        newPosition_enemy = GameObject.Find("Orginal_Position").transform;
 
 
     }
@@ -45,11 +47,17 @@ public class Chest : Chest_StateMachine
     ////////// On States to override 
     ///////////////////////////////////////////////////
 
-   ///////////////////////////////////////////////////
-   ////////// Function - Overrides
-   ///////////////////////////////////////////////////
+    ///////////////////////////////////////////////////
+    ////////// Function - Overrides
+    ///////////////////////////////////////////////////
+    protected override void on_idle()
+    {
+        anim.SetInteger("state", (int)actions.idle);
+    }
+
     protected override void on_follow()
     {
+        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
         if (transform.position.x >= player.position.x)
         {
             spriteRenderer.flipX = false;
@@ -59,8 +67,31 @@ public class Chest : Chest_StateMachine
             spriteRenderer.flipX = true;
         }
         anim.SetInteger("state", (int)actions.follow);
-        FollowPlayer();
+        FollowObject(player);
     }
+
+    protected override void on_flee()
+    {
+        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
+        if (transform.position.x >= newPosition_enemy.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if (transform.position.x <= newPosition_enemy.position.x)
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        FollowObject(newPosition_enemy);
+
+        //TODO: Refactor this, to make it less
+        if( (Mathf.Abs(transform.position.x - newPosition_enemy.position.x) < 0.1f) )// Include floating point errors
+        {
+            spriteRenderer.flipX = true;
+            current_actions = actions.idle;
+        }
+    }
+
 
     protected override void on_attack()
     {
@@ -69,9 +100,9 @@ public class Chest : Chest_StateMachine
 
     protected override void on_death()
     {
-            Enemy.bodyType = RigidbodyType2D.Static;
-            coll.isTrigger = true;
-            coll.enabled = false;
+        Enemy.bodyType = RigidbodyType2D.Static;
+        coll.isTrigger = true;
+        coll.enabled = false;
     }
 
     protected override void on_stun()
@@ -83,10 +114,10 @@ public class Chest : Chest_StateMachine
     /////////////////////////////////////////////////
     //////// Misc
     /////////////////////////////////////////////////
-    public void FollowPlayer()
+    public void FollowObject(Transform Object)
     {
         //Calculate the difference, to get the distance
-        Vector3 distance = new Vector3((player.position.x - transform.position.x), 0f, 0f);
+        Vector3 distance = new Vector3((Object.position.x - transform.position.x), 0f, 0f);
 
         //Used to conserve the direction
         distance.Normalize();
@@ -98,9 +129,9 @@ public class Chest : Chest_StateMachine
         constantly does not overshoot due to floating precision errors 
         (There really small but they add up)
         */
-        if (Mathf.Abs(player.position.x - transform.position.x) > 0.1f)
+        if (Mathf.Abs(Object.position.x - transform.position.x) > 0.1f)
             transform.position = Vector3.MoveTowards(transform.position, newPosition, 2.5f);
-        }
-
     }
+
+}
 

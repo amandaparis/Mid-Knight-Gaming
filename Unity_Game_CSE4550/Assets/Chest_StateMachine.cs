@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Chest_StateMachine : enemy_actions
 {
-    [HideInInspector] public LayerMask ground; 
+    [HideInInspector] public LayerMask ground;
     [HideInInspector] public BoxCollider2D coll;
+    [HideInInspector] public Area_Detector areaDetector;
     public float attack_delay;
     public float stun_delay;
-    private float stun_time; 
+    private float stun_time;
     int hp;
     int current_hp;
 
     private delegate void state();
-    public enum actions { idle, follow, jump, attack, hurt, stun ,death }
+    public enum actions { idle, follow, flee, jump, attack, hurt, stun, death }
     public actions current_actions;
     private Dictionary<actions, state> stateDictionary = new Dictionary<actions, state>()
     {
@@ -25,22 +26,28 @@ public class Chest_StateMachine : enemy_actions
         //FSM
         //Contains the actions associated with it's states
         stateDictionary.Add(actions.idle, idle_state);
-        stateDictionary.Add(actions.follow,follow_state);
+        stateDictionary.Add(actions.follow, follow_state);
+        stateDictionary.Add(actions.flee, flee_state);
         stateDictionary.Add(actions.jump, jump_state);
         stateDictionary.Add(actions.attack, attack_state);
-        stateDictionary.Add(actions.stun , stun_state);
+        stateDictionary.Add(actions.stun, stun_state);
         stateDictionary.Add(actions.hurt, hurt_state);
         stateDictionary.Add(actions.death, death_state);
 
         ground = LayerMask.GetMask("ground");
         coll = GetComponent<BoxCollider2D>();
 
+        //TODO: Refactor this to make it shorter
+        Transform colliderActivatorTransform = transform.parent.Find("Collider_Activator");
+        GameObject colliderActivator = colliderActivatorTransform.gameObject;
+        areaDetector = colliderActivator.GetComponentInParent<Area_Detector>();
+
         actionscheckHP();
     }
     protected virtual void Update()
     {
         actionscheckHP();
-        
+
         stateDictionary[current_actions].Invoke();
 
         if (current_actions != actions.hurt && current_actions != actions.stun)
@@ -58,7 +65,7 @@ public class Chest_StateMachine : enemy_actions
         on_idle();
         if (trigger_attack())
         {
-            attack_delay = Time.time + 1f/2;
+            attack_delay = Time.time + 1f / 2;
             current_actions = actions.attack;
         }
 
@@ -68,16 +75,26 @@ public class Chest_StateMachine : enemy_actions
         on_follow();
         if (trigger_attack())
         {
-            attack_delay = Time.time + 1f/2;
+            attack_delay = Time.time + 1f / 2;
             current_actions = actions.attack;
         }
+        else if (areaDetector.has_left) //TODO: Implement Ivan's method
+        {
+            current_actions = actions.flee;
+        }
+    }
+
+    protected virtual void flee_state()
+    {
+        on_flee();
+
     }
     protected virtual void jump_state()
     {
         if (is_ground())
         {
             on_jump();
-            current_actions = actions.stun; 
+            current_actions = actions.stun;
         }
     }
     protected virtual void attack_state()
@@ -100,6 +117,7 @@ public class Chest_StateMachine : enemy_actions
     }
     protected virtual void stun_state()
     {
+        //TODO: Make it into coroutine, rather dependent on Time.time
         if (stun_time <= Time.time)
         {
             on_stun();
@@ -130,6 +148,11 @@ public class Chest_StateMachine : enemy_actions
     }
 
     protected virtual void on_follow()
+    {
+
+    }
+
+    protected virtual void on_flee()
     {
 
     }
