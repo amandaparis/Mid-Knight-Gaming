@@ -52,6 +52,8 @@ public class Chest : Chest_StateMachine
     ///////////////////////////////////////////////////
     protected override void on_idle()
     {
+        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
+        attTrans.transform.localPosition = new Vector3(transX, transY, 0);
         anim.SetInteger("state", (int)actions.idle);
     }
 
@@ -60,32 +62,36 @@ public class Chest : Chest_StateMachine
         //TODO: Allow for sprites to be flipped, any direction. Currently one direction
         if (transform.position.x >= player.position.x)
         {
+            attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
             spriteRenderer.flipX = false;
         }
         else if (transform.position.x <= player.position.x)
         {
+            attTrans.transform.localPosition = new Vector3(transX, transY, 0);
             spriteRenderer.flipX = true;
         }
-        anim.SetInteger("state", (int)actions.follow);
         FollowObject(player);
+        anim.SetInteger("state", (int)actions.follow);
     }
 
     protected override void on_flee()
     {
+        FollowObject(newPosition_enemy);
+
         //TODO: Allow for sprites to be flipped, any direction. Currently one direction
         if (transform.position.x >= newPosition_enemy.position.x)
         {
+            attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
             spriteRenderer.flipX = false;
         }
         else if (transform.position.x <= newPosition_enemy.position.x)
         {
+            attTrans.transform.localPosition = new Vector3(transX, transY, 0);
             spriteRenderer.flipX = true;
         }
 
-        FollowObject(newPosition_enemy);
-
         //TODO: Refactor this, to make it less
-        if( (Mathf.Abs(transform.position.x - newPosition_enemy.position.x) < 0.1f) )// Include floating point errors
+        if ((Mathf.Abs(transform.position.x - newPosition_enemy.position.x) < 0.1f))// Include floating point errors
         {
             spriteRenderer.flipX = true;
             current_actions = actions.idle;
@@ -95,6 +101,7 @@ public class Chest : Chest_StateMachine
 
     protected override void on_attack()
     {
+        //damage_player(); Activated on attack animation
         anim.SetInteger("state", (int)actions.attack);
     }
 

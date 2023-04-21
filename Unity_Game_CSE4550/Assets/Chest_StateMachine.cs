@@ -7,9 +7,13 @@ public class Chest_StateMachine : enemy_actions
     [HideInInspector] public LayerMask ground;
     [HideInInspector] public BoxCollider2D coll;
     [HideInInspector] public Area_Detector areaDetector;
+    private Animator anim;
     public float attack_delay;
     public float stun_delay;
     private float stun_time;
+    public bool stun_done = false;
+    public bool attack_done = false;
+    public bool has_attacked = false;
     int hp;
     int current_hp;
 
@@ -35,6 +39,7 @@ public class Chest_StateMachine : enemy_actions
         stateDictionary.Add(actions.death, death_state);
 
         ground = LayerMask.GetMask("ground");
+        anim = GetComponent<Animator>();
         coll = GetComponent<BoxCollider2D>();
 
         //TODO: Refactor this to make it shorter
@@ -50,10 +55,6 @@ public class Chest_StateMachine : enemy_actions
 
         stateDictionary[current_actions].Invoke();
 
-        if (current_actions != actions.hurt && current_actions != actions.stun)
-        {
-            stun_time = Time.time + stun_delay;
-        }
     }
 
     ///////////////////////////////////////////////////
@@ -65,7 +66,8 @@ public class Chest_StateMachine : enemy_actions
         on_idle();
         if (trigger_attack())
         {
-            attack_delay = Time.time + 1f / 2;
+            // attack_delay = Time.time + 1f / 2;
+            attack_done = false;
             current_actions = actions.attack;
         }
 
@@ -73,13 +75,16 @@ public class Chest_StateMachine : enemy_actions
     protected virtual void follow_state()
     {
         on_follow();
+        stun_done = false;
         if (trigger_attack())
         {
-            attack_delay = Time.time + 1f / 2;
+            // attack_delay = Time.time + 1f / 2;
+            attack_done = false;
             current_actions = actions.attack;
         }
         else if (areaDetector.has_left) //TODO: Implement Ivan's method
         {
+            attack_done = false;
             current_actions = actions.flee;
         }
     }
@@ -99,35 +104,56 @@ public class Chest_StateMachine : enemy_actions
     }
     protected virtual void attack_state()
     {
-        on_attack();
-        if (attack_delay <= Time.time)
+        if (!attack_done && !has_attacked)
         {
-            damage_player();
+
+            on_attack();
+            has_attacked = true;
+            StartCoroutine(attack_timer());
+        }
+        else if (attack_done)
+        {
+            has_attacked = false;
+            stun_done = false;
+            attack_done = false;
             current_actions = actions.stun;
         }
+
     }
     protected virtual void hurt_state() //already handled by enemy_actions
     {
         on_hurt();
-        if (stun_time <= Time.time)
-        {
-            stun_time = Time.time + stun_delay;
-            current_actions = actions.stun;
-        }
+
+        stun_done = false;
+        attack_done = false;
+        current_actions = actions.stun;
+        // if (stun_done)
+        // {
+        //     // stun_time = Time.time + stun_delay;
+        //     stun_done = false;
+        //     attack_done = false;
+        //     current_actions = actions.stun;
+        // }
     }
     protected virtual void stun_state()
     {
         //TODO: Make it into coroutine, rather dependent on Time.time
-        if (stun_time <= Time.time)
+        on_stun();
+        StartCoroutine(stun_timer());
+        if (stun_done)
         {
-            on_stun();
             if (trigger_attack())
             {
-                attack_delay = Time.time + 1f / 2;
+                stun_done = false;
+
+                attack_done = false;
+                // attack_delay = Time.time + 1f / 2;
                 current_actions = actions.attack;
             }
             else
             {
+                stun_done = false;
+                attack_done = false;
                 current_actions = actions.follow;
             }
         }
@@ -208,5 +234,20 @@ public class Chest_StateMachine : enemy_actions
     private bool is_ground()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, ground);
+    }
+
+    private IEnumerator stun_timer()
+    {
+        Debug.Log("IS STUNNED");
+        yield return new WaitForSeconds(stun_delay);
+        Debug.Log("IS NOT STUNNED");
+        stun_done = true;
+    }
+
+    private IEnumerator attack_timer()
+    {
+        Debug.Log("IS ATTACKING");
+        yield return new WaitForSeconds(attack_delay);
+        attack_done = true;
     }
 }
