@@ -45,5 +45,12 @@ public class enemy_class : MonoBehaviour
           playerHP.player_takeDamage(1);
         }
     }//*/
+    public Rigidbody2D enemy_body; 
+
+
+    public void KnockBack_enemy(float pushback_force)
+    {
+        enemy_body.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
+    }
 
 }

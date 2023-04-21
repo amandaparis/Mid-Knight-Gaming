@@ -20,11 +20,13 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
         anim = GetComponent<Animator>();
         if(awaking)
         {
-            CurrentState = "base";  
+            CurrentState = "base"; 
+            anim.SetInteger("state", 0 );  
         }
         else
         {
             CurrentState = "IDE"; 
+            anim.SetInteger("state", 1 ); 
         }
     }
 
@@ -32,9 +34,10 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     void Update()
     {
 
-          CurrentState = checkHP(CurrentState); 
+        if( CurrentState != "base" &&  CurrentState !="awaking")
+            CurrentState = checkHP(CurrentState); 
 
-        if(CurrentState != "HURT" && CurrentState != "IDE" )
+        if(CurrentState != "HURT" && CurrentState != "IDE")
             stun_time = Time.time + STUN_delay; 
 
 
@@ -75,9 +78,11 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
              case "HURT": // Hurt STATE // 3 
             /////////////////////////////////////////////////////// 
                 //enemy_stop();
+                  anim.SetInteger("state", 5); 
                 if(stun_time <= Time.time )
                 {
-                     stun_time = Time.time + STUN_delay; 
+                    stun_time = Time.time + STUN_delay; 
+                    Debug.Log("Hurt_skeleton");
                     CurrentState = "IDE"; 
                 }
                 break; 

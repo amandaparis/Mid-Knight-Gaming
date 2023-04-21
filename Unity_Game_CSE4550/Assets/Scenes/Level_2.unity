@@ -351,6 +351,7 @@ MonoBehaviour:
   anim: {fileID: 118579438}
   enemyHp: 70
   maxHp: 70
+  enemy_body: {fileID: 0}
 --- !u!61 &118579441
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2885,6 +2886,7 @@ MonoBehaviour:
   anim: {fileID: 1412996188}
   enemyHp: 50
   maxHp: 50
+  enemy_body: {fileID: 1412996181}
 --- !u!114 &1412996186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2928,8 +2930,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   viewTrans: {fileID: 2024513628}
-  v_range_y: 10
-  v_range_x: 17
+  v_range_y: 4.78
+  v_range_x: 7.5
   attTrans: {fileID: 626813869}
   att_range_y: 0
   att_rangex_: 0
@@ -3683,6 +3685,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2280121495388487717, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
+      propertyPath: KnockBack_force
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2280121495388487719, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
       propertyPath: hearts.Array.data[0]
       value: 
@@ -3710,6 +3716,10 @@ PrefabInstance:
     - target: {fileID: 2280121495388487725, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2280121495388487725, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2280121495388487727, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
       propertyPath: m_RootOrder

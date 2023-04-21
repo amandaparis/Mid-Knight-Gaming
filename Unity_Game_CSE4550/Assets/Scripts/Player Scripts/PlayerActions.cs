@@ -48,7 +48,7 @@ public float att_rangex_ ;  //1
 public LayerMask enemylayers; 
 int attack_damage = 10;
 
-public void attack() 
+public void attack(bool knockback_trigger) 
     {      
             
             //Collider2D[] hitenemies = Physics2D.OverlapCircleAll(attTrans.position, att_range, enemylayers ); 
@@ -59,6 +59,8 @@ public void attack()
             {
               Debug.Log("damage enemy");
                 hitenemies[i].GetComponent<enemy_class>().Enemy_take_damage(attack_damage);
+                if( knockback_trigger)
+                  hitenemies[i].GetComponent<enemy_class>().KnockBack_enemy(pushback_force);
                 //en.GetComponent<Animations>().takedamage(attack_damage); 
             } 
     }
@@ -70,6 +72,12 @@ public void attack()
 
     ///movements 
 
+    public float KnockBack_force = 0f; 
+
+    float  pushback_force; 
+
+
+
     public void running()
     {
         float dirx =  Input.GetAxisRaw("Horizontal");
@@ -78,11 +86,13 @@ public void attack()
             { 
               sprite_filp.flipX = false;
               attTrans.transform.localPosition = new Vector3(0.1f,0,0); 
+               pushback_force = KnockBack_force; 
             }
             else if(dirx <  0f)
             {
                 sprite_filp.flipX = true;
               attTrans.transform.localPosition = new Vector3(-0.1f,0,0);
+               pushback_force = -KnockBack_force; 
             }
     }
 
@@ -96,11 +106,13 @@ public void attack()
             { 
              sprite_filp.flipX = false;
               attTrans.transform.localPosition = new Vector3(0.1f,0,0); 
+               pushback_force = KnockBack_force; 
             }
             else if(dirx <  0f)
             {
                 sprite_filp.flipX = true;
               attTrans.transform.localPosition = new Vector3(-0.1f,0,0);
+               pushback_force = -KnockBack_force; 
             }
     }
 

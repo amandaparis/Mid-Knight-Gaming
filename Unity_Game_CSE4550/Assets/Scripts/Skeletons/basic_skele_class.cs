@@ -103,8 +103,6 @@ public class basic_skele_class : MonoBehaviour
         // Debug.Log(CurrentHp);
         // Debug.Log(enemyHp);
         enemyHp = GetComponent<enemy_class>().CurrentHp(); 
-
-
         if(enemyHp <= 0)
         {
             Debug.Log("DEATH");
@@ -115,6 +113,7 @@ public class basic_skele_class : MonoBehaviour
             Debug.Log("HURT");
             State = "HURT"; 
         }
+        
         return State; 
     } 
 
