@@ -11,9 +11,9 @@ public class Chest_StateMachine : enemy_actions
     public float attack_delay;
     public float stun_delay;
     private float stun_time;
-    public bool stun_done = false;
-    public bool attack_done = false;
-    public bool has_attacked = false;
+    private bool stun_done = false;
+    private bool attack_done = false;
+    private bool has_attacked = false;
     int hp;
     int current_hp;
 
@@ -66,7 +66,6 @@ public class Chest_StateMachine : enemy_actions
         on_idle();
         if (trigger_attack())
         {
-            // attack_delay = Time.time + 1f / 2;
             attack_done = false;
             current_actions = actions.attack;
         }
@@ -74,11 +73,10 @@ public class Chest_StateMachine : enemy_actions
     }
     protected virtual void follow_state()
     {
-        on_follow();
         stun_done = false;
+        on_follow();
         if (trigger_attack())
         {
-            // attack_delay = Time.time + 1f / 2;
             attack_done = false;
             current_actions = actions.attack;
         }
@@ -127,17 +125,9 @@ public class Chest_StateMachine : enemy_actions
         stun_done = false;
         attack_done = false;
         current_actions = actions.stun;
-        // if (stun_done)
-        // {
-        //     // stun_time = Time.time + stun_delay;
-        //     stun_done = false;
-        //     attack_done = false;
-        //     current_actions = actions.stun;
-        // }
     }
     protected virtual void stun_state()
     {
-        //TODO: Make it into coroutine, rather dependent on Time.time
         on_stun();
         StartCoroutine(stun_timer());
         if (stun_done)
@@ -147,13 +137,12 @@ public class Chest_StateMachine : enemy_actions
                 stun_done = false;
 
                 attack_done = false;
-                // attack_delay = Time.time + 1f / 2;
                 current_actions = actions.attack;
             }
             else
             {
-                stun_done = false;
-                attack_done = false;
+                // stun_done = false;
+                // attack_done = false;
                 current_actions = actions.follow;
             }
         }
@@ -238,15 +227,12 @@ public class Chest_StateMachine : enemy_actions
 
     private IEnumerator stun_timer()
     {
-        Debug.Log("IS STUNNED");
         yield return new WaitForSeconds(stun_delay);
-        Debug.Log("IS NOT STUNNED");
         stun_done = true;
     }
 
     private IEnumerator attack_timer()
     {
-        Debug.Log("IS ATTACKING");
         yield return new WaitForSeconds(attack_delay);
         attack_done = true;
     }

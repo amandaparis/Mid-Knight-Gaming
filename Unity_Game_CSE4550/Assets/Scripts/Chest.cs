@@ -7,10 +7,11 @@ public class Chest : Chest_StateMachine
     private Animator anim;
     float random_number;
     private SpriteRenderer spriteRenderer;
+    private bool flipped;
     public float speed = 1.5f; // adjust this to control the speed of the enemy
     private Transform player; // reference to the player's transform
     private Vector3 newPosition;
-    private Transform newPosition_enemy; //TODO: Change name to something different because it might get confusing
+    private Transform enemy_position;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +24,10 @@ public class Chest : Chest_StateMachine
         spriteRenderer = GetComponent<SpriteRenderer>();
         // Find the player game object and get its transform
         player = GameObject.FindWithTag("Player").transform;
-        newPosition_enemy = GameObject.Find("Orginal_Position").transform;
 
+        //TODO: Make it so it gets the start position, without needing a gameobject
+        enemy_position = transform.parent.Find("Orginal_Position").transform;
+        flipped = spriteRenderer.flipX;
 
     }
 
@@ -34,14 +37,6 @@ public class Chest : Chest_StateMachine
         base.Update();
 
     }
-    /*
-        1. If the player touches the attack box, while chest is idle it will go attack
-            Idle -> Attack
-        2. It will follow the player while attacking
-            Attack -> walk
-        3. If the player exits the collider, it will return back to its original spot
-            walk and player exits -> Flee -> Idle
-    */
 
     ///////////////////////////////////////////////////
     ////////// On States to override 
@@ -52,48 +47,35 @@ public class Chest : Chest_StateMachine
     ///////////////////////////////////////////////////
     protected override void on_idle()
     {
-        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
-        attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+        switch (flipped)
+        {
+            case true:
+                attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                spriteRenderer.flipX = true;
+                break;
+            case false:
+                attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                spriteRenderer.flipX = false;
+                break;
+        }
         anim.SetInteger("state", (int)actions.idle);
     }
 
     protected override void on_follow()
     {
-        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
-        if (transform.position.x >= player.position.x)
-        {
-            attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
-            spriteRenderer.flipX = false;
-        }
-        else if (transform.position.x <= player.position.x)
-        {
-            attTrans.transform.localPosition = new Vector3(transX, transY, 0);
-            spriteRenderer.flipX = true;
-        }
-        FollowObject(player);
         anim.SetInteger("state", (int)actions.follow);
+        flip_sprite(transform, player);
+        FollowObject(player);
     }
 
     protected override void on_flee()
     {
-        FollowObject(newPosition_enemy);
-
-        //TODO: Allow for sprites to be flipped, any direction. Currently one direction
-        if (transform.position.x >= newPosition_enemy.position.x)
-        {
-            attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
-            spriteRenderer.flipX = false;
-        }
-        else if (transform.position.x <= newPosition_enemy.position.x)
-        {
-            attTrans.transform.localPosition = new Vector3(transX, transY, 0);
-            spriteRenderer.flipX = true;
-        }
-
+        FollowObject(enemy_position);
+        flip_sprite(transform, enemy_position);
         //TODO: Refactor this, to make it less
-        if ((Mathf.Abs(transform.position.x - newPosition_enemy.position.x) < 0.1f))// Include floating point errors
+        if ((Mathf.Abs(transform.position.x - enemy_position.position.x) < 0.1f))// Check if reached the position, Include floating point errors
         {
-            spriteRenderer.flipX = true;
+            Debug.Log("GOING TO IDLE");
             current_actions = actions.idle;
         }
     }
@@ -137,7 +119,43 @@ public class Chest : Chest_StateMachine
         (There really small but they add up)
         */
         if (Mathf.Abs(Object.position.x - transform.position.x) > 0.1f)
+        {
             transform.position = Vector3.MoveTowards(transform.position, newPosition, 2.5f);
+        }
+    }
+
+    void flip_sprite(Transform object1, Transform object2)
+    {
+        switch (flipped)
+        {
+            case true:
+                if (object1.position.x >= object2.position.x)
+                {
+                    attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
+                    spriteRenderer.flipX = !flipped;
+                }
+                else if (object1.position.x <= object2.position.x)
+                {
+                    attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                    spriteRenderer.flipX = flipped;
+                }
+            break;
+
+            case false:
+                if (object1.position.x >= object2.position.x)
+                {
+                    attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                    spriteRenderer.flipX = flipped;
+                }
+                else if (object1.position.x <= object2.position.x)
+                {
+                    attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
+                    spriteRenderer.flipX = !flipped;
+                }
+            break;
+            default:
+        }
+
     }
 
 }
