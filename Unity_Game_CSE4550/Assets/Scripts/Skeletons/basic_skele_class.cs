@@ -19,6 +19,8 @@ public class basic_skele_class : MonoBehaviour
         sprite_filp = GetComponent<SpriteRenderer>() ;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +28,7 @@ public class basic_skele_class : MonoBehaviour
 
         if(enemyHp <= 0)
         {
+
             coll.isTrigger = true; 
             //Enemy.bodyType = RigidbodyType2D.Static;
             coll.enabled = false;  

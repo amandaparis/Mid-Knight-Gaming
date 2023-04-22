@@ -53,8 +53,9 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     if(skel_awake())
                     {
                          Debug.Log("BASE");
-                        awakening_delay = Time.time + 1/2;    
+                        awakening_delay = Time.time + 1;    
                         CurrentState = "awaking"; 
+                         anim.SetInteger("state", 1);
                     }
                 }
                 break;
@@ -62,7 +63,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
             case "awaking": // AWAKING STATE 1 
             /////////////////////////////////////////////////////
                 {
-                     anim.SetInteger("state", 1);
+                    
                      if(awakening_delay <= Time.time )
                      {
                         CurrentState = "IDE";
@@ -80,7 +81,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     {
                         if(trigger_attack())
                         {
-                            ATT_delay  = Time.time + 1f/2;
+                            ATT_delay  = Time.time + 1f/3;
                             //Debug.Log(ATT_delay);
                             CurrentState = "ATT";
                         }
@@ -118,7 +119,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
 
                 if(trigger_attack())
                 {
-                    ATT_delay  = Time.time + 1f/2;
+                    ATT_delay  = Time.time + 1f/3;
                         CurrentState = "ATT"; 
                 }
              break;
