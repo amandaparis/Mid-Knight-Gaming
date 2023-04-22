@@ -258,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &118579437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   Enemy: {fileID: 118579442}
   sprite_filp: {fileID: 118579443}
   max_x: 4
-  min_x: 0
+  min_x: -10
   W_speed: 1.5
   transX: 0.2
   transY: -0.1
@@ -289,6 +289,7 @@ MonoBehaviour:
   player_RB: {fileID: 493206441}
   anim: {fileID: 118579438}
   CurrentState: 
+  right_facing: 1
 --- !u!95 &118579438
 Animator:
   serializedVersion: 3
@@ -440,7 +441,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 8
   m_Sprite: {fileID: 4723107735738678597, guid: f8b30c2afe165d645b54d500a9c30862, type: 3}
-  m_Color: {r: 0.11801354, g: 0.41070765, b: 0.6415094, a: 1}
+  m_Color: {r: 0, g: 0.72214794, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -487,7 +488,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &247469264
 Animator:
   serializedVersion: 3
@@ -537,11 +538,11 @@ MonoBehaviour:
   transX: 0.2
   transY: 0
   W_speed: 1.5
-  KnockBack_force: 5
+  KnockBack_force: 3
   anim: {fileID: 247469264}
   CurrentState: 
   awaking: 1
-  right_facing: 0
+  right_facing: 1
 --- !u!114 &247469266
 MonoBehaviour:
   m_ObjectHideFlags: 0
