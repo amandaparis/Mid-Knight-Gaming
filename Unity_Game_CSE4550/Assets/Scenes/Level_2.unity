@@ -2948,7 +2948,7 @@ MonoBehaviour:
   transX: 2.55
   transY: 0
   W_speed: 1.5
-  KnockBack_force: 0
+  KnockBack_force: 5
   anim: {fileID: 1412996188}
   awaking: 1
 --- !u!95 &1412996188
@@ -3832,7 +3832,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 2c5da1f1b10e2334ba026afe258abcb5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

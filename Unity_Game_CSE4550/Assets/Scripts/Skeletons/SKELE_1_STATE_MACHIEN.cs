@@ -82,6 +82,10 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                             //Debug.Log(ATT_delay);
                             CurrentState = "ATT";
                         }
+                        else 
+                        {
+                            CurrentState = "WALK";
+                        }
                     }
                 }
                 break;
@@ -99,6 +103,22 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
               ///////////////////////////////////////////////////////
             case "WALK": // att STATE // 4 
             ///////////////////////////////////////////////////////
+            anim.SetInteger("state", 4 ); 
+                if(Enemy.position.x > max_x)
+                {
+                    sprite_filp.flipX = true;
+                }
+                else if(Enemy.position.x < min_x)
+                {
+                    sprite_filp.flipX = false;    
+                }
+                walk(); 
+
+                if(trigger_attack())
+                {
+                    ATT_delay  = Time.time + 1f/2;
+                        CurrentState = "ATT"; 
+                }
              break;
             ///////////////////////////////////////////////////////
              case "HURT": // Hurt STATE // 5 

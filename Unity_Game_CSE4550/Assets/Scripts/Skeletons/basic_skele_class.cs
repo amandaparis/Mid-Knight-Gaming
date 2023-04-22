@@ -96,7 +96,7 @@ public class basic_skele_class : MonoBehaviour
            if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
             {
                 hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(enemy_daamge);
-               // player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
+               player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
             }
     }
 
