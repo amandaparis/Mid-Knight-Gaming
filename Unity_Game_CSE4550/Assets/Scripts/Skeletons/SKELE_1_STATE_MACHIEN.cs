@@ -16,6 +16,8 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     float STUN_delay = 1f; 
     float stun_time =0; 
     // Start is called before the first frame update
+    public bool right_facing = false; 
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -29,6 +31,17 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
             CurrentState = "IDE"; 
             anim.SetInteger("state", 1 ); 
         }
+
+        if(right_facing) 
+        {
+            sprite_filp.flipX = false;
+        }
+        else 
+        {
+             sprite_filp.flipX = true;
+        }
+
+
     }
 
     // Update is called once per frame
@@ -37,10 +50,13 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
 
         if( CurrentState != "base" &&  CurrentState !="awaking")
             CurrentState = checkHP(CurrentState); 
-
-        if(CurrentState != "HURT" && CurrentState != "IDE")
+        else if(CurrentState != "HURT" && CurrentState != "IDE")
             stun_time = Time.time + STUN_delay; 
 
+        if(CurrentState == "DEATH")
+        {
+            stun_time = Time.time + STUN_delay; 
+        }
 
 
         switch(CurrentState) 
@@ -135,8 +151,20 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     CurrentState = "IDE"; 
                 }
                 break; 
+            /////////////////////////////////////////////////////
+            case "DEATH":
+            ////////////////////////////////////////////////////
+                if(stun_time <= Time.time )
+                {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                }
+                break;
+            /////////////////////////////////////////////////////
             default:
+            if(stun_time <= Time.time )
+                {
                 Debug.Log("Unknown Action"); 
+                }
                 break;
         }
     }

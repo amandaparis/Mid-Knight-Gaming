@@ -541,6 +541,7 @@ MonoBehaviour:
   anim: {fileID: 247469264}
   CurrentState: 
   awaking: 1
+  right_facing: 0
 --- !u!114 &247469266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3219,6 +3220,7 @@ MonoBehaviour:
   anim: {fileID: 1412996188}
   CurrentState: 
   awaking: 1
+  right_facing: 0
 --- !u!95 &1412996188
 Animator:
   serializedVersion: 3
