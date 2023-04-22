@@ -152,7 +152,10 @@ public class basic_skele_class : MonoBehaviour
         return State; 
     } 
 
-
+    public void enemy_stop()
+    {
+        Enemy.velocity= new Vector2(  0 ,Enemy.velocity.y);
+    }
 
 
 

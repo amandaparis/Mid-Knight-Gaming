@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SKELE_1_STATE_MACHIEN : basic_skele_class
+public class CHARGE_SKELE : basic_skele_class
 {
-    public Animator anim;
+     public Animator anim;
 
     public string CurrentState ;
 
@@ -172,7 +172,3 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
         }
     }
 }
-
-
-
-    

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SKELE_1_STATE_MACHIEN : basic_skele_class
+public class ETLESKELE : basic_skele_class
 {
-    public Animator anim;
+   public Animator anim;
 
     public string CurrentState ;
 
@@ -94,13 +94,15 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
             case "IDE": // IDE STATE 2
             ///////////////////////////////////////////////////////
                 {
+                    
                     anim.SetInteger("state", 2); 
                     
                     if(stun_time <= Time.time )
                     {
                         if(trigger_attack())
                         {
-                            ATT_delay  = Time.time + 1f/3;
+                            enemy_stop();
+                            ATT_delay  = Time.time + 0.55f;
                             //Debug.Log(ATT_delay);
                             CurrentState = "ATT";
                         }
@@ -138,7 +140,8 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
 
                 if(trigger_attack())
                 {
-                    ATT_delay  = Time.time + 1f/3;
+                    enemy_stop();
+                    ATT_delay  = Time.time + 0.55f;
                         CurrentState = "ATT"; 
                 }
              break;
@@ -172,7 +175,3 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
         }
     }
 }
-
-
-
-    
