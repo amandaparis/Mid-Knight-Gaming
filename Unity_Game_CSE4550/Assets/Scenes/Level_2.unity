@@ -533,7 +533,7 @@ MonoBehaviour:
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
   max_x: 3
-  min_x: -3
+  min_x: -10
   transX: 0.2
   transY: 0
   W_speed: 1.5

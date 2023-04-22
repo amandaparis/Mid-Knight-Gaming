@@ -1,0 +1,1069 @@
+fileFormatVersion: 2
+guid: ae21f8d7460fb204d9a8fa4069780632
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8373299676613982293
+    second: ghost-removebg-preview_0
+  - first:
+      213: 4190710957476188317
+    second: ghost-removebg-preview_1
+  - first:
+      213: 1726770234344168686
+    second: ghost-removebg-preview_2
+  - first:
+      213: -3695130372106175261
+    second: ghost-removebg-preview_3
+  - first:
+      213: 3396046646661266106
+    second: ghost-removebg-preview_4
+  - first:
+      213: 3593002566399860123
+    second: ghost-removebg-preview_5
+  - first:
+      213: 6061438024303406713
+    second: ghost-removebg-preview_6
+  - first:
+      213: 253189011691100328
+    second: ghost-removebg-preview_7
+  - first:
+      213: 1442493616549757085
+    second: ghost-removebg-preview_8
+  - first:
+      213: 3436163168908060335
+    second: ghost-removebg-preview_9
+  - first:
+      213: -1795278945821000451
+    second: ghost-removebg-preview_10
+  - first:
+      213: 203185845107624596
+    second: ghost-removebg-preview_11
+  - first:
+      213: -9211149402294122442
+    second: ghost-removebg-preview_12
+  - first:
+      213: 1179166219758075117
+    second: ghost-removebg-preview_13
+  - first:
+      213: -6209819422689603434
+    second: ghost-removebg-preview_14
+  - first:
+      213: 2047344120152575322
+    second: ghost-removebg-preview_15
+  - first:
+      213: 8955362347656990198
+    second: ghost-removebg-preview_16
+  - first:
+      213: 4113585869233533765
+    second: ghost-removebg-preview_17
+  - first:
+      213: 4585311032702482077
+    second: ghost-removebg-preview_18
+  - first:
+      213: -4670684400929794147
+    second: ghost-removebg-preview_19
+  - first:
+      213: -3882049943782831072
+    second: ghost-removebg-preview_20
+  - first:
+      213: 1110561282715145018
+    second: ghost-removebg-preview_21
+  - first:
+      213: 5340249713977156588
+    second: ghost-removebg-preview_22
+  - first:
+      213: 3252642612228007468
+    second: ghost-removebg-preview_23
+  - first:
+      213: 6235001923726864588
+    second: ghost-removebg-preview_24
+  - first:
+      213: -2898722226150934162
+    second: ghost-removebg-preview_25
+  - first:
+      213: 5050290060320725888
+    second: ghost-removebg-preview_26
+  - first:
+      213: -7623289364021182193
+    second: ghost-removebg-preview_27
+  - first:
+      213: -2643915427606163960
+    second: ghost-removebg-preview_28
+  - first:
+      213: 9017434174161616290
+    second: ghost-removebg-preview_29
+  - first:
+      213: -3890707620938970987
+    second: ghost-removebg-preview_30
+  - first:
+      213: 6347303576225819571
+    second: ghost-removebg-preview_31
+  - first:
+      213: -4827981725839611553
+    second: ghost-removebg-preview_32
+  - first:
+      213: 178608299434894016
+    second: ghost-removebg-preview_33
+  - first:
+      213: -8421387468910513315
+    second: ghost-removebg-preview_34
+  - first:
+      213: -2119176401665576018
+    second: ghost-removebg-preview_35
+  - first:
+      213: 6063486840791309478
+    second: ghost-removebg-preview_36
+  - first:
+      213: -4554765799140327387
+    second: ghost-removebg-preview_37
+  - first:
+      213: -7790988108737184724
+    second: ghost-removebg-preview_38
+  - first:
+      213: 1219461009742376133
+    second: ghost-removebg-preview_39
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ghost-removebg-preview_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 452
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba7c789ce401ccb80800000000000000
+      internalID: -8373299676613982293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_1
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 452
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9094b89965682a30800000000000000
+      internalID: 4190710957476188317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_2
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 452
+        width: 29
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec5dca1168b6f710800000000000000
+      internalID: 1726770234344168686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_3
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 452
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ecbad3118248bcc0800000000000000
+      internalID: -3695130372106175261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_4
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 448
+        width: 23
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abab6ee9e6e212f20800000000000000
+      internalID: 3396046646661266106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_5
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 384
+        width: 24
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d945f2cc8ecd130800000000000000
+      internalID: 3593002566399860123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_6
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 387
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97e66aaa4cd8e1450800000000000000
+      internalID: 6061438024303406713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_7
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 387
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a851ee8012838300800000000000000
+      internalID: 253189011691100328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_8
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 388
+        width: 24
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9087353d44c40410800000000000000
+      internalID: 1442493616549757085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_9
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 388
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa6ab015234bfaf20800000000000000
+      internalID: 3436163168908060335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_10
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 312
+        width: 52
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfcf9918f43e517e0800000000000000
+      internalID: -1795278945821000451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_11
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 312
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49a0709137cd1d200800000000000000
+      internalID: 203185845107624596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_12
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 312
+        width: 34
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 638053fdb6c6b2080800000000000000
+      internalID: -9211149402294122442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_13
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 315
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: decf1dbed6d3d5010800000000000000
+      internalID: 1179166219758075117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_14
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 320
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 690d347d22a42d9a0800000000000000
+      internalID: -6209819422689603434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_15
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 314
+        width: 23
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5dcda641a0a96c10800000000000000
+      internalID: 2047344120152575322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 237
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fdc00f8b96d74c70800000000000000
+      internalID: 8955362347656990198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_17
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 238
+        width: 45
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5433bb8ad84661930800000000000000
+      internalID: 4113585869233533765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_18
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 257
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9639e8171c42af30800000000000000
+      internalID: 4585311032702482077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_19
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 242
+        width: 33
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d971f90a8456e2fb0800000000000000
+      internalID: -4670684400929794147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_20
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 242
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ccf74e420302ac0800000000000000
+      internalID: -3882049943782831072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_21
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 248
+        width: 53
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a33d9854a91896f00800000000000000
+      internalID: 1110561282715145018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_22
+      rect:
+        serializedVersion: 2
+        x: 169
+        y: 240
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce36d7d22d06c1a40800000000000000
+      internalID: 5340249713977156588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_23
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 172
+        width: 79
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c26262bf835b32d20800000000000000
+      internalID: 3252642612228007468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_24
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 174
+        width: 51
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc0fd95173d278650800000000000000
+      internalID: 6235001923726864588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_25
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 173
+        width: 28
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e697ebf4e7ba5c7d0800000000000000
+      internalID: -2898722226150934162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_26
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 182
+        width: 14
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08b5a126d0c361640800000000000000
+      internalID: 5050290060320725888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_27
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 182
+        width: 42
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f01018d96b2a43690800000000000000
+      internalID: -7623289364021182193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_28
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 182
+        width: 34
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e0c593decee4bd0800000000000000
+      internalID: -2643915427606163960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_29
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 82
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2adfe50ea9c542d70800000000000000
+      internalID: 9017434174161616290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_30
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 82
+        width: 18
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5980709580e610ac0800000000000000
+      internalID: -3890707620938970987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_31
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 86
+        width: 17
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bba18e19f6261850800000000000000
+      internalID: 6347303576225819571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_32
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 86
+        width: 18
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f59a04933309ffcb0800000000000000
+      internalID: -4827981725839611553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_33
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 89
+        width: 20
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c2e0c15d4b8a7200800000000000000
+      internalID: 178608299434894016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_34
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 15
+        width: 14
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d53b9a727b8312b80800000000000000
+      internalID: -8421387468910513315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_35
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 15
+        width: 23
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea335526a4c2792e0800000000000000
+      internalID: -2119176401665576018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_36
+      rect:
+        serializedVersion: 2
+        x: 186
+        y: 15
+        width: 22
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac1f9de725d52450800000000000000
+      internalID: 6063486840791309478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_37
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 23
+        width: 22
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 520842b43a83ac0c0800000000000000
+      internalID: -4554765799140327387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_38
+      rect:
+        serializedVersion: 2
+        x: 337
+        y: 23
+        width: 26
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2c7d61f799d0e390800000000000000
+      internalID: -7790988108737184724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ghost-removebg-preview_39
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 23
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cc222fc3556ce010800000000000000
+      internalID: 1219461009742376133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
