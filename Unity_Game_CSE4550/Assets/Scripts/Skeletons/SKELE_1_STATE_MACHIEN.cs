@@ -12,6 +12,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
     float awakening_delay = 0f; 
 
 
+    float ATT_delay = 0f; 
     float STUN_delay = 1f; 
     float stun_time =0; 
     // Start is called before the first frame update
@@ -45,7 +46,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
         switch(CurrentState) 
         {
             /////////////////////////////////////////////////
-            case "base":
+            case "base": // BONE state 0 
             //////////////////////////////////////////////////
                 {
                     anim.SetInteger("state", 0 ); 
@@ -57,7 +58,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                 }
                 break;
             /////////////////////////////////////////////////////
-            case "awaking":
+            case "awaking": // AWAKING STATE 1 
             /////////////////////////////////////////////////////
                 {
                      anim.SetInteger("state", 1);
@@ -68,14 +69,39 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                 }
                 break;
             ///////////////////////////////////////////////////////
-            case "IDE":
+            case "IDE": // IDE STATE 2
             ///////////////////////////////////////////////////////
                 {
                     anim.SetInteger("state", 2); 
+
+                    if(stun_time <= Time.time )
+                    {
+                        if(trigger_attack())
+                        {
+                            ATT_delay  = Time.time + 1f/2;
+                            //Debug.Log(ATT_delay);
+                            CurrentState = "ATT";
+                        }
+                    }
                 }
                 break;
             ///////////////////////////////////////////////////////
-             case "HURT": // Hurt STATE // 3 
+            case "ATT": // att STATE // 3 
+            ///////////////////////////////////////////////////////
+                anim.SetInteger("state", 3 ); 
+                //Debug.Log("ATT");
+                if(ATT_delay <= Time.time)
+                {
+                    damage_player();
+                    CurrentState ="IDE";
+                }
+             break;
+              ///////////////////////////////////////////////////////
+            case "WALK": // att STATE // 4 
+            ///////////////////////////////////////////////////////
+             break;
+            ///////////////////////////////////////////////////////
+             case "HURT": // Hurt STATE // 5 
             /////////////////////////////////////////////////////// 
                 //enemy_stop();
                   anim.SetInteger("state", 5); 
@@ -92,3 +118,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
         }
     }
 }
+
+
+
+    

@@ -780,7 +780,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 626813868}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1412996183}
@@ -2912,6 +2912,12 @@ MonoBehaviour:
   att_rangex_: 0
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
+  max_x: 0
+  min_x: 0
+  transX: 0
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
 --- !u!114 &1412996187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2930,13 +2936,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   viewTrans: {fileID: 2024513628}
-  v_range_y: 4.78
+  v_range_y: 4.37
   v_range_x: 7.5
   attTrans: {fileID: 626813869}
-  att_range_y: 0
-  att_rangex_: 0
+  att_range_y: 1.29
+  att_rangex_: 1.04
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
+  max_x: 0
+  min_x: 0
+  transX: 2.55
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
   anim: {fileID: 1412996188}
   awaking: 1
 --- !u!95 &1412996188

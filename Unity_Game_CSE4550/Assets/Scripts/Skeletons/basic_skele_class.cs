@@ -49,6 +49,11 @@ public class basic_skele_class : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(viewTrans.position, new Vector3(v_range_x, v_range_y,1));
+
+
+        Gizmos.color = Color.red;
+       Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
+
     
     }
 
@@ -95,6 +100,33 @@ public class basic_skele_class : MonoBehaviour
             }
     }
 
+    public float max_x; 
+    public float min_x; 
+    public float transX;
+    public float transY;
+    public float W_speed = 1.5f; 
+    public float KnockBack_force = 0f; 
+    float  pushback_force; 
+
+
+
+    public  void walk()
+    {
+        if(sprite_filp.flipX == false)
+        {
+            Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
+            attTrans.transform.localPosition = new Vector3(transX,transY,0);
+            pushback_force = KnockBack_force; 
+        }
+        else 
+        {
+             Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
+             attTrans.transform.localPosition = new Vector3(-transX,transY,0);
+             pushback_force = -KnockBack_force; 
+            
+        }
+    }
+
 
 
      public string checkHP(string State)
@@ -113,8 +145,13 @@ public class basic_skele_class : MonoBehaviour
             Debug.Log("HURT");
             State = "HURT"; 
         }
-        
+
         return State; 
     } 
+
+
+
+
+
 
 }
