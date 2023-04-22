@@ -6,7 +6,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
 {
     public Animator anim;
 
-    string CurrentState ;
+    public string CurrentState ;
 
     public bool awaking = true;   
     float awakening_delay = 0f; 
@@ -52,6 +52,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                     anim.SetInteger("state", 0 ); 
                     if(skel_awake())
                     {
+                         Debug.Log("BASE");
                         awakening_delay = Time.time + 1/2;    
                         CurrentState = "awaking"; 
                     }
@@ -65,6 +66,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                      if(awakening_delay <= Time.time )
                      {
                         CurrentState = "IDE";
+                        Debug.Log("awaking");
                      }
                 }
                 break;
@@ -73,7 +75,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
             ///////////////////////////////////////////////////////
                 {
                     anim.SetInteger("state", 2); 
-
+                    
                     if(stun_time <= Time.time )
                     {
                         if(trigger_attack())
