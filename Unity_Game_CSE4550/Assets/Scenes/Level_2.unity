@@ -525,8 +525,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   viewTrans: {fileID: 918736526}
-  v_range_y: 4.37
-  v_range_x: 7.5
+  v_range_y: 7.68
+  v_range_x: 17.22
   attTrans: {fileID: 1469011258}
   att_range_y: 1.29
   att_rangex_: 1.04
