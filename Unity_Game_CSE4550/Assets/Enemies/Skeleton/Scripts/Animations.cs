@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Animations : MonoBehaviour
+public class Animations : enemy_actions
 {
 
     // Start is called before the first frame update
-    private Rigidbody2D Enemy;
+    //private Rigidbody2D Enemy;
     private BoxCollider2D coll;
     private Animator anim;
-    private SpriteRenderer rend;
+    //private SpriteRenderer rend;
     PlayerActions player;
 
     public GameObject head;
@@ -19,8 +19,8 @@ public class Animations : MonoBehaviour
     int currentHp;
 
     public string currentState;
-    ///STATES: REB WAL ATTA  HURT  DEATH
-    //ACTIONS:  0   1   2     3      4        
+    ///STATES: REB WAL ATTA  HURT  DEATH    IDLE
+    //ACTIONS:  0   1   2     3      4        5
 
 
     public float distance;      //distance from skeleton to player
@@ -42,7 +42,7 @@ public Player_Heath playerHP;
         Enemy = GetComponent<Rigidbody2D>();
         coll = GetComponent<BoxCollider2D>();
         anim = GetComponent<Animator>();
-        rend = GetComponent<SpriteRenderer>();
+        //rend = GetComponent<SpriteRenderer>();
         currentHp = maxHP;
         //hurt = false;
         player = FindObjectOfType<PlayerActions>();      //makes the player's functions avail to this script
@@ -65,7 +65,7 @@ public Player_Heath playerHP;
 
         //distance from enemy to player
         distance = Vector2.Distance(transform.position, player.transform.position);
-        if (attackCools > 0) attackCools -= Time.deltaTime;
+        //if (attackCools > 0) attackCools -= Time.deltaTime;
         /////////////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////////////////////
         //STATES
@@ -77,10 +77,21 @@ public Player_Heath playerHP;
 
             case "WALK":
                 anim.SetInteger("state", 1);
-                
-                if(distance <= attackRange)
+                walkSpeed = 0.7f;
+                /*
+                if (Enemy.position.x > max_x)
                 {
-                    currentState = "ATTACK";
+                    sprite_filp.flipX = true;
+                }
+                else if (Enemy.position.x < min_x)
+                {
+                    sprite_filp.flipX = false;
+                }
+                walk();
+                */
+                if (distance <= attackRange)
+                {
+                    currentState = "IDLE";
                 }
    
                 if (hurt)
@@ -90,8 +101,12 @@ public Player_Heath playerHP;
                 break;
 
             case "ATTACK":
-                //anim.SetInteger("state", 2);
+                //anim.SetInteger("state", 5);
                 Attack();
+                if (attackCools >= 0)
+                {
+                    currentState = "IDLE";
+                }
                 if (hurt)
                 {
                     currentState = "HURT";
@@ -110,6 +125,25 @@ public Player_Heath playerHP;
             case "DEATH":
                 anim.SetInteger("state", 4);
                 
+                break;
+                
+            case "IDLE":
+                anim.SetInteger("state", 5);
+                walkSpeed = 0;
+
+                if (attackCools < 0)
+                {
+                    currentState = "ATTACK";
+                }
+                if (hurt)
+                {
+                    currentState = "HURT";
+                }
+                if (distance > attackRange)
+                {
+                    currentState = "WALK";
+                }
+
                 break;
         }
         
@@ -134,7 +168,7 @@ public Player_Heath playerHP;
 
 
     }
-
+    /*
     /// <summary>
     /// These two functions will be completed with player's hurt functions
     /// </summary>
@@ -145,7 +179,8 @@ public Player_Heath playerHP;
         {
             if (attacking == true)
             {
-                    playerHP.player_takeDamage(1);
+                currentState = "HURT";
+                playerHP.player_takeDamage(1);
             }
         }
     }
@@ -156,10 +191,11 @@ public Player_Heath playerHP;
         {
             if (attacking == true)
             {
-
+                currentState = "HURT";
+                playerHP.player_takeDamage(1);
             }
         }
-    }
+    }*/
 
     /// <summary>
     /// End of TODO
@@ -211,19 +247,22 @@ public Player_Heath playerHP;
 
     public void Attack()
     {
-        if (attackCools < 0)
-        {
-            anim.SetInteger("state", 2);
-            Invoke("ResetAttack", 0.1f);
-            attackCools = timeBetweenAttacks;
-        }
-        else
-            currentState = "WALK";
+         anim.SetInteger("state", 2);
+
+         damage_player();
+            
+         //anim.SetBool("attack", true);
+         //Invoke("ResetAttack", 0.1f);
+         attackCools = timeBetweenAttacks;
+        
+            
     }
 
     void ResetAttack()
     {
+        anim.SetInteger("state", 5);
         anim.SetBool("attack", false);
     }
+
 
 }
