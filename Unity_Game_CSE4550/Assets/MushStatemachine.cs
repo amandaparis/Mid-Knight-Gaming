@@ -10,11 +10,24 @@ public /*private*/ Animator anim;
     float STUN_delay = 1f; 
     public string CurrentState ; 
 
+    public bool right_facing = false; 
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         CurrentState  = "IDE"; 
+
+
+        if(right_facing) 
+        {
+            sprite_filp.flipX = false;
+        }
+        else 
+        {
+             sprite_filp.flipX = true;
+        }
+
     }
 
 
@@ -26,6 +39,8 @@ public /*private*/ Animator anim;
 
         if(CurrentState != "HURT" && CurrentState != "IDE" )
             stun_time = Time.time + STUN_delay; 
+
+
 
         switch(CurrentState) 
         {
@@ -88,7 +103,12 @@ public /*private*/ Animator anim;
             ///////////////////////////////////////////////////////
              case "DEATH": // Death STATE // 4
             /////////////////////////////////////////////////////// 
-                break; 
+                if(stun_time <= Time.time )
+                {
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                Debug.Log("Spirte removed");
+                }
+                break;
             ///////////////////////////////////////////////////////
             default:
                  Debug.Log("Unknown Action"); 
