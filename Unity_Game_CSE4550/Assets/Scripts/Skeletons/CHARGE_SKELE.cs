@@ -136,7 +136,7 @@ public class CHARGE_SKELE : basic_skele_class
              case "HURT": // Hurt STATE // 5 
             /////////////////////////////////////////////////////// 
                 //enemy_stop();
-                  anim.SetInteger("state", 5); 
+                 // anim.SetInteger("state", 5); 
                 if(stun_time <= Time.time )
                 {
                     stun_time = Time.time + STUN_delay; 

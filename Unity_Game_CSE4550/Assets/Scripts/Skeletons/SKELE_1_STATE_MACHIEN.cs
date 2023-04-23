@@ -146,17 +146,24 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
              case "HURT": // Hurt STATE // 5 
             /////////////////////////////////////////////////////// 
                 //enemy_stop();
-                  anim.SetInteger("state", 5); 
+                  //anim.SetInteger("state", 5); 
                 if(stun_time <= Time.time )
                 {
                     stun_time = Time.time + STUN_delay; 
-                    Debug.Log("Hurt_skeleton");
-                    CurrentState = "IDE"; 
+                    //Debug.Log("Hurt_skeleton");
+                    CurrentState = "IDE";
+
+                    if(GetComponent<enemy_class>().CurrentHp() <= 0)
+                    {
+                         anim.SetTrigger("death");
+                        CurrentState = "DEATH";
+                    } 
                 }
                 break; 
             /////////////////////////////////////////////////////
             case "DEATH":
             ////////////////////////////////////////////////////
+             anim.SetTrigger("death");
                 if(stun_time <= Time.time )
                 {
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;

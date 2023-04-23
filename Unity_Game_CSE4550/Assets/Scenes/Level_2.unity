@@ -11958,7 +11958,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0010358505, y: -0.002304703}
+  m_Offset: {x: 0.01125522, y: -0.002304703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -11969,7 +11969,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22589698, y: 0.35941023}
+  m_Size: {x: 0.13985941, y: 0.35941023}
   m_EdgeRadius: 0
 --- !u!50 &1721981026
 Rigidbody2D:
@@ -12078,15 +12078,15 @@ MonoBehaviour:
     m_Bits: 128
   viewTrans: {fileID: 602190849}
   v_range_y: 6.6
-  v_range_x: 7.19
+  v_range_x: 10.74
   attTrans: {fileID: 762198618}
-  att_range_y: 0.97
-  att_rangex_: 1.08
+  att_range_y: 1.06
+  att_rangex_: 0.57
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
   max_x: 3
   min_x: -10
-  transX: 0.2
+  transX: 0.02
   transY: 0
   W_speed: 5
   KnockBack_force: 6
