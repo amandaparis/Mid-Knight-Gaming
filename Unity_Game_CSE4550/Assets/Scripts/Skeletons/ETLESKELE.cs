@@ -52,7 +52,7 @@ public class ETLESKELE : basic_skele_class
             CurrentState = checkHP(CurrentState); 
         else if(CurrentState != "HURT" && CurrentState != "IDE")
         {
-            enemy_stop();
+            //enemy_stop();
             stun_time = Time.time + STUN_delay; 
         }
 
@@ -102,7 +102,7 @@ public class ETLESKELE : basic_skele_class
                         if(trigger_attack())
                         {
                             enemy_stop();
-                            ATT_delay  = Time.time + 0.55f;
+                            ATT_delay  = Time.time + 0.52f;
                             //Debug.Log(ATT_delay);
                             CurrentState = "ATT";
                         }
@@ -140,8 +140,8 @@ public class ETLESKELE : basic_skele_class
 
                 if(trigger_attack())
                 {
-                    enemy_stop();
-                    ATT_delay  = Time.time + 0.55f;
+                    //enemy_stop();
+                    ATT_delay  = Time.time + 0.52f;
                         CurrentState = "ATT"; 
                 }
              break;

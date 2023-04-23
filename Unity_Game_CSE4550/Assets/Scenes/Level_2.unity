@@ -499,7 +499,7 @@ Animator:
   m_GameObject: {fileID: 247469263}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c4b6f7c0f488aa945bec60c431ba3701, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9c496027c375c6045b197e47e9e4e4f8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -539,6 +539,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 3
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   anim: {fileID: 247469264}
   CurrentState: 
   awaking: 1
@@ -574,6 +577,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &247469267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -775,19 +781,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   viewTrans: {fileID: 591056673}
-  v_range_y: -0.87
-  v_range_x: 1.7
+  v_range_y: -10
+  v_range_x: 4.02
   attTrans: {fileID: 725014760}
   att_range_y: -0.91
-  att_rangex_: 1.98
+  att_rangex_: 0.89
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
   max_x: 0
   min_x: 0
   transX: 0.2
   transY: 0
-  W_speed: 1.5
-  KnockBack_force: 0
+  W_speed: 7
+  KnockBack_force: 5
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
   anim: {fileID: 0}
   CurrentState: 
   awaking: 1
@@ -823,6 +832,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &293228490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -836,7 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 293228487}
-  enemyHp: 10
+  enemyHp: 50
   maxHp: 50
   enemy_body: {fileID: 293228492}
 --- !u!61 &293228491
@@ -927,7 +939,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: -4662324658227975669, guid: 516159d2eb11fd14ba289bec58085d61, type: 3}
-  m_Color: {r: 0, g: 0.5551176, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.647032, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -3545,6 +3557,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1412996187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,6 +3591,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 10
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   anim: {fileID: 1412996188}
   CurrentState: 
   awaking: 1
@@ -4640,7 +4658,7 @@ Animator:
   m_GameObject: {fileID: 1721981020}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c4b6f7c0f488aa945bec60c431ba3701, type: 2}
+  m_Controller: {fileID: 9100000, guid: 91ce6e15900fc2e4ab66ab1c2a2a5bc8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4680,6 +4698,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 1.5
   KnockBack_force: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &1721981024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4709,7 +4730,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0020369217, y: -0.002304703}
+  m_Offset: {x: -0.0010358505, y: -0.002304703}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4720,7 +4741,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.19516931, y: 0.35941023}
+  m_Size: {x: 0.22589698, y: 0.35941023}
   m_EdgeRadius: 0
 --- !u!50 &1721981026
 Rigidbody2D:
@@ -4828,10 +4849,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   viewTrans: {fileID: 602190849}
-  v_range_y: 5.89
+  v_range_y: 6.6
   v_range_x: 7.19
   attTrans: {fileID: 762198618}
-  att_range_y: 1.29
+  att_range_y: 0.97
   att_rangex_: 1.08
   enemy_daamge: 1
   player_RB: {fileID: 493206441}
@@ -4841,6 +4862,9 @@ MonoBehaviour:
   transY: 0
   W_speed: 5
   KnockBack_force: 6
+  ground:
+    serializedVersion: 2
+    m_Bits: 0
   anim: {fileID: 1721981021}
   CurrentState: 
   awaking: 1
