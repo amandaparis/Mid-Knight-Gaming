@@ -159,5 +159,30 @@ public class basic_skele_class : MonoBehaviour
 
 
 
+    /////////////////////////////////////// charge SKELE
+
+    public LayerMask ground; 
+
+    public bool ground_col() 
+    {      
+        Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, ground );         
+            if(hitplayer.Length > 0)
+            {
+                return true; 
+            }
+            else
+                return false;
+    }
+
+    public void kill_enemy()
+    {
+        GetComponent<enemy_class>().enemyHp = 0; 
+    }
+    
+    //////////////////////////////////////
+
+
+
+
 
 }

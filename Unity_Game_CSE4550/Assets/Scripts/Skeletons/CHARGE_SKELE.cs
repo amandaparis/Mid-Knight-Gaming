@@ -98,16 +98,7 @@ public class CHARGE_SKELE : basic_skele_class
                     
                     if(stun_time <= Time.time )
                     {
-                        if(trigger_attack())
-                        {
-                            ATT_delay  = Time.time + 1f/3;
-                            //Debug.Log(ATT_delay);
-                            CurrentState = "ATT";
-                        }
-                        else 
-                        {
-                            CurrentState = "WALK";
-                        }
+                         CurrentState ="ATT";
                     }
                 }
                 break;
@@ -119,27 +110,26 @@ public class CHARGE_SKELE : basic_skele_class
                 if(ATT_delay <= Time.time)
                 {
                     damage_player();
-                    CurrentState ="IDE";
+                    CurrentState ="Charge";
                 }
              break;
               ///////////////////////////////////////////////////////
-            case "WALK": // att STATE // 4 
+            case "Charge": // att STATE // 4 
             ///////////////////////////////////////////////////////
             anim.SetInteger("state", 4 ); 
-                if(Enemy.position.x > max_x)
-                {
-                    sprite_filp.flipX = true;
-                }
-                else if(Enemy.position.x < min_x)
-                {
-                    sprite_filp.flipX = false;    
-                }
                 walk(); 
-
                 if(trigger_attack())
                 {
-                    ATT_delay  = Time.time + 1f/3;
-                        CurrentState = "ATT"; 
+                   damage_player();
+                   kill_enemy();
+                   CurrentState = "DEATH";
+                   enemy_stop(); 
+                }
+                else if(ground_col() )
+                {
+                    kill_enemy();
+                    CurrentState = "DEATH";
+                    enemy_stop(); 
                 }
              break;
             ///////////////////////////////////////////////////////
@@ -157,6 +147,7 @@ public class CHARGE_SKELE : basic_skele_class
             /////////////////////////////////////////////////////
             case "DEATH":
             ////////////////////////////////////////////////////
+                 anim.SetTrigger("death");
                 if(stun_time <= Time.time )
                 {
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -171,4 +162,10 @@ public class CHARGE_SKELE : basic_skele_class
                 break;
         }
     }
+
+
+
+
+
+
 }
