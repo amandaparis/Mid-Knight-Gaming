@@ -72,7 +72,7 @@ public class CHARGE_SKELE : basic_skele_class
                     if(skel_awake())
                     {
                          Debug.Log("BASE");
-                        awakening_delay = Time.time + 1;    
+                        awakening_delay = Time.time + 1/2;    
                         CurrentState = "awaking"; 
                          anim.SetInteger("state", 1);
                     }
