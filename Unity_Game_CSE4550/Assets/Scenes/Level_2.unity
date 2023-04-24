@@ -10854,11 +10854,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5883972006509831792, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
       propertyPath: m_Size.x
-      value: 3.913022
+      value: 4.3512306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883972006509831792, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
+      propertyPath: m_Size.y
+      value: 3.699235
       objectReference: {fileID: 0}
     - target: {fileID: 5883972006509831792, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
       propertyPath: m_Offset.x
-      value: -4.426825
+      value: -4.6459293
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883972006509831792, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
+      propertyPath: m_Offset.y
+      value: 1.3496175
       objectReference: {fileID: 0}
     - target: {fileID: 5883972006509831795, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10869,9 +10877,17 @@ PrefabInstance:
       value: -0.72419834
       objectReference: {fileID: 0}
     - target: {fileID: 5883972006574147000, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
+      propertyPath: speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5883972006574147000, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
       propertyPath: player_RB
       value: 
       objectReference: {fileID: 493206441}
+    - target: {fileID: 5883972006574147000, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
+      propertyPath: stun_delay
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5883972006815884598, guid: 95d5cba5e121ba04a9eac71aa28b4e76, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.5799999
