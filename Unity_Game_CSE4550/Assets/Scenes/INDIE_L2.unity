@@ -268,6 +268,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395191653ab0a51c194d1445d98303e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_filp: {fileID: 0}
+  Enemy: {fileID: 0}
+  attTrans: {fileID: 0}
+  att_range_y: 0
+  att_rangex_: 0
+  viewTrans: {fileID: 0}
+  v_range_y: 0
+  v_range_x: 0
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 0
+  enemylayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemy_daamge: 1
+  player_RB: {fileID: 0}
+  attack_damage: 100
+  max_x: 0
+  min_x: 0
+  transX: 0
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
 --- !u!1 &210761901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10170,6 +10193,11 @@ Transform:
   m_Father: {fileID: 221738999}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &936160151 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 2280121495388487715, guid: 49dcf369c1199284cb0db24ddd83e573, type: 3}
+  m_PrefabInstance: {fileID: 317727902}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1169440473
 GameObject:
   m_ObjectHideFlags: 0
@@ -10414,6 +10442,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1244282395
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1244282396}
+  m_Layer: 6
+  m_Name: GAINT_VIeww
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1244282396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244282395}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.48, y: 0.59, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1320793974}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1282231272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1282231273}
+  m_Layer: 6
+  m_Name: GAINT_HIT_BOX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1282231273
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282231272}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.51, y: 1.988, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1320793974}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1320793972
 GameObject:
   m_ObjectHideFlags: 0
@@ -10427,6 +10515,7 @@ GameObject:
   - component: {fileID: 1320793976}
   - component: {fileID: 1320793975}
   - component: {fileID: 1320793977}
+  - component: {fileID: 1320793978}
   m_Layer: 6
   m_Name: Giant Skeleton
   m_TagString: Enemy
@@ -10473,7 +10562,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -4162122909835288923, guid: 194c8f8553005b14c9775bad5b0291b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10495,7 +10584,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -23.56, y: -31.5855, z: 0}
   m_LocalScale: {x: 5, y: 5.1265, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1282231273}
+  - {fileID: 1244282396}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10532,6 +10623,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395191653ab0a51c194d1445d98303e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite_filp: {fileID: 1320793973}
+  Enemy: {fileID: 1320793975}
+  attTrans: {fileID: 1282231273}
+  att_range_y: 19.1
+  att_rangex_: 3.06
+  viewTrans: {fileID: 1244282396}
+  v_range_y: 3.52
+  v_range_x: 16.58
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 128
+  enemylayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enemy_daamge: 1
+  player_RB: {fileID: 936160151}
+  attack_damage: 100
+  max_x: 0
+  min_x: 0
+  transX: 0
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
 --- !u!61 &1320793977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10543,7 +10657,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0.9249743, y: 1.8998958}
   m_SpriteTilingProperty:
@@ -10558,6 +10672,42 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3687751, y: 3.2872837}
   m_EdgeRadius: 0
+--- !u!114 &1320793978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320793972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddeb2c0400ebd97619949c6a669c15da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprite_filp: {fileID: 1320793973}
+  Enemy: {fileID: 1320793975}
+  attTrans: {fileID: 1282231273}
+  att_range_y: 19.92
+  att_rangex_: 4.01
+  viewTrans: {fileID: 1244282396}
+  v_range_y: 3.99
+  v_range_x: 13.17
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 128
+  enemylayer:
+    serializedVersion: 2
+    m_Bits: 64
+  enemy_daamge: 1
+  player_RB: {fileID: 936160151}
+  attack_damage: 100
+  max_x: 0
+  min_x: 0
+  transX: 0
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
+  CurrentState: 
 --- !u!1 &1350088447
 GameObject:
   m_ObjectHideFlags: 0
