@@ -32,8 +32,8 @@ public class Animations : enemy_actions
     public float timeBetweenAttacks;    //time that has to happen for enemy to attack again
     public float attackCools;           //time that it takes for attacking to continue
 
-    public bool hurt;                   //if enemy is hurt, for hurt animation
-    public bool attacking = false;      //if enemy is attacking, for attacking animation
+    private bool hurt;                   //if enemy is hurt, for hurt animation
+    private bool attacking = false;      //if enemy is attacking, for attacking animation
 
 public Player_Heath playerHP; 
 
@@ -78,17 +78,7 @@ public Player_Heath playerHP;
             case "WALK":
                 anim.SetInteger("state", 1);
                 walkSpeed = 0.7f;
-                /*
-                if (Enemy.position.x > max_x)
-                {
-                    sprite_filp.flipX = true;
-                }
-                else if (Enemy.position.x < min_x)
-                {
-                    sprite_filp.flipX = false;
-                }
-                walk();
-                */
+                
                 if (distance <= attackRange)
                 {
                     currentState = "IDLE";
@@ -103,10 +93,10 @@ public Player_Heath playerHP;
             case "ATTACK":
                 //anim.SetInteger("state", 5);
                 Attack();
-                if (attackCools >= 0)
+                /*if (attackCools >= 0)
                 {
                     currentState = "IDLE";
-                }
+                }*/
                 if (hurt)
                 {
                     currentState = "HURT";
@@ -131,10 +121,11 @@ public Player_Heath playerHP;
                 anim.SetInteger("state", 5);
                 walkSpeed = 0;
 
-                if (attackCools < 0)
+                if (trigger_attack())
                 {
                     currentState = "ATTACK";
                 }
+                
                 if (hurt)
                 {
                     currentState = "HURT";
@@ -247,20 +238,35 @@ public Player_Heath playerHP;
 
     public void Attack()
     {
-         anim.SetInteger("state", 2);
+        if (attackCools < 0)
+        {
+            anim.SetInteger("state", 2);
+
+            damage_player();
+
+            //anim.SetBool("attack", true);
+            //Invoke("ResetAttack", 0.1f);
+            attackCools = Time.time + timeBetweenAttacks;
+            currentState = "IDLE";
+        }
+        /*
+        else
+            currentState = "IDLE";
+        
+            anim.SetInteger("state", 2);
 
          damage_player();
             
          //anim.SetBool("attack", true);
          //Invoke("ResetAttack", 0.1f);
          attackCools = timeBetweenAttacks;
-        
+        */
             
     }
 
     void ResetAttack()
     {
-        anim.SetInteger("state", 5);
+        //anim.SetInteger("state", 5);
         anim.SetBool("attack", false);
     }
 
