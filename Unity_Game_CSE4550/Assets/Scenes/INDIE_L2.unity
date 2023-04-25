@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 175598998}
   - component: {fileID: 175599001}
   - component: {fileID: 175599000}
-  - component: {fileID: 175599002}
   m_Layer: 6
   m_Name: Giant Skull
   m_TagString: Enemy
@@ -256,41 +255,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.024739457}
   serializedVersion: 2
   m_Radius: 0.7782463
---- !u!114 &175599002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175598997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 395191653ab0a51c194d1445d98303e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite_filp: {fileID: 0}
-  Enemy: {fileID: 0}
-  attTrans: {fileID: 0}
-  att_range_y: 0
-  att_rangex_: 0
-  viewTrans: {fileID: 0}
-  v_range_y: 0
-  v_range_x: 0
-  playerlayers:
-    serializedVersion: 2
-    m_Bits: 0
-  enemylayer:
-    serializedVersion: 2
-    m_Bits: 0
-  enemy_daamge: 1
-  player_RB: {fileID: 0}
-  attack_damage: 100
-  max_x: 0
-  min_x: 0
-  transX: 0
-  transY: 0
-  W_speed: 1.5
-  KnockBack_force: 0
 --- !u!1 &210761901
 GameObject:
   m_ObjectHideFlags: 0
@@ -10496,7 +10460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1282231272}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: 1.988, z: 0}
+  m_LocalPosition: {x: 1.33, y: 1.94, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1320793974}
@@ -10582,7 +10546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320793972}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -23.56, y: -31.5855, z: 0}
+  m_LocalPosition: {x: -23.06, y: -31.23, z: 0}
   m_LocalScale: {x: 5, y: 5.1265, z: 1}
   m_Children:
   - {fileID: 1282231273}
@@ -10656,8 +10620,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 1
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.9249743, y: 1.8998958}
   m_SpriteTilingProperty:
@@ -10698,7 +10662,7 @@ MonoBehaviour:
   enemylayer:
     serializedVersion: 2
     m_Bits: 64
-  enemy_daamge: 1
+  enemy_daamge: 7
   player_RB: {fileID: 936160151}
   attack_damage: 100
   max_x: 0
@@ -10708,6 +10672,7 @@ MonoBehaviour:
   W_speed: 1.5
   KnockBack_force: 0
   CurrentState: 
+  shift: 7
 --- !u!1 &1350088447
 GameObject:
   m_ObjectHideFlags: 0
@@ -17790,7 +17755,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -17835,7 +17800,7 @@ MonoBehaviour:
   target: {fileID: 2122703567}
   lerpSpeed: 20
   minX: -25
-  minY: -27
+  minY: -20
   maxX: 100
   maxY: 25
 --- !u!114 &2060163931 stripped

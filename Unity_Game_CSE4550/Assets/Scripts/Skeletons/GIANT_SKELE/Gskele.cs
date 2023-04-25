@@ -7,7 +7,7 @@ public class Gskele : MonoBehaviour
     public SpriteRenderer sprite_filp;
     public Rigidbody2D Enemy;
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         
     }
@@ -16,7 +16,7 @@ public class Gskele : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 
     public Transform attTrans; 
     public float att_range_y ;  //1 
@@ -92,12 +92,18 @@ public class Gskele : MonoBehaviour
     float  pushback_force; 
 
 
+    public void  shake_y(float value)
+    {
+        Enemy.velocity = new Vector2(Enemy.velocity.x, Enemy.velocity.y + value);
+        Debug.Log(Enemy.position.y);
+    }    
+
 
     public  void walk()
     {
     //    if(sprite_filp.flipX == false)
         //{
-            Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
+            Enemy.velocity= new Vector2(  W_speed ,0);//Enemy.velocity.y);
             //attTrans.transform.localPosition = new Vector3(transX,transY,0);
            // pushback_force = KnockBack_force; 
       //  }
