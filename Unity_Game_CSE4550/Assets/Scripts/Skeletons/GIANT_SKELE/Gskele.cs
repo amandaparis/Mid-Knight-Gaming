@@ -5,7 +5,7 @@ using UnityEngine;
 public class Gskele : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         
     }
@@ -14,7 +14,7 @@ public class Gskele : MonoBehaviour
     void Update()
     {
         
-    }
+    }*/
 
 
 
@@ -30,7 +30,7 @@ public class Gskele : MonoBehaviour
 
         if(collision.gameObject.CompareTag("Player"))
         {
-             GetComponent<Player_Heath>().player_takeDamage(100);
+             GetComponent<Player_Heath>().player_takeDamage(1);
               Debug.Log("PLAYER HAS DIED");
         }
     }

@@ -147,13 +147,13 @@ GameObject:
   - component: {fileID: 175599001}
   - component: {fileID: 175599000}
   - component: {fileID: 175599002}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Giant Skull
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &175598998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10427,9 +10427,9 @@ GameObject:
   - component: {fileID: 1320793976}
   - component: {fileID: 1320793975}
   - component: {fileID: 1320793977}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Giant Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10519,7 +10519,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1320793976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10532,8 +10532,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 395191653ab0a51c194d1445d98303e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!70 &1320793977
-CapsuleCollider2D:
+--- !u!61 &1320793977
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10542,12 +10542,22 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.035638046, y: 0.69520354}
-  m_Size: {x: 3.2900002, y: 4.592224}
-  m_Direction: 0
+  m_Offset: {x: 0.9249743, y: 1.8998958}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0.01}
+    pivot: {x: 0.5108322, y: 0.49865782}
+    oldSize: {x: 3.29, y: 2.61}
+    newSize: {x: 3.29, y: 2.61}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.3687751, y: 3.2872837}
+  m_EdgeRadius: 0
 --- !u!1 &1350088447
 GameObject:
   m_ObjectHideFlags: 0
