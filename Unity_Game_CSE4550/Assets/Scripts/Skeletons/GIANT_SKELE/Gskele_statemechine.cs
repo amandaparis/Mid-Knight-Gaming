@@ -46,8 +46,19 @@ public class Gskele_statemechine : Gskele
                             shake_delay = Time.time +1; 
                         }
                         damage_player(); 
+                        damage_enemy();
                     } 
                 break;
+            /////////////////////////////////////////////////////
+             case "STOP": 
+            /////////////////////////////////////////////////////
+            if(shake_delay <= Time.time)
+                        {
+                            shift = -shift; 
+                            shake_y(shift);
+                            shake_delay = Time.time +1; 
+                        }
+             break;
             /////////////////////////////////////////////////////
             default:
                 break;
