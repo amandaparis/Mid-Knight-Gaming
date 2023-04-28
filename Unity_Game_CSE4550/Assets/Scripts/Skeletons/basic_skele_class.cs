@@ -19,6 +19,8 @@ public class basic_skele_class : MonoBehaviour
         sprite_filp = GetComponent<SpriteRenderer>() ;
     }
 
+
+
     // Update is called once per frame
     void Update()
     {
@@ -26,6 +28,7 @@ public class basic_skele_class : MonoBehaviour
 
         if(enemyHp <= 0)
         {
+
             coll.isTrigger = true; 
             //Enemy.bodyType = RigidbodyType2D.Static;
             coll.enabled = false;  
@@ -49,6 +52,11 @@ public class basic_skele_class : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(viewTrans.position, new Vector3(v_range_x, v_range_y,1));
+
+
+        Gizmos.color = Color.red;
+       Gizmos.DrawWireCube(attTrans.position, new Vector3(att_rangex_, att_range_y,1));
+
     
     }
 
@@ -91,8 +99,90 @@ public class basic_skele_class : MonoBehaviour
            if(hitplayer.Length > 0)//for(int i = 0; i < hitplayer.Length; i++)
             {
                 hitplayer[0].GetComponent<Player_Heath>().player_takeDamage(enemy_daamge);
-               // player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
+               player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
             }
     }
+
+    public float max_x; 
+    public float min_x; 
+    public float transX;
+    public float transY;
+    public float W_speed = 1.5f; 
+    public float KnockBack_force = 0f; 
+    float  pushback_force; 
+
+
+
+    public  void walk()
+    {
+        if(sprite_filp.flipX == false)
+        {
+            Enemy.velocity= new Vector2(  W_speed ,Enemy.velocity.y);
+            attTrans.transform.localPosition = new Vector3(transX,transY,0);
+            pushback_force = KnockBack_force; 
+        }
+        else 
+        {
+             Enemy.velocity= new Vector2(  -W_speed ,Enemy.velocity.y);
+             attTrans.transform.localPosition = new Vector3(-transX,transY,0);
+             pushback_force = -KnockBack_force; 
+            
+        }
+    }
+
+
+
+     public string checkHP(string State)
+    {
+        CurrentHp = enemyHp; 
+        // Debug.Log(CurrentHp);
+        // Debug.Log(enemyHp);
+        enemyHp = GetComponent<enemy_class>().CurrentHp(); 
+        if(enemyHp <= 0)
+        {
+            Debug.Log("DEATH");
+            State = "DEATH";  
+        }
+        else if(enemyHp != CurrentHp)
+        {
+            Debug.Log("HURT");
+            State = "HURT"; 
+        }
+
+        return State; 
+    } 
+
+    public void enemy_stop()
+    {
+        Enemy.velocity= new Vector2(  0 ,Enemy.velocity.y);
+    }
+
+
+
+    /////////////////////////////////////// charge SKELE
+
+    public LayerMask ground; 
+
+    public bool ground_col() 
+    {      
+        Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, ground );         
+            if(hitplayer.Length > 0)
+            {
+                return true; 
+            }
+            else
+                return false;
+    }
+
+    public void kill_enemy()
+    {
+        GetComponent<enemy_class>().enemyHp = 0; 
+    }
+    
+    //////////////////////////////////////
+
+
+
+
 
 }

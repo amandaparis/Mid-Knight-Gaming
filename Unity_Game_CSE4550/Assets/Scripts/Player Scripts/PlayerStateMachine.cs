@@ -63,7 +63,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2)) //(Time.time >= ATTACK_delay) )
                     {
-                        attack();
+                        attack(false);
                         an_delay  = Time.time +1f/2; 
                         
                         CurrentState = "ATT_1";
@@ -129,7 +129,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     }
                     else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
-                        attack();
+                        attack(false);
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_AIR";
                         }
@@ -164,7 +164,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                         else if(Input.GetButton("Sword") && (Time.time >= ATTACK_delay/2) )
                         {
-                        attack();
+                        attack(false);
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_AIR";
                         }
@@ -233,7 +233,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
-                        attack();
+                        attack(false);
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_2";
                     }
@@ -253,7 +253,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 {
                     if(Input.GetButton("Sword") )
                     {
-                        attack();
+                        attack(true);
                         an_delay  = Time.time +1f/2; 
                         CurrentState = "ATT_3";
                     }
