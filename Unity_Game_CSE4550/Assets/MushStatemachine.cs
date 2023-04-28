@@ -10,7 +10,8 @@ public /*private*/ Animator anim;
     float STUN_delay = 1f; 
     public string CurrentState ; 
 
-    public bool right_facing = false; 
+    public bool right_facing = false;
+    [SerializeField] private AudioSource mushroomDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +100,8 @@ public /*private*/ Animator anim;
                      stun_time = Time.time + STUN_delay; 
                     CurrentState = "IDE"; 
                 }
+                //sound effect
+                mushroomDeath.Play();
                 break; 
             ///////////////////////////////////////////////////////
              case "DEATH": // Death STATE // 4

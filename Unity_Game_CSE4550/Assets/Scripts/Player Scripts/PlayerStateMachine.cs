@@ -17,9 +17,10 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
     float slide_an_delay = 0f;
    /////////////////////////////////////////////////////////////////////////
      float HIT_delay = 0f; 
-    int HP_of_player; 
+    int HP_of_player;
     ////////////////////////////////////////////////////////////////////////
-
+    [SerializeField] private AudioSource attack1, attack2, attack3, attack4;
+    
     void Start()
     {
         CurrentState = "IDE";
@@ -244,6 +245,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     x_dir(1.5f);
                     }
                 }
+                //sound effect
+                attack1.Play();
                 break;
                 ////////////////////////////////////////////////////////
                 case "ATT_2": // attack state 1 // 8
@@ -264,6 +267,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         x_dir(1.5f);
                     }
                 }
+                //sound effect
+                attack2.Play();
                 break;
                 ////////////////////////////////////////////////////////
                 case "ATT_3": // attack state 1 // 9
@@ -275,6 +280,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                     CurrentState ="IDE";
                      x_dir(1.5f);
                 }
+                attack3.Play();
                 break;
                 ////////////////////////////////////////////////////////
                 case "ATT_AIR": // attack state 1 // 10
@@ -294,6 +300,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                     ATTACK_delay= (Time.time +1f/ attack_rate)/2;
                 }
+                //sound effect
+                attack4.Play();
                 break;
                 ///////////////////////////////////////////////////////
                 case "SLIDE": // slide // 11

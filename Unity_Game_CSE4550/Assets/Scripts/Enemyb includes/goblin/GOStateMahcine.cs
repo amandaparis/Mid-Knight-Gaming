@@ -8,7 +8,9 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
 
     float ATT_delay = 0f; 
     float STUN_delay = 1f; 
-    public string CurrentState ; 
+    public string CurrentState ;
+
+    [SerializeField] private AudioSource goblinDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -86,6 +88,8 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
                      stun_time = Time.time + STUN_delay; 
                     CurrentState = "IDE"; 
                 }
+                //sound effect
+                goblinDeath.Play();
                 break; 
             ///////////////////////////////////////////////////////
              case "DEATH": // Death STATE // 4
