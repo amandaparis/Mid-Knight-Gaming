@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: 8985439187258846068
     second: Chest_3
+  - first:
+      213: -5279824056886119778
+    second: Chest_4
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -111,8 +114,8 @@ TextureImporter:
         y: 38
         width: 24
         height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.49, y: 0.44}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -128,12 +131,12 @@ TextureImporter:
       name: Chest_1
       rect:
         serializedVersion: 2
-        x: 148
+        x: 147
         y: 38
-        width: 25
+        width: 27
         height: 25
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.4}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -151,10 +154,10 @@ TextureImporter:
         serializedVersion: 2
         x: 246
         y: 38
-        width: 35
+        width: 36
         height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.62, y: 0.39}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -173,9 +176,9 @@ TextureImporter:
         x: 353
         y: 38
         width: 36
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 27
+      alignment: 9
+      pivot: {x: 0.6482459, y: 0.39}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
