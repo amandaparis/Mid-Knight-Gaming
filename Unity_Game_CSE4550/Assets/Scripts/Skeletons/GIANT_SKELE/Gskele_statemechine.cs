@@ -37,7 +37,8 @@ public class Gskele_statemechine : Gskele
             /////////////////////////////////////////////////////
                  if(awakening_delay <= Time.time )
                     {
-                        walk();
+                        if(attTrans.position.x < max_x)
+                            walk();
 
                         if(shake_delay <= Time.time)
                         {
