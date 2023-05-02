@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -47,6 +48,7 @@ public class Player_Heath : MonoBehaviour
             else
             {
                 hearts[i].sprite = emptyHearts;
+
             }
 
 
@@ -91,6 +93,8 @@ public class Player_Heath : MonoBehaviour
             // player.bodyType = RigidbodyType2D.Static; 
 
             GetComponent<PlayerStateMachine>().enabled = false;
+            SceneManager.LoadScene("Game_Over");
+
 
         }
     }
