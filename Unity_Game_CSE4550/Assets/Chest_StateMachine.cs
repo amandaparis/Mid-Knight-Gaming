@@ -64,8 +64,14 @@ public class Chest_StateMachine : enemy_actions
     protected virtual void idle_state()
     {
         on_idle();
+        gameObject.tag = "Untagged";
+        gameObject.layer = LayerMask.NameToLayer("ground");
+
         if (trigger_attack())
         {
+            gameObject.tag = "Enemy";
+            gameObject.layer = LayerMask.NameToLayer("enemy");
+            
             attack_done = false;
             current_actions = actions.attack;
         }
