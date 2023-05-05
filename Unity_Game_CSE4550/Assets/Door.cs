@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    public string scene_name;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class Door : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             Debug.Log("Player entered collider!");
-            SceneManager.LoadScene("Level_2");
+            SceneManager.LoadScene(scene_name);
         }
     }
 }
