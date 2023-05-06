@@ -104,7 +104,7 @@ public class Rat : Kevins_StateMachine
 
     protected override void on_hurt()
     {
-        deathSoundEffect.Play();
+        //deathSoundEffect.Play();
     }
 
     protected override void on_death()

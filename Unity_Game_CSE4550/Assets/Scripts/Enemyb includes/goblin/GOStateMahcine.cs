@@ -88,12 +88,13 @@ public class GOStateMahcine : Goblin_EN //MonoBehaviour
                      stun_time = Time.time + STUN_delay; 
                     CurrentState = "IDE"; 
                 }
-                //sound effect
-                goblinDeath.Play();
+                
                 break; 
             ///////////////////////////////////////////////////////
              case "DEATH": // Death STATE // 4
             /////////////////////////////////////////////////////// 
+            //sound effect
+                goblinDeath.Play();
                 break; 
             ///////////////////////////////////////////////////////
             default:

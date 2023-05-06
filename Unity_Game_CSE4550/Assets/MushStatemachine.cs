@@ -100,8 +100,7 @@ public /*private*/ Animator anim;
                      stun_time = Time.time + STUN_delay; 
                     CurrentState = "IDE"; 
                 }
-                //sound effect
-                mushroomDeath.Play();
+                
                 break; 
             ///////////////////////////////////////////////////////
              case "DEATH": // Death STATE // 4
@@ -111,6 +110,8 @@ public /*private*/ Animator anim;
                 gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 Debug.Log("Spirte removed");
                 }
+                //sound effect
+                mushroomDeath.Play();
                 break;
             ///////////////////////////////////////////////////////
             default:

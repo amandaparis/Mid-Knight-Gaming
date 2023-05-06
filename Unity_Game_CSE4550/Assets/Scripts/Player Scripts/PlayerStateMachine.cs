@@ -285,6 +285,8 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                 ////////////////////////////////////////////////////////
                 case "ATT_AIR": // attack state 1 // 10
                 ////////////////////////////////////////////////////////
+                //sound effect
+                attack4.Play();
                 anim.SetInteger("state", 10);
                 x_dir(3.5f);
                 if(an_delay <= Time.time)
@@ -300,8 +302,7 @@ public class PlayerStateMachine : PlayerActions//: MonoBehaviour
                         }
                     ATTACK_delay= (Time.time +1f/ attack_rate)/2;
                 }
-                //sound effect
-                attack4.Play();
+                
                 break;
                 ///////////////////////////////////////////////////////
                 case "SLIDE": // slide // 11
