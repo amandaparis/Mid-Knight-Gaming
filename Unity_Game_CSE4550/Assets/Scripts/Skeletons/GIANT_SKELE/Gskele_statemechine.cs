@@ -37,7 +37,8 @@ public class Gskele_statemechine : Gskele
             /////////////////////////////////////////////////////
                  if(awakening_delay <= Time.time )
                     {
-                        walk();
+                        if(attTrans.position.x < max_x)
+                            walk();
 
                         if(shake_delay <= Time.time)
                         {
@@ -46,8 +47,19 @@ public class Gskele_statemechine : Gskele
                             shake_delay = Time.time +1; 
                         }
                         damage_player(); 
+                        damage_enemy();
                     } 
                 break;
+            /////////////////////////////////////////////////////
+             case "STOP": 
+            /////////////////////////////////////////////////////
+            if(shake_delay <= Time.time)
+                        {
+                            shift = -shift; 
+                            shake_y(shift);
+                            shake_delay = Time.time +1; 
+                        }
+             break;
             /////////////////////////////////////////////////////
             default:
                 break;

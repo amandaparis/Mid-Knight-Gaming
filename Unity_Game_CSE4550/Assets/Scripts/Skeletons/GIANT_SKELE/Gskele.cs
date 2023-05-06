@@ -74,8 +74,11 @@ public class Gskele : MonoBehaviour
     {
         Collider2D[] hitplayer = Physics2D.OverlapBoxAll(attTrans.position, new Vector2(att_rangex_, att_range_y),0, enemylayer);         
 
+
+
            for(int i = 0; i < hitplayer.Length; i++)
             {
+                Debug.Log(i);
                 hitplayer[i].GetComponent<enemy_class>().Enemy_take_damage(attack_damage);
               // player_RB.AddForce(transform.right * pushback_force, ForceMode2D.Impulse);
             }
