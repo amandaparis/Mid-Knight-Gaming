@@ -56,4 +56,15 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1f;
     }
+    public void MuteToggle(bool muted)
+    {
+        if (muted)
+        {
+            AudioListener.volume = 0;
+        }
+        else
+        {
+            AudioListener.volume = 1;
+        }
+    }
 }
