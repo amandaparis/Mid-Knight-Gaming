@@ -54,7 +54,7 @@ public class Chest : Chest_StateMachine
                 spriteRenderer.flipX = true;
                 break;
             case false:
-                attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
                 spriteRenderer.flipX = false;
                 break;
         }
