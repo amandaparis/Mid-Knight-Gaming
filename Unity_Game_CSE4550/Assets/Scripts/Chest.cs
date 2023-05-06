@@ -6,7 +6,9 @@ public class Chest : Chest_StateMachine
 {
     private Animator anim;
     float random_number;
+    public AudioSource sound;
     private SpriteRenderer spriteRenderer;
+    private bool sound_played = false;
     private bool flipped;
     public float speed = 1.5f; // adjust this to control the speed of the enemy
     private Transform player; // reference to the player's transform
@@ -54,7 +56,7 @@ public class Chest : Chest_StateMachine
                 spriteRenderer.flipX = true;
                 break;
             case false:
-                attTrans.transform.localPosition = new Vector3(transX, transY, 0);
+                attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
                 spriteRenderer.flipX = false;
                 break;
         }
@@ -89,6 +91,11 @@ public class Chest : Chest_StateMachine
 
     protected override void on_death()
     {
+        if (!sound_played)
+        {
+            sound.Play();
+            sound_played = true;
+        }
         Enemy.bodyType = RigidbodyType2D.Static;
         coll.isTrigger = true;
         coll.enabled = false;
@@ -139,7 +146,7 @@ public class Chest : Chest_StateMachine
                     attTrans.transform.localPosition = new Vector3(transX, transY, 0);
                     spriteRenderer.flipX = flipped;
                 }
-            break;
+                break;
 
             case false:
                 if (object1.position.x >= object2.position.x)
@@ -152,7 +159,7 @@ public class Chest : Chest_StateMachine
                     attTrans.transform.localPosition = new Vector3(-transX, transY, 0);
                     spriteRenderer.flipX = !flipped;
                 }
-            break;
+                break;
             default:
         }
 
