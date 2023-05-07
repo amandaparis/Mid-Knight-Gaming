@@ -24,7 +24,7 @@ public class Rat : Kevins_StateMachine
     void Update()
     {
         base.Update();
-        attack_delay = 2;
+        // attack_delay = 2;
 
         // if (current_actions == actions.hurt)
         // {
@@ -39,21 +39,27 @@ public class Rat : Kevins_StateMachine
     //Just to make it jump when it attacks
     protected override void attack_state()
     {
-
-        if (attack_delay <= Time.time)
+        if (!attack_done && !has_attacked)
         {
             random_number = Random.Range(1, 3);
-
             if (random_number == 2)
             {
                 current_actions = actions.jump;
             }
             else
-            {   //Damage player function is activated by itself as a keyframe on "Death" animation
+            {
                 on_attack();
-                current_actions = actions.idle;
             }
+            has_attacked = true;
+            StartCoroutine(attack_timer());
         }
+        else if (attack_done)
+        {
+            has_attacked = false;
+            attack_done = false;
+            current_actions = actions.stun;
+        }
+
     }
     /////////////////////////////////////////////////
     ////////// Function - Overrides
@@ -67,6 +73,7 @@ public class Rat : Kevins_StateMachine
     protected override void on_walk()
     {
 
+        anim.SetInteger("state", (int)actions.walk);
         if (Enemy.position.x >= max_x)
         {
             sprite_filp.flipX = true;
@@ -76,7 +83,6 @@ public class Rat : Kevins_StateMachine
             sprite_filp.flipX = false;
         }
 
-        anim.SetInteger("state", (int)actions.walk);
         walk();
     }
 
@@ -101,7 +107,10 @@ public class Rat : Kevins_StateMachine
                 break;
         }
     }
-
+    protected override void on_stun()
+    {
+        anim.SetInteger("state", (int)actions.idle);
+    }
     protected override void on_hurt()
     {
         //deathSoundEffect.Play();

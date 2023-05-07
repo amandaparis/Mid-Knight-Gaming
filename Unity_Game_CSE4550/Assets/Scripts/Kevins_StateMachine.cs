@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class Kevins_StateMachine : enemy_actions
 {
-    [HideInInspector] public LayerMask ground; 
+    [HideInInspector] public LayerMask ground;
     [HideInInspector] public BoxCollider2D coll;
-    public float attack_delay;
-    public float stun_delay;
-    private float stun_time; 
+
+    public float attack_delay; //Delay time controls frequency of attacks
+    public float stun_time;//Stun time that delays transitions when in idle, when hurt, after attacks
+
+    [HideInInspector] public bool stun_done = false;
+    [HideInInspector] public bool attack_done = false;
+    [HideInInspector] public bool has_attacked = false;
+
     int hp;
     int current_hp;
 
     private delegate void state();
-    public enum actions { idle, walk, jump, attack, hurt, death }
+    public enum actions { idle, walk, jump, attack, hurt, stun, death }
     public actions current_actions;
     private Dictionary<actions, state> stateDictionary = new Dictionary<actions, state>()
     {
@@ -28,6 +33,7 @@ public class Kevins_StateMachine : enemy_actions
         stateDictionary.Add(actions.walk, walk_state);
         stateDictionary.Add(actions.jump, jump_state);
         stateDictionary.Add(actions.attack, attack_state);
+        stateDictionary.Add(actions.stun, stun_state);
         stateDictionary.Add(actions.hurt, hurt_state);
         stateDictionary.Add(actions.death, death_state);
 
@@ -37,13 +43,9 @@ public class Kevins_StateMachine : enemy_actions
     protected virtual void Update()
     {
         actionscheckHP();
-        
+
         stateDictionary[current_actions].Invoke();
 
-        if (current_actions != actions.hurt && current_actions != actions.idle)
-        {
-            stun_time = Time.time + stun_delay;
-        }
     }
 
     ///////////////////////////////////////////////////
@@ -52,27 +54,23 @@ public class Kevins_StateMachine : enemy_actions
 
     protected virtual void idle_state()
     {
-        if (stun_time <= Time.time)
+        on_idle();
+        if (trigger_attack())
         {
-            on_idle();
-            if (trigger_attack())
-            {
-                attack_delay = Time.time + 1f/2;
-                current_actions = actions.attack;
-            }
-            else
-            {
-                current_actions = actions.walk;
-            }
-        }
 
+            current_actions = actions.attack;
+        }
+        else
+        {
+            current_actions = actions.walk;
+        }
     }
     protected virtual void walk_state()
     {
+        stun_done = false;
         on_walk();
         if (trigger_attack())
         {
-            attack_delay = Time.time + 1f/2;
             current_actions = actions.attack;
         }
     }
@@ -81,27 +79,52 @@ public class Kevins_StateMachine : enemy_actions
         if (is_ground())
         {
             on_jump();
-            current_actions = actions.idle; 
+            current_actions = actions.stun;
         }
     }
+
     protected virtual void attack_state()
     {
-        on_attack();
-        if (attack_delay <= Time.time)
+        if (!attack_done && !has_attacked)
         {
-            damage_player();
-            current_actions = actions.idle;
+            on_attack();
+            has_attacked = true;
+            StartCoroutine(attack_timer());
         }
+        else if (attack_done)
+        {
+            has_attacked = false;
+            attack_done = false;
+            current_actions = actions.stun;
+        }
+
     }
-    protected virtual void hurt_state()
+    protected virtual void stun_state()
+    {
+        on_stun();
+        StartCoroutine(stun_timer());
+        if (stun_done)
+        {
+            if (trigger_attack())
+            {
+                stun_done = false;
+                current_actions = actions.attack;
+            }
+            else
+            {
+                stun_done = false;
+                current_actions = actions.walk;
+            }
+        }
+
+    }
+    protected virtual void hurt_state() //already handled by enemy_actions
     {
         on_hurt();
 
-        if (stun_time <= Time.time)
-        {
-            stun_time = Time.time + stun_delay;
-            current_actions = actions.idle;
-        }
+        stun_done = false;
+        // attack_done = false;
+        current_actions = actions.stun;
     }
     protected virtual void death_state()
     {
@@ -132,6 +155,11 @@ public class Kevins_StateMachine : enemy_actions
     }
 
     protected virtual void on_hurt()
+    {
+
+    }
+
+    protected virtual void on_stun()
     {
 
     }
@@ -167,5 +195,17 @@ public class Kevins_StateMachine : enemy_actions
     private bool is_ground()
     {
         return Physics2D.BoxCast(coll.bounds.center, coll.bounds.size, 0f, Vector2.down, .1f, ground);
+    }
+
+    private IEnumerator stun_timer()
+    {
+        yield return new WaitForSeconds(stun_time);
+        stun_done = true;
+    }
+
+    public IEnumerator attack_timer()
+    {
+        yield return new WaitForSeconds(attack_delay);
+        attack_done = true;
     }
 }

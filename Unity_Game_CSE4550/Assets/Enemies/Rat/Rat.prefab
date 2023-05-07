@@ -72,7 +72,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0057052374, y: -0.003979154}
+  m_Offset: {x: -0.0057052374, y: 0.008726463}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -83,7 +83,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5918257, y: 0.3181011}
+  m_Size: {x: 0.5918257, y: 0.34645078}
   m_EdgeRadius: 0
 --- !u!95 &3934287996582756359
 Animator:
@@ -185,8 +185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Enemy: {fileID: 3934287996582756357}
   sprite_filp: {fileID: 3934287996582756352}
-  max_x: 17.3
-  min_x: 8.5
+  max_x: 70.27
+  min_x: 55.77
   W_speed: 1.5
   transX: -0.34
   transY: -0.003
@@ -203,8 +203,11 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   coll: {fileID: 0}
-  attack_delay: 0
-  stun_delay: 0.5
+  attack_delay: 1.75
+  stun_time: 0.5
+  stun_done: 0
+  attack_done: 0
+  has_attacked: 0
   current_actions: 0
   deathSoundEffect: {fileID: 5136335205357384567}
 --- !u!82 &5136335205357384567
@@ -218,7 +221,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 795b8b7af323fef4f8650d47256f8752, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
