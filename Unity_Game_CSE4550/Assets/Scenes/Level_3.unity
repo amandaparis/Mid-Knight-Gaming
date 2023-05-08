@@ -1416,6 +1416,36 @@ Transform:
   m_Father: {fileID: 1131802083}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &120692251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 120692252}
+  m_Layer: 6
+  m_Name: KING_ATT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &120692252
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120692251}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.239, y: 0.126, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 693874527}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &205083363
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2829,9 +2859,11 @@ GameObject:
   - component: {fileID: 693874524}
   - component: {fileID: 693874529}
   - component: {fileID: 693874528}
-  m_Layer: 0
+  - component: {fileID: 693874530}
+  - component: {fileID: 693874531}
+  m_Layer: 6
   m_Name: BOSS_KING
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2870,7 +2902,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.049918175, y: -0.023295462}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2881,7 +2913,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31, y: 0.54}
+  m_Size: {x: 0.30334663, y: 0.50672066}
   m_EdgeRadius: 0
 --- !u!212 &693874526
 SpriteRenderer:
@@ -2942,9 +2974,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693874523}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 76.98, y: 5.65, z: 0}
+  m_LocalPosition: {x: 77.91, y: 5.68, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 120692252}
+  - {fileID: 997380460}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2980,9 +3014,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 693874528}
-  enemyHp: 1000
+  enemyHp: 70
   maxHp: 1000
   enemy_body: {fileID: 693874524}
+--- !u!114 &693874530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693874523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5e0714694282fb4ab1df2a6a70b3e0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 693874524}
+  sprite_filp: {fileID: 693874526}
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 128
+  viewTrans: {fileID: 997380460}
+  v_range_y: 5
+  v_range_x: 5
+  attTrans: {fileID: 120692252}
+  att_range_y: 2.64
+  att_rangex_: 2
+  enemy_daamge: 1
+  player_RB: {fileID: 688052614}
+  max_x: 77
+  min_x: 59
+  transX: 0.239
+  transY: 0.126
+  W_speed: 2
+  KnockBack_force: 3
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  playerpos: {fileID: 688052617}
+  enemypos: {fileID: 693874527}
+  anim: {fileID: 693874528}
+  CurrentState: 
+  awaking: 1
+--- !u!114 &693874531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 693874523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f0a8195b6cb484d88eeeeec609f280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemy: {fileID: 693874524}
+  sprite_filp: {fileID: 693874526}
+  playerlayers:
+    serializedVersion: 2
+    m_Bits: 128
+  viewTrans: {fileID: 997380460}
+  v_range_y: 5
+  v_range_x: 5
+  attTrans: {fileID: 120692252}
+  att_range_y: 0
+  att_rangex_: 0
+  enemy_daamge: 1
+  player_RB: {fileID: 688052614}
+  max_x: 0
+  min_x: 0
+  transX: 0
+  transY: 0
+  W_speed: 1.5
+  KnockBack_force: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 8
+  playerpos: {fileID: 0}
+  enemypos: {fileID: 0}
 --- !u!1 &927520151
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,6 +3510,66 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &957973307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957973308}
+  m_Layer: 0
+  m_Name: WALLS
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957973308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957973307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.04896, y: 5.415464, z: -4456.1343}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &997380459
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 997380460}
+  m_Layer: 6
+  m_Name: KING_VIEW
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &997380460
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997380459}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.285, y: 0.213, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 693874527}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1084386992
 GameObject:
   m_ObjectHideFlags: 0

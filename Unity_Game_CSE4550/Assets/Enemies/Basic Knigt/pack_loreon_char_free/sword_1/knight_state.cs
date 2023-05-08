@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class knight_state : basic_skele_class
 {
-public Animator anim;
+    public Animator anim;
 
     public string CurrentState ;
 
