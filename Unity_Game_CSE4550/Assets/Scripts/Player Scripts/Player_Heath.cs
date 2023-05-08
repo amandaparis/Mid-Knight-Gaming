@@ -91,7 +91,7 @@ public class Player_Heath : MonoBehaviour
             // player.bodyType = RigidbodyType2D.Static; 
 
             GetComponent<PlayerStateMachine>().enabled = false;
-
+            SceneManager.LoadScene("Game_Over"); // loads game over 
         }
     }
 
