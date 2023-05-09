@@ -13,6 +13,7 @@ public class Activator_Moving_Col : MonoBehaviour
     private LayerMask playerlayer;
     public GameObject obj_to_move;
     public Transform move_position;
+    public Transform move_position1;
 
 
     // Start is called before the first frame update
@@ -22,20 +23,30 @@ public class Activator_Moving_Col : MonoBehaviour
         coll = gameObject.GetComponent<Collider2D>();
         playerlayer = LayerMask.GetMask("PlayerLayer");
 
-        move_position = transform.Find("Moving Point").transform;
+        // move_position = transform.Find("Moving Point").transform;
     }
 
     // Update is called once per frame
     void Update()
+    {
+
+    }
+
+    private void FixedUpdate()
     {
         is_triggered();
         if (triggered)
         {
             FollowObject(move_position);
         }
+        if(GameObject.Find("BOSS_KING").GetComponent<enemy_class>().enemyHp == 0 )
+        {
+            Debug.Log("MOVING DOWN");
+            FollowObject(move_position1);
+            triggered = false;
+        }
 
     }
-
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -68,7 +79,7 @@ public class Activator_Moving_Col : MonoBehaviour
         newPosition = obj_to_move.transform.position + distance * speed * Time.deltaTime;
 
         // Move the object towards the new position
-        if (Mathf.Abs(Object.position.y - transform.position.y) > 0.1f)
+        if (Mathf.Abs(Object.position.y - obj_to_move.transform.position.y) > 0.1f)
         {
             obj_to_move.transform.position = Vector3.MoveTowards(obj_to_move.transform.position, newPosition, 2.5f);
 
