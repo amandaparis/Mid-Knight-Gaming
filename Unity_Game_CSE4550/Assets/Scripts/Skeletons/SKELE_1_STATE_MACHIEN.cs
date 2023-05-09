@@ -120,6 +120,7 @@ public class SKELE_1_STATE_MACHIEN : basic_skele_class
                 {
                     damage_player();
                     CurrentState ="IDE";
+                    stun_time = Time.time + STUN_delay;
                 }
              break;
               ///////////////////////////////////////////////////////

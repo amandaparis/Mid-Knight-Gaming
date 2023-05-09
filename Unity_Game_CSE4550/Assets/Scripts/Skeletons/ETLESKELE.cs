@@ -122,6 +122,7 @@ public class ETLESKELE : basic_skele_class
                 {
                     damage_player();
                     CurrentState ="IDE";
+                    stun_time = Time.time + STUN_delay;
                 }
              break;
               ///////////////////////////////////////////////////////
