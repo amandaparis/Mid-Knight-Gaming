@@ -15,6 +15,11 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("SavedScene"));
+    }
+
     // The code below quits the program when you press quit in the MainMenu.
     // Debug allows us to see that the Quit button is functioning it obly will work when we build our game and wont work in unity editor.
     public void QuitGame()
