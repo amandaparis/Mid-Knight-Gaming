@@ -1,0 +1,382 @@
+fileFormatVersion: 2
+guid: 349d33fa2869e104cbb852daf93d96c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2110940734804221317
+    second: lpc-doors_0
+  - first:
+      213: 9199659769388631710
+    second: lpc-doors_1
+  - first:
+      213: -4745894715882822819
+    second: lpc-doors_2
+  - first:
+      213: -6039057110992157787
+    second: lpc-doors_3
+  - first:
+      213: 3159591334211502815
+    second: lpc-doors_4
+  - first:
+      213: -2988234918905083336
+    second: lpc-doors_5
+  - first:
+      213: 2730427331307963039
+    second: lpc-doors_6
+  - first:
+      213: 1021001130325761599
+    second: lpc-doors_7
+  - first:
+      213: -9085810703694773095
+    second: lpc-doors_8
+  - first:
+      213: 4258433544457521096
+    second: lpc-doors_9
+  - first:
+      213: -5675248964316971593
+    second: lpc-doors_10
+  - first:
+      213: 8104567340399630797
+    second: lpc-doors_11
+  - first:
+      213: -9094789751719022136
+    second: lpc-doors_12
+  - first:
+      213: 2814161786256974604
+    second: lpc-doors_13
+  - first:
+      213: 840396699149513014
+    second: lpc-doors_14
+  - first:
+      213: 3028064940389702327
+    second: lpc-doors_15
+  - first:
+      213: -2842069983703791946
+    second: lpc-doors_16
+  - first:
+      213: 8492121230705185790
+    second: lpc-doors_17
+  - first:
+      213: 2048407984315563711
+    second: lpc-doors_18
+  - first:
+      213: -6015549857149160668
+    second: lpc-doors_19
+  - first:
+      213: 1430349654344688901
+    second: lpc-doors_20
+  - first:
+      213: -5844620065630551270
+    second: lpc-doors_21
+  - first:
+      213: -1943187011683204655
+    second: lpc-doors_22
+  - first:
+      213: -1242030852835117852
+    second: lpc-doors_23
+  - first:
+      213: -1461714289052154872
+    second: lpc-doors_24
+  - first:
+      213: -5226475417817447349
+    second: lpc-doors_25
+  - first:
+      213: -6339947532958401778
+    second: lpc-doors_26
+  - first:
+      213: 3920260522519634560
+    second: lpc-doors_27
+  - first:
+      213: 6572081315747930309
+    second: lpc-doors_28
+  - first:
+      213: 4966102400575655598
+    second: lpc-doors_29
+  - first:
+      213: -6072834908814603631
+    second: lpc-doors_30
+  - first:
+      213: 1138038015040988074
+    second: lpc-doors_31
+  - first:
+      213: 2770704668549560220
+    second: lpc-doors_32
+  - first:
+      213: 2630788010731523033
+    second: lpc-doors_33
+  - first:
+      213: -4952458395027012500
+    second: lpc-doors_34
+  - first:
+      213: 3124965520434044785
+    second: lpc-doors_35
+  - first:
+      213: -7735885758093141557
+    second: lpc-doors_36
+  - first:
+      213: -6215123042054402601
+    second: lpc-doors_37
+  - first:
+      213: -4225902286417436629
+    second: lpc-doors_38
+  - first:
+      213: 4211148796367359190
+    second: lpc-doors_39
+  - first:
+      213: -3423742238706031267
+    second: lpc-doors_40
+  - first:
+      213: 9102796222568788041
+    second: lpc-doors_41
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 24
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: lpc-doors_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 464
+        width: 8
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd24417049f19db20800000000000000
+      internalID: 3159591334211502815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_10
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 368
+        width: 19
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bdbbfdb2277d31b0800000000000000
+      internalID: -5675248964316971593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_16
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 272
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b609826860fe88d0800000000000000
+      internalID: -2842069983703791946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_22
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 208
+        width: 32
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d1487455b96805e0800000000000000
+      internalID: -1943187011683204655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_28
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 144
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c02324e229b43b50800000000000000
+      internalID: 6572081315747930309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_34
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 80
+        width: 18
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6483873455554bb0800000000000000
+      internalID: -4952458395027012500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: lpc-doors_40
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 16
+        width: 8
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d552d6bd29c6c70d0800000000000000
+      internalID: -3423742238706031267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
