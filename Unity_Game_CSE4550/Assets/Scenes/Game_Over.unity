@@ -207,7 +207,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 663877630}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -439,10 +439,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 663877629}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 837ba2f8d638250448a0dce4631d05c2, type: 3}
+  m_Script: {fileID: 11500000, guid: ae8a0742cb905cb43acaa649d83e1298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverMenu: {fileID: 0}
 --- !u!114 &663877631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -832,7 +831,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 663877630}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: PlayGame
         m_Mode: 1
         m_Arguments:
